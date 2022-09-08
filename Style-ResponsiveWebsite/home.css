@@ -1,0 +1,139 @@
+html,
+body {
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(94, 89, 89);
+    overflow: hidden;
+    margin: 0;
+}
+
+#top {
+    background-color: gray;
+    position: relative;
+    text-align: left;
+    border-bottom: red;
+    height: 650px;
+    bottom: 24px;
+
+
+}
+
+.main-title {
+
+    position: relative;
+    text-align: left;
+    top: 30px;
+    left: 20px;
+}
+
+.random-txt {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.spam1 {
+    color: red;
+}
+
+.spam2 {
+    color: white;
+}
+
+.three-buttons {
+    position: relative;
+    text-align: left;
+    left: 900px;
+    bottom: 25px;
+    background-color: transparent;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    border: 0;
+
+}
+
+
+.three-buttons:hover {
+    color: lightgray;
+}
+
+.title-pic {
+    position: relative;
+    text-align: center;
+    opacity: 0.5;
+
+}
+
+.picture-text {
+    position: relative;
+    bottom: 500px;
+    color: white;
+
+}
+
+.text2 {
+    position: relative;
+    text-align: left;
+    bottom: 205px;
+    left: 10px;
+    color: white;
+}
+
+#subscribe {
+    position: relative;
+    text-align: left;
+    left: 300px;
+    bottom: 250px;
+}
+
+.sub-button {
+    background-color: red;
+    border: 2px, solid, transparent;
+    border-radius: 100px;
+}
+
+.sub-button:hover {
+    color: lightgrey;
+}
+
+#logo {
+    position: relative;
+    text-align: center;
+    left: 25px;
+    bottom: 550px;
+}
+
+.html-des {
+    position: relative;
+    text-align: left;
+    left: 460px;
+    bottom: 570px;
+    color: white;
+}
+
+.CSS-des {
+    position: relative;
+    bottom: 610px;
+    color: white;
+
+}
+
+.pencil {
+    position: relative;
+    text-align: left;
+    left: 780px;
+    bottom: 653px;
+    color: white;
+}
+
+#copyright {
+    position: relative;
+    background-color: orangered;
+    bottom: 500px;
+    height: 500px;
+}
+
+.copyright-text {
+    position: relative;
+    top: 35px;
+}

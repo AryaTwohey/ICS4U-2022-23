@@ -1,0 +1,72 @@
+html {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    line-height: 1.6em;
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.box1 {
+    background-color: #333;
+    color: #fff;
+    border: 5px solid orangered;
+    border-width: 3px;
+    padding-top: 20px;
+}
+
+.box1 h2 {
+    font-family: Tahoma;
+    font-weight: 800;
+    font-style: italic;
+    text-decoration: underline;
+    letter-spacing: 0.2em;
+    word-spacing: 1em;
+    text-transform: uppercase;
+}
+
+.box2 {
+    border: 2px dotted #ccc;
+    background-color: lightgray;
+    padding: 20px;
+    margin: 20px 0;
+    border-width: 3px;
+    padding-top: 20px;
+}
+
+.categories {
+    background-color: lightgrey;
+    border: 1px dotted black;
+}
+
+.catagories ul {
+    padding: 0px;
+   list-style: square;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:active {
+    color: green;
+}
+
+a:visited {
+    color: yellow;
+}
+
+a:hover {
+    color: red;
+}
+
+.categories li {
+    padding-bottom: 8px;
+    border:dotted 1px #333;
+}
