@@ -6,7 +6,11 @@ body {
     overflow: hidden;
     margin: 0;
 }
-
+.container{
+    width: 80%;
+    margin: auto;
+    
+}
 #main-title {
     background-color: rgb(94, 89, 89);
     height: 100px;

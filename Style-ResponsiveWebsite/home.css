@@ -6,6 +6,10 @@ body {
     overflow: hidden;
     margin: 0;
 }
+.container {
+    width: 80%;
+    margin: auto;
+}
 
 #top {
     background-color: gray;
@@ -106,7 +110,7 @@ body {
 .html-des {
     position: relative;
     text-align: left;
-    left: 460px;
+    left: 390px;
     bottom: 570px;
     color: white;
 }
@@ -121,7 +125,7 @@ body {
 .pencil {
     position: relative;
     text-align: left;
-    left: 780px;
+    left: 710px;
     bottom: 653px;
     color: white;
 }
