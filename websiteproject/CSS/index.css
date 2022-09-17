@@ -1,0 +1,118 @@
+body{
+    
+    font-family: Nunito;
+    overflow-x: hidden; /*Disabling horizontal scrolling* */
+    overflow-y: visible;
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+    
+}
+#showcase{
+   min-height: 450px;
+   text-align: center;
+   color: #fff;
+   margin: 0;
+   padding: 0;
+
+}
+img{
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+#showcase .bg-image{
+    position: absolute;
+    background: #333 url('../IMAGES/home-page-guitar.jpg');  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;  
+    width: 100%;
+    height: 450px;
+    z-index: -1;
+    opacity: 0.4;
+}
+#showcase h1{
+    padding-top: 150px;
+    padding-bottom: none;
+    
+}
+ ul{
+    font-size: larger;
+    list-style-type: none;
+
+
+}
+#showcase .navbar{
+    margin-bottom: 200px;
+    position: relative;
+    bottom: 220px;
+    margin-right: 15px;
+    
+    
+}
+#showcase ul{
+
+    display: flex;
+    justify-content: flex-end;  
+   
+
+}
+#showcase .item{
+    border: 0.5px solid white;
+    border-radius: 100px;
+    margin-left: 50px;
+    color: white;
+    text-decoration: none;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+#showcase .item:hover{
+    color: hotpink;
+}
+
+#middle .title{
+    background-color: rgb(59, 2, 56);
+    position: relative;
+    bottom: 21px;
+
+}
+#middle .r1{
+    display: flex;
+    justify-content: space-evenly;
+    width: fit-content;
+    height: 450px;
+}
+#middle img{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    border: 2px solid hotpink;
+    border-radius: 50px;
+    width: 292px;
+    height: 430;
+
+}
+
+#middle .r2{
+    display: flex;
+    justify-content: space-evenly;
+}
+#middle .r3{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+
+
+@media(min-width: 700px){
+    .grid{
+       display: grid;
+       grid-template-columns:1fr reapeat(2,minmax(auto, 25em)) 1fr;
+    }
+}
+
