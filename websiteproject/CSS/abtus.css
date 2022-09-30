@@ -1,0 +1,128 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Nunito;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    z-index: -1;
+}
+
+header {
+    display: flex;
+    /*Background colour???* */
+
+}
+
+ul {
+    font-size: larger;
+    list-style-type: none;
+
+
+}
+
+.navbar {
+    position: relative;
+    left: 80px;
+    display: flex;
+    justify-content: flex-end;
+    width: 60%; 
+}
+
+#showcase ul {
+
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+    margin-left: 300px;
+}
+
+#showcase .item {
+    border-radius: 100px;
+    margin-left: 50px;
+    color: white;
+    text-decoration: none;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+#showcase .item:hover {
+    color: hotpink;
+}
+
+.title h1 {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: xx-large;
+}
+
+#info-box {
+
+    margin-left: 100px;
+    margin-top: 130px;
+}
+
+#info-box .content {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#info-box p {
+    width: 500px;
+}
+
+img {
+    width: 50%;
+    height: auto;
+    border: 0px solid transparent;
+    border-radius: 100px;
+    margin-bottom: 50px;
+}
+
+#bottom {
+    color: white;
+    background-color: purple;
+    
+    display: flex;
+    justify-content: space-around;
+    margin-top:20px;
+}
+
+@media (max-width: 680px) {
+    body {
+        overflow-x: hidden;
+
+    }
+
+    img {
+        /*Getting rid of the image* */
+        width: 0px;
+        height: 0px;
+        display: block;
+    }
+
+    #middle {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        bottom: 100px;
+        right: 90px;
+        width: fit-content;
+    }
+
+
+    #middle h1 {
+        text-align: center;
+    }
+
+    #bottom {
+    margin-top: 60px;
+    }
+
+}
+
+*::-webkit-scrollbar {
+    width: 0px;
+}

@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito";
+    font-size: xx-large;
+    color: white;
+  
+
+}
+body{
+    background-color: rgb(65, 62, 67);
+    
+}
+#container{
+    display: grid;
+    margin-top: 228px;  /*1/2 of 25% of the constant height of the page* */
+    margin-bottom: 228px;
+    gap: 40px;
+}
+#container .title{
+    text-align: center;
+    
+}
+
+#container a {
+    padding: 10px;
+    border: 2px solid black; 
+    display: flex;
+    list-style-type: none;
+    text-decoration: none;
+    color:black; 
+}
+.home-btn{
+    display: flex;
+    justify-content: center;
+}
+.item{
+    text-align: center;
+}
+ .item :hover{
+    color: orangered;
+}
+li{
+    text-decoration: none;
+    list-style-type: none;
+}
+*::-webkit-scrollbar {
+    width: 0px;
+}

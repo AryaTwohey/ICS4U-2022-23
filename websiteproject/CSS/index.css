@@ -1,119 +1,238 @@
-body{
-    
+body {
+
     font-family: Nunito;
-    overflow-x: hidden; /*Disabling horizontal scrolling* */
+    overflow-x: hidden;
+    /*Disabling horizontal scrolling* */
     overflow-y: visible;
     background-color: black;
     color: white;
     margin: 0;
-    padding: 0; 
+    padding: 0;
 }
-#showcase{
-   min-height: 450px;
-   text-align: center;
-   color: #fff;
-   margin: 0;
-   padding: 0;
+
+#showcase {
+    min-height: 450px;
+    text-align: center;
+    color: #fff;
+    margin: 0;
+    padding: 0;
 
 }
-img{
+
+img {
     display: block;
     height: auto;
     width: 100%;
+    
+}
+#icon-box{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 20px;
 }
 
-#showcase .bg-image{
+.icon{
+width: auto;
+height: auto;
+margin: 0;
+padding: 0;
+
+
+}
+
+#showcase .bg-image {
     position: absolute;
-    background: #333 url('../IMAGES/home-page-guitar.jpg');  
+    background: #333 url('../IMAGES/home-page-guitar.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;  
+    background-size: cover;
     width: 100%;
     height: 450px;
     z-index: -1;
     opacity: 0.4;
 }
-#showcase h1{
+
+#showcase h1 {
     padding-top: 150px;
     padding-bottom: none;
     font-size: xx-large;
-    
+
 }
- ul{
+
+ul {
     font-size: larger;
     list-style-type: none;
-
-
 }
-#showcase .navbar{
+
+#showcase .navbar {
     margin-bottom: 200px;
     position: relative;
-    bottom: 270px;
-    margin-right: 15px;   
+    bottom: 370px;
+    margin-right: 15px;
 }
-#showcase ul{
+
+#showcase ul {
 
     display: flex;
-    justify-content: flex-end;  
+    justify-content: flex-end;
 }
-#showcase .item{
-    border: 0.5px solid white;
+
+#showcase .item {
     border-radius: 100px;
     margin-left: 50px;
     color: white;
     text-decoration: none;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 20px;
+    padding-right: 10px;
 }
-#showcase .item:hover{
+
+#showcase .item:hover {
     color: hotpink;
 }
-#middle .pictures{
+
+#middle .pictures {
     position: relative;
-    bottom: 100px;
+    bottom: 200px;
 }
-#middle .title{
+
+#middle .title {
+    margin: 0px;
+    padding: 0px;
     background-image: linear-gradient(90deg, magenta, hotpink, purple);
     position: relative;
-    bottom: 125.5px;
-
+    bottom: 223px;
 }
-#middle .r1{
-    display: flex;
-    justify-content: space-evenly;
-   
 
-}
-#middle img{
+#middle img {
     margin-left: 40px;
     margin-right: 40px;
-    margin-bottom: 40px;
-    border: 2px solid hotpink;
+    margin-bottom: 0px;
+    border: 0px solid transparent;
+
     border-radius: 50px;
     width: 292px;
     height: 430;
 
 }
 
-#middle .r2{
+#middle .r1 {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+#middle .r2 {
     display: flex;
     justify-content: space-evenly;
 }
-#middle .r3{
+
+#middle .r3 {
     display: flex;
     justify-content: space-evenly;
 }
-footer{
+
+.pictures h1 {
+    font-weight: bolder;
+}
+
+footer {
     background-color: purple;
     display: flex;
     justify-content: space-around;
 }
 
+#middle .pictures h1 {
+    border: 2px solid hotpink;
+    width: 200px;
+    border-radius: 100px;
+    text-align: center;
+}
 
-@media(min-width: 700px){
-    .grid{
-       display: grid;
-       grid-template-columns:1fr reapeat(2,minmax(auto, 25em)) 1fr;
+.pictures .section-title {
+    display: flex;
+    justify-content: center;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr reapeat(2, minmax(auto, 25em)) 1fr;
+}
+
+@media (max-width: 980px) {
+    body {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    #middle .r1 {
+        display: grid;
+        gap: 10px;
+    }
+
+    #middle .r2 {
+        display: grid;
+        gap: 10px;
+    }
+
+    #middle .r3 {
+        display: grid;
+        gap: 10px;
+    }
+
+    #middle .title {
+        position: relative;
+        bottom: 222px;
+    }
+
+    *::-webkit-scrollbar {
+        width: 0px;
+    }
+
+}
+
+@media (max-width: 680px) {
+    body {
+        margin: 0px;
+        padding: 0px;
+    }
+   
+    ul {
+        padding: 0;
+        margin-right: 0px;
+        position: relative;
+        right: 48px;
+
+
+    }
+
+    #showcase a {
+        width: 100px;
+
+    }
+    #showcase .item{
+        padding-left: 20px;
+        padding-right: 10px;
+    }
+    #showcase ul {
+        display: flex;
+        justify-content: center;
+        font-size: normal;
+        margin: 0;
+        padding: 0;
+    }
+
+    #middle .r1 {
+        display: grid;
+    }
+
+    #middle .title {
+        position: relative;
+        bottom: 185px;
     }
 }
 
+*::-webkit-scrollbar {
+    width: 0px;
+}
