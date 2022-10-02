@@ -1,16 +1,21 @@
+/**Basic formatting such as font, font colour, background color ect */
 body {
-
-    font-family: Nunito;
-    overflow-x: hidden;
-    /*Disabling horizontal scrolling* */
-    overflow-y: visible;
+    font-family: "Nunito";
     background-color: black;
     color: white;
     margin: 0;
     padding: 0;
 }
 
+.grid {
+    display: grid;
+    /*Setting the headers display to grid & creating coloums* */
+    grid-template-columns: 1fr reapeat(2, minmax(auto, 25em)) 1fr;
+}
+
+
 #showcase {
+
     min-height: 450px;
     text-align: center;
     color: #fff;
@@ -19,65 +24,79 @@ body {
 
 }
 
+/*Allowing for the images to be visable on the page* */
+/*Their width takes up the space of the div, rather than the actual width of the image* */
 img {
     display: block;
     height: auto;
     width: 100%;
-    
+
 }
-#icon-box{
+
+/*Used flex to make a row of icons &
+ center the icons in the middle of the page* */
+#icon-box {
     display: flex;
     justify-content: center;
     margin-top: 50px;
     gap: 20px;
 }
 
-.icon{
-width: auto;
-height: auto;
-margin: 0;
-padding: 0;
-
-
+/*Resize the icons, so that they do not hold the img CSS properties of the showroom images*/
+.icon {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
 }
 
 #showcase .bg-image {
+
     position: absolute;
     background: #333 url('../IMAGES/home-page-guitar.jpg');
+    /*Setting the background image of the div the hold bg-img* */
     background-position: center;
     background-repeat: no-repeat;
+    /*Setting reapeat to none, so only one instance of the photo appears* */
     background-size: cover;
     width: 100%;
     height: 450px;
     z-index: -1;
+    /*Setting the z-index to -1, so other text can overlap on the image* */
     opacity: 0.4;
+    /*Dimming the image, so text is more visable* */
 }
 
 #showcase h1 {
     padding-top: 150px;
     padding-bottom: none;
     font-size: xx-large;
-
+    /*Setting the font-size to xx-large, so that company name is big and visable* */
 }
 
 ul {
     font-size: larger;
     list-style-type: none;
+    /*Getting rid of the dots that are automatically placed under UL* */
 }
 
 #showcase .navbar {
     margin-bottom: 200px;
+    /*Pushing down the middle sections content* */
+    margin-right: 15px;
+    /*Shifting the navbar slightly to the left* */
     position: relative;
     bottom: 370px;
-    margin-right: 15px;
+    /*Pushing the navbar to the top of the page* */
 }
 
+/*Setting the inital position of the navbar* */
 #showcase ul {
-
     display: flex;
     justify-content: flex-end;
 }
 
+/*Styling of each button in the navbar* */
 #showcase .item {
     border-radius: 100px;
     margin-left: 50px;
@@ -87,15 +106,18 @@ ul {
     padding-right: 10px;
 }
 
+/*Hover colour* */
 #showcase .item:hover {
     color: hotpink;
 }
 
+/*Shifting only the middle pictures up* */
 #middle .pictures {
     position: relative;
     bottom: 200px;
 }
 
+/*Styling of the middle sections title* */
 #middle .title {
     margin: 0px;
     padding: 0px;
@@ -104,18 +126,17 @@ ul {
     bottom: 223px;
 }
 
+/*Giving each picture the same width, height and margin properties* */
 #middle img {
     margin-left: 40px;
     margin-right: 40px;
-    margin-bottom: 0px;
-    border: 0px solid transparent;
-
     border-radius: 50px;
     width: 292px;
-    height: 430;
+    height: 430px;
 
 }
 
+/*Each row has justify-content set to space-evenly, for equal space between each image* */
 #middle .r1 {
     display: flex;
     justify-content: space-evenly;
@@ -132,39 +153,39 @@ ul {
     justify-content: space-evenly;
 }
 
-.pictures h1 {
-    font-weight: bolder;
-}
-
+/*Footer styling* */
 footer {
     background-color: purple;
     display: flex;
     justify-content: space-around;
 }
-
+/*Styling of the section title of each row of photos* */
 #middle .pictures h1 {
+    font-weight: bolder; /*Setting the title of each rows font-weight to bolder, to make the text more prominent* */
     border: 2px solid hotpink;
     width: 200px;
     border-radius: 100px;
     text-align: center;
 }
-
+/*Used flex to center each rows title* */
 .pictures .section-title {
     display: flex;
     justify-content: center;
 }
 
-
-.grid {
-    display: grid;
-    grid-template-columns: 1fr reapeat(2, minmax(auto, 25em)) 1fr;
-}
+/*Used a total of 2 media queeries on the home page
+  This is to allow for the inclusion of both a normal destop screen,
+  smaller desktop screen & mobile device to work with the site* */
 
 @media (max-width: 980px) {
     body {
         margin: 0px;
         padding: 0px;
     }
+
+    /*Set the divs that hold all the images display to grid, to allow for
+      the pictures to be vertical rather than horizontal* */
+    /*Used gap to reduce clutter between pages* */
 
     #middle .r1 {
         display: grid;
@@ -180,59 +201,43 @@ footer {
         display: grid;
         gap: 10px;
     }
-
-    #middle .title {
-        position: relative;
-        bottom: 222px;
-    }
-
-    *::-webkit-scrollbar {
-        width: 0px;
-    }
-
 }
 
+/**Second media queery for mobile device */
 @media (max-width: 680px) {
-    body {
-        margin: 0px;
-        padding: 0px;
-    }
-   
-    ul {
-        padding: 0;
-        margin-right: 0px;
+
+    /*Changed the position of the navbar to the center, rather than the far right of the page* */
+    #showcase ul {
+        justify-content: center;
         position: relative;
         right: 48px;
-
-
     }
 
+    /*Changed the with of all the <a> tags in the showcase div* */
     #showcase a {
         width: 100px;
-
     }
-    #showcase .item{
+    /*Changed the padding between the items* */
+    #showcase .item {
         padding-left: 20px;
         padding-right: 10px;
     }
+    /*Decreased the font size to fit all ul items in the mobile window
+      Changed margin and padding, so that the navbar would be centered* */
     #showcase ul {
-        display: flex;
-        justify-content: center;
         font-size: normal;
         margin: 0;
         padding: 0;
     }
 
-    #middle .r1 {
-        display: grid;
-    }
-
+    /*Repositioned the middle sections title* */
     #middle .title {
         position: relative;
         bottom: 185px;
     }
 }
 
+/*Made the scrollbar invisable to allow for a cleaner look on the page* */
 *::-webkit-scrollbar {
     width: 0px;
 }

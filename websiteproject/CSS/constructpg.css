@@ -8,7 +8,9 @@
 
 }
 body{
-    background-color: rgb(65, 62, 67);
+    background-image: linear-gradient(180deg, black, purple);
+    
+
     
 }
 #container{
@@ -24,11 +26,12 @@ body{
 
 #container a {
     padding: 10px;
-    border: 2px solid black; 
+    border: 2px solid white; 
+    border-radius: 50px;
     display: flex;
     list-style-type: none;
     text-decoration: none;
-    color:black; 
+    color:white; 
 }
 .home-btn{
     display: flex;

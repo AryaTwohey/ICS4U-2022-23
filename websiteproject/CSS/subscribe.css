@@ -34,7 +34,8 @@ form input{
     border-radius: 6px;
     outline: none;
 }
-input[type="button"]{
+/*when clicked, the user is redirected to the home page* */
+input[type="submit"]{
     width:320px;
     height: 35px;
     margin-top: 20px;
@@ -43,7 +44,7 @@ input[type="button"]{
     color: white;
     font-size: 18px;
 }
-input[type="button"]:hover{
+input[type="submit"]:hover{
   color: grey;
 }
 
@@ -57,6 +58,8 @@ a{
     display: flex;
     justify-content: center;
     color: black;
+    text-decoration: underline;
+    margin-top: -5px;
     
 }
 

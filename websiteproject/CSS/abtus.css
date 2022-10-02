@@ -5,26 +5,29 @@ body {
     margin: 0;
     padding: 0;
     overflow-y: hidden;
-    z-index: -1;
+    
 }
 
 header {
     display: flex;
+
     /*Background colour???* */
 
+}
+#middle{
+    display: grid;
+    
 }
 
 ul {
     font-size: larger;
     list-style-type: none;
-
-
 }
 
 .navbar {
+    display: flex;
     position: relative;
     left: 80px;
-    display: flex;
     justify-content: flex-end;
     width: 60%; 
 }
@@ -51,11 +54,11 @@ ul {
 }
 
 .title h1 {
-    margin-left: 20px;
-    margin-right: 20px;
-    padding-right: 20px;
-    padding-left: 20px;
+    
     font-size: xx-large;
+    z-index: -1;
+    
+
 }
 
 #info-box {
@@ -71,23 +74,31 @@ ul {
 
 #info-box p {
     width: 500px;
+    border: 2px solid hotpink;
+    border-radius: 10px;
+   
 }
+
+p{
+    text-align: center;
+}
+
+
 
 img {
     width: 50%;
     height: auto;
-    border: 0px solid transparent;
     border-radius: 100px;
-    margin-bottom: 50px;
+    margin-bottom: 120px;
 }
 
 #bottom {
     color: white;
     background-color: purple;
-    
     display: flex;
     justify-content: space-around;
-    margin-top:20px;
+    margin-top: -110px;
+    clear: both;
 }
 
 @media (max-width: 680px) {
@@ -95,6 +106,21 @@ img {
         overflow-x: hidden;
 
     }
+    
+.navbar {
+    /*BUG* */
+    display: flex;
+
+    position: relative;
+    
+    justify-content:center;
+    right: 200px; 
+    
+ 
+    
+    
+  
+}
 
     img {
         /*Getting rid of the image* */
@@ -102,9 +128,10 @@ img {
         height: 0px;
         display: block;
     }
+   
 
     #middle {
-        display: flex;
+        display: grid;
         justify-content: center;
         position: relative;
         bottom: 100px;
@@ -118,7 +145,15 @@ img {
     }
 
     #bottom {
-    margin-top: 60px;
+    margin-top:60px;
+    }
+    #info-box .content{
+        justify-content: center;
+    }
+    #info-box p{
+     border: 2px solid hotpink;
+     border-radius: 10px;
+      width: 480px;
     }
 
 }
