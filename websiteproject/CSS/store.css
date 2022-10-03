@@ -2,7 +2,8 @@
 
 body{
     font-family: "Nunito";
-    background-color: black;
+    background-image: linear-gradient(180deg, black,rgb(67, 1, 67), black); /*Used linear-gradient to add some more colour to the mobile page* */
+    overflow-x: hidden;
     color: white;
     margin: 0;
     padding: 0;
@@ -67,20 +68,25 @@ ul {
 .wrapper {
     position: relative; /*Puts all text in the correct div**/
     width: 50%;
+   
   }
-  /*Made the middle display flex, to easily put the images into a centered row* */
+  /*Made the middle sections display grid, to easily format the images* */
 #middle{
-    display: flex;  
-    justify-content: center;
-    
-    
-
+  align-content: center ;
+    display: grid;  
+    gap: 15px;  /*Spacing* */
+    grid-template-columns: repeat(3, minmax(500px, 1fr)); /*six mages, three in each row* */
+    position: relative;
+    right: 50px;
 }
 /*Changed the space in between each image* */
 #middle .wrapper{
+  
     margin-top:30px;
     margin-bottom: -50px;
+    margin-right: 100px;
     padding: 10px; 
+    
 }
 /*Hover opacity of the image is dimmed* */
 .wrapper:hover img{
@@ -109,6 +115,7 @@ img {
     height: 400px; /*Gave all images a constant height, so they are equal in size* */
     transition: .5s ease;
     backface-visibility: hidden;
+    
   }
   .content{
     padding: 16px 32px;
@@ -151,17 +158,16 @@ img {
     of images already takes up close to the entire page width, on a desktop device* */
   @media (max-width: 1050px) {
     body{
-      
-        background-image: linear-gradient(180deg, black,rgb(67, 1, 67), black); /*Used linear-gradient to add some more colour to the mobile page* */
+      background-color: black;
     }
     .wrapper-title{
         bottom: 30px;
     }
     #middle{
-        display: grid;
-        justify-items: center;
-        margin-top: -50px;
-        gap: 20px; /*Closing the gap between all the photos* */
+      
+      margin-left:25%;
+      gap: 15px;  
+      grid-template-columns: repeat(1, minmax(500px, 1fr));
     }
     .title{
         text-align: center;
