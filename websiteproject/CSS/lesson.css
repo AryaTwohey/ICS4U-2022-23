@@ -1,42 +1,46 @@
-body{
+/*Basic styling of the page* */
+body {
     font-family: "Nunito";
     color: white;
-    background-image: linear-gradient(180deg, black, rgb(95, 3, 95)) ;
-   
+    background-image: linear-gradient(180deg, black, rgb(95, 3, 95));
     margin: 0;
     padding: 0;
-   
-    
 }
-.title{
-    
+/*Moved title slightly right* */
+.title {
+
     margin-left: 20px;
 }
-.container{
-        display: grid;
-        text-align: center;
-        margin-top: 70px;  
-        margin-bottom: 70px;    
+/*Set the pages display to grid
+  and aligned all text in container to center 
+  *as well as changed margin top and bottom */
+
+.container {
+    display: grid;
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 70px;
 }
+/*Set font size to a smaller value & removed dot that <ul> tags automatically have * */
 ul {
     font-size: normal;
     list-style-type: none;
 
 }
-
+/*Shifted the navbar up and slightly left* */
 .container .navbar {
-    margin-bottom: 200px;
+    margin-bottom: 200px;   
+    margin-right: 15px;
     position: relative;
     bottom: 270px;
-    margin-right: 15px;
 }
-
+/*Set the navbars horizontal position to the far right of the page* */
 .container ul {
 
     display: flex;
     justify-content: flex-end;
 }
-
+/*Basic styling of the buttons in the navbar* */
 .container .item {
     border-radius: 100px;
     margin-left: 50px;
@@ -45,109 +49,108 @@ ul {
     padding-left: 20px;
     padding-right: 20px;
 }
-
+/*Added hover element to each button* */
 .container .item:hover {
     color: hotpink;
 }
-
-.select{
-margin-top: 80px;
-margin-bottom:215px;
+/*Formatting of one of the subheadings* */
+.select {
+    margin-top: 80px;
+    margin-bottom: 215px;
 
 }
-#main-content{
+/*Set the display of the middle section to grid and changed the margin top* */
+#main-content {
     display: grid;
     margin-top: -400px;
 }
-a{
+/*Formatted the links under the images * */
+a {
     text-decoration: none;
     color: white;
     font-size: larger;
 }
 
-.row{
-    display: flex;
-    justify-content: space-evenly;
-    position: relative;
-    bottom: 200px;
-      
-}
-.box-container{
+/*Styling of the box-container which holds all the images
+   Changed width of each div, added some padding and margin
+   and centered all the images* */
+
+.box-container {
     position: relative;
     bottom: 300px;
-    width:  90%;
+    width: 90%;
     padding: 20px;
     margin: 100px auto;
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     justify-content: center;
 }
-.box{
+/*Formated each box with holds each image* */
+.box {
     width: 100%;
     margin: 0 10px;
     transform: 5s;
     margin-left: 10px;
     margin-right: 10px;
 }
-.box img{
+/*Formatted the images inside the box & gave them a radius* */
+.box img {
     display: block;
     width: 100%;
     border-radius: 5px;
 
 }
-.box:hover{
+/*Hover value which changes the scale of the image from 1 to 1.2
+  This makes the selected image bigger than the rest* */
+.box:hover {
     transform: scale(1.2);
-    
-    z-index: 2; 
 }
-img{
-    width: 20%;
-    height: auto;
-    border-radius: 40px;
-}
-.content{
+
+/*Centered the text under each image* */
+.content {
     text-align: center;
-   
+
 }
+/*Formated the footer & made the text space around the entire div* */
 footer {
     background-color: purple;
     display: flex;
     justify-content: space-around;
-   
+    margin-bottom: 300px;
+
 }
+/*Made the scrollbar width 0, to allow for a cleaner look on the page* */
 *::-webkit-scrollbar {
     width: 0px;
 }
+/*Media queery to help with page responsiveness* */
 @media (max-width: 870px) {
-    body {
-        
-        margin: 0px;
-        padding: 0px;
-    }
-    .title{
+   /*Centered the page title* */
+    .title {
         text-align: center;
     }
-    .container{
-        
+    /*Centered all the content in the container* */
+    .container {
         justify-items: center;
-      
     }
-    .container .navbar{
+    /*Repositioned the navbar to the center of the page
+      as well as shifted it below the page title* */
+    .container .navbar {
         margin-top: 50px;
+        justify-content: center;
         position: relative;
         right: 60px;
-        justify-content: center;
     }
-    .container .item{
+    /*Changed the padding left and right of the navbar buttons, so all of 
+      the buttons could fit on the mobile version of the page* */
+    .container .item {
         padding-left: 10px;
         padding-right: 10px;
     }
-    .container h1, h3{
+    /*Resized the containers <h1> & <h3> tags* */
+    .container h1,
+    h3 {
         margin-right: 10%;
-        text-align: center; 
+        text-align: center;
     }
-   
-    
 }
-
-

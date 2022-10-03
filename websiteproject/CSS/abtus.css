@@ -1,163 +1,158 @@
+/*Basic page styling * */
 body {
-    background-color: black;
+    background-image: linear-gradient(180deg, black, rgb(64, 7, 64));
     color: white;
-    font-family: Nunito;
+    font-family: "Nunito";
     margin: 0;
     padding: 0;
-    overflow-y: hidden;
-    
+    overflow-x: hidden; /*removed horizontal scrollbar* */
 }
-
+/*Set headers display to flex, to put all the content in an immediate row* */
 header {
-    display: flex;
-
-    /*Background colour???* */
+    display: flex;      
 
 }
+/*All the middle content is grid* */
 #middle{
     display: grid;
     
 }
-
+/*Styled the UL * */
 ul {
     font-size: larger;
     list-style-type: none;
 }
-
+/*About Us Title shifted to the left and centered over the company messgage* */
+.abt-us{
+    margin-left: 20%;
+}
+/*Formatting of the navbar* */
 .navbar {
-    display: flex;
+    width: 100%; 
     position: relative;
-    left: 80px;
-    justify-content: flex-end;
-    width: 60%; 
+    right: 20px; /*Shift right slightly so the is some space between the end of the page & the buttons* */
 }
-
+/*Set the navbars display to flex and justify-content to flex end* */
 #showcase ul {
-
     display: flex;
     justify-content: flex-end;
-    margin-top: 30px;
-    margin-left: 300px;
+    margin-top: 30px; /*Aligned with title* */
+    
 }
-
+/*Added border and space between each navbar button * */
 #showcase .item {
     border-radius: 100px;
     margin-left: 50px;
     color: white;
     text-decoration: none;
-    padding-left: 20px;
-    padding-right: 10px;
 }
-
+/*Added hover element to each button* */
 #showcase .item:hover {
     color: hotpink;
 }
-
+/*Formatted the main page title* */
 .title h1 {
     
     font-size: xx-large;
-    z-index: -1;
-    
-
+    width:max-content;
+    margin-left: 10px;
 }
-
+/*Separation line given a certain height and linear gradient to match the colour scheme of the site* */
+.line{
+    height: 20px;
+    background-image: linear-gradient(90deg, magenta, purple);
+  }
+  /*Repositioning of the infobox* */
 #info-box {
 
     margin-left: 100px;
     margin-top: 130px;
 }
-
+/*Set the info-box .content display to flex to get the info box and image side by side* */
 #info-box .content {
     display: flex;
     justify-content: space-evenly;
 }
-
+/*Formatted the <p> tag which holds the company message* */
 #info-box p {
     width: 500px;
     border: 2px solid hotpink;
     border-radius: 10px;
-   
 }
-
+/*Aligned all the text in the <p> tag* */
 p{
     text-align: center;
 }
-
-
-
+/*Shrunk down image and repositioned it, as well as added a radius * */
 img {
     width: 50%;
     height: auto;
     border-radius: 100px;
     margin-bottom: 120px;
 }
-
-#bottom {
+/*Styling of footer* */
+footer {
+    
     color: white;
-    background-color: purple;
+    background-color: black;
     display: flex;
     justify-content: space-around;
-    margin-top: -110px;
+    margin-top: -60px;
     clear: both;
 }
 
 @media (max-width: 680px) {
-    body {
-        overflow-x: hidden;
-
-    }
-    
+/*Shifted the navbar under the page title* */
 .navbar {
-    /*BUG* */
-    display: flex;
-
-    position: relative;
+    margin-top: 50px;
     
-    justify-content:center;
-    right: 200px; 
-    
- 
-    
-    
-  
 }
-
+/*Centered the navbar* */
+ #showcase ul{
+   margin-right: 72%;
+}
+/*Centered the page title* */
+.title h1 {
+    
+    margin-left: 25%;
+}
+ /*Removed the the image* */
     img {
-        /*Getting rid of the image* */
+       
         width: 0px;
         height: 0px;
         display: block;
     }
-   
-
+    /*Repositioned the middle, which now only contained the text box, so 
+      that it is in the center of the page* */
     #middle {
-        display: grid;
+        
         justify-content: center;
         position: relative;
         bottom: 100px;
         right: 90px;
         width: fit-content;
     }
-
-
     #middle h1 {
         text-align: center;
     }
+   /*Pushed the footer down to the bottom of the page* */
+   footer{
+    margin-top: 90px;
+   }
 
-    #bottom {
-    margin-top:60px;
-    }
-    #info-box .content{
-        justify-content: center;
-    }
     #info-box p{
      border: 2px solid hotpink;
      border-radius: 10px;
-      width: 480px;
+    width: 480px;
+    }
+    /*Set the margin-left of .abt-us to zero, in order to center the text* */
+    .abt-us{
+       margin-left: 0px;
     }
 
 }
-
+/*Set the scrollbar width to 0, to allow for a cleaner look throughout the site* */
 *::-webkit-scrollbar {
     width: 0px;
 }

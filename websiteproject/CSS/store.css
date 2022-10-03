@@ -1,48 +1,55 @@
+/*Basic styling of page such as font-family bg-colour, ect * */
+
 body{
     font-family: "Nunito";
-    overflow-x: hidden;
     background-color: black;
     color: white;
     margin: 0;
     padding: 0;
 }
+/*Set the containers display to grid* */
 #container{
     display: grid;
 }
-
+/*Universal styling of img* */
 img{
     display: block;
     border-radius: 30px;
-    border: 1px solid purple;
     width: 100%;
     height: 400px;
     
 }
+/*Repositioned the title of wrapper-title* */
 .wrapper-title{
     position: relative;
     bottom: 20px;
 }
+.line{
+  height: 20px;
 
+  background-image: linear-gradient(90deg, magenta, purple);
+}
+/*Changed font size of ul* */
 ul {
     font-size: larger;
-    list-style-type: none;
+ /*Shifting the * */   
 }
-
+/*Shifted the navbar up to align it with the pages title* */
   .navbar {
-    margin-bottom: 0px;
     position: relative;
     bottom: 55px;
-    margin-right: 15px;
 }
-
+/*Used Justify content:flex end, to put the navbar on the far right of the page* */
  ul {
 
     display: flex;
     justify-content: flex-end;
     list-style-type: none;
+    margin-right: 20px; /*To slightly bring the navbar left, I changed the margin* */
+    
    
 }
-
+/*Styling of each navbar item* */
   .item {
     border-radius: 100px;
     margin-left: 50px;
@@ -52,79 +59,100 @@ ul {
     padding-left: 20px;
     padding-right: 10px;
 }
+/*Hover element* */
  .item:hover {
     color: hotpink;
 }
+/*Without changing the width of the wrapper, the text remains in the middle of the page* */
 .wrapper {
     position: relative; /*Puts all text in the correct div**/
     width: 50%;
   }
+  /*Made the middle display flex, to easily put the images into a centered row* */
 #middle{
     display: flex;  
     justify-content: center;
+    
+    
 
 }
+/*Changed the space in between each image* */
 #middle .wrapper{
-    margin:10px;
+    margin-top:30px;
+    margin-bottom: -50px;
     padding: 10px; 
 }
+/*Hover opacity of the image is dimmed* */
 .wrapper:hover img{
     opacity: 0.55;
 }
+/*Hover opacity of the overlay & all the text in the overlay, remains 1* */
 .wrapper:hover .overlay {
     opacity: 1;
   }
 .overlay {
-    transition: .5s ease;
+    transition: .5s ease; /*Slight delay in transition, rather than immediate* */
     opacity: 0; /*Only one peice of content comes up at a time* */
-    position: absolute;
+    position: absolute; /*Text position does not change* */
     top: 50%;
     left: 50%;
+    /*Used transform and -ms-transform, as they are css properties that allow for the translation of elements* */
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    text-align: center;
+    text-align: center; /*Alighned the overlay text* */
 }
+/*Basic styling of images* */
 img {
     opacity: 1;
     display: block;
     width: 100%;
-    height: 400px;
+    height: 400px; /*Gave all images a constant height, so they are equal in size* */
     transition: .5s ease;
     backface-visibility: hidden;
   }
   .content{
     padding: 16px 32px;
   }
+  /*<a> tags within the wrapper are styled* */
   .wrapper a{
-    list-style-type: none;
+    list-style-type: none; /*No decoration or underline* */
     text-decoration:none;
     color: white;
     font-size: xx-large;
   }
-  .box1{
+  /*Styling of box div* */
+  .box{
     width: 30%;
-    border: 1px solid purple;
+    border: 1px solid rgb(155, 0, 155);
     border-radius: 50px;
+    margin-top: 100px;
   }
-  .box1 .text2{
+  /*Shifting of text2 up, to allow for less space between the two headings, as I stated in the store.html* */
+  .box .text2{
     margin-top: -20px; /*Shifting the second peice of text up, to reduce the gap in between* */
   }
-  .box1 a{
+  /*Styling of links to in-person store locations in the box div* */
+  .box a{
     list-style-type:none;
     text-decoration:underline;
     color: white;
     font-size: larger;
   }
   footer {
-    background-color: purple;
     display: flex;
     justify-content: space-around;
+    background-color: purple;
     margin-top: 20px;
+
+    
 }
-  
+  /*Media queery for mobile device* */
+  /*I chose to go with a higher max-width value than normal, because the row
+    of images already takes up close to the entire page width, on a desktop device* */
   @media (max-width: 1050px) {
     body{
-        background-image: linear-gradient(90deg, black, rgb(70, 0, 70));
+      
+        background-image: linear-gradient(180deg, black,rgb(67, 1, 67), black); /*Used linear-gradient to add some more colour to the mobile page* */
     }
     .wrapper-title{
         bottom: 30px;
@@ -133,35 +161,41 @@ img {
         display: grid;
         justify-items: center;
         margin-top: -50px;
-        gap: -20px; /*Closing the gap between all the photos* */
+        gap: 20px; /*Closing the gap between all the photos* */
     }
     .title{
         text-align: center;
     }
+    /*Shifted the navbar under the page title* */
     .navbar{
-        justify-content: center;
-        margin-top: 80px;
+      margin-top: 80px;
 
-    }
+  
+  }/*Removed the separation, as their was an overberaing amount of colour on the mobile page* */
+  .line{
+    height: 0px;
+  }
+    /*Resized the images to be wider and have more height* */
     img{
-        width: 110%;
+        width: 120%;
         height: 450px;
     }
-    .box1{
+    /*Slightly reshaped the box* */
+    .box{
         position: relative;
         left: 6.5px;
         width: 60%;
     }
-    .box1 a{
+    /*Spaced out the links in the box* */
+    .box a{
         margin: 10px;
     }
+    /*Centered the navbar* */
     ul{
-        justify-content: center;
+     justify-content: center;
         margin-right:85px;
     }
-
-   
-    
+/*Made scrollbar width = 0, to allow for a cleaner look of the page* */
 }
   *::-webkit-scrollbar {
     width: 0px;

@@ -1,11 +1,12 @@
+/*Basic stlying of page* */
 body{
-    background: #333 url('../IMAGES/subscribe-bg-img.jpg');
+    background: black url('../IMAGES/subscribe-bg-img.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     font-family: "Nunito";
 
 }
-
+/*Basic width & height values set for the box, as well as other styling properties* */
 .sign-up{
     width: 360px;
     height: 620px;
@@ -13,14 +14,17 @@ body{
     background-color: white;
     border-radius: 5px;
 }
+/*Centering h1 & and spacing the h1 from the rest of the content* */
 h1{
     text-align: center;
     padding-top:15px;
 }
+/*Styling for the form boxes set* */
 form{
     width: 300px;
     margin-left: 20px;
 }
+/*Styling for the form labels set* */
 form label{
     display: flex;
     margin-top:20px;
@@ -34,6 +38,7 @@ form input{
     border-radius: 6px;
     outline: none;
 }
+/*Styling for submit button* */
 /*when clicked, the user is redirected to the home page* */
 input[type="submit"]{
     width:320px;
@@ -44,23 +49,30 @@ input[type="submit"]{
     color: white;
     font-size: 18px;
 }
+/*Hover added to submit button* */
 input[type="submit"]:hover{
   color: grey;
 }
-
+/*<p> styling* */
 p{
     text-align: center;
     padding-top: 20px;
     font-size: 15px;
 }
-
+/*Terms & Conditions, as well as back to home button styling* */
 a{
     display: flex;
     justify-content: center;
     color: black;
     text-decoration: underline;
     margin-top: -5px;
-    
+}
+/*Change the background image from a photo, to a color, because the photo is too large
+  to be seen in high resolution on a mobile device.* */
+@media (max-width: 680px) {
+    body{
+        background-image: linear-gradient(180deg, black, rgb(73, 1, 73));
+    }
 }
 
 
