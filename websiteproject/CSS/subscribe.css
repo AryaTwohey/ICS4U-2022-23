@@ -4,6 +4,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     font-family: "Nunito";
+    overflow-x: hidden;
 
 }
 /*Basic width & height values set for the box, as well as other styling properties* */
@@ -63,12 +64,11 @@ p{
 a{
     display: flex;
     justify-content: center;
-    color: black;
+    color: white;
     text-decoration: underline;
     margin-top: -5px;
 }
-/*Change the background image from a photo, to a color, because the photo is too large
-  to be seen in high resolution on a mobile device.* */
+
 @media (max-width: 680px) {
     body{
         background-image: linear-gradient(180deg, black, rgb(73, 1, 73));
