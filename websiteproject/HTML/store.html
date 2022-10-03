@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,99 +10,125 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <!--Imported Google Font-->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Roboto:wght@100&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../CSS/store.css">
     <title>Store</title>
 </head>
+
 <body>
     <main>
-        <header class = "container">
-            <div class = "title">
-                <h1>Music Madness Guitars</h1>
+        <!--THIS IS THE HEADER-->
+        <header class="container" id="grid">
+            <div class="title">
+                <h1>Music Madness Guitars</h1> <!--Title of page-->
             </div>
+            <!--Using the same navbar from the home page, however the btn "store" is replaced with "home"-->
             <div class="navbar">
                 <ul>
-                    <li><a class = "item" href="../HTML/index.html">Home</a></li>
+                    <li><a class="item" href="../HTML/index.html">Home</a></li>
                     <li><a class="item" href="../HTML/abtus.html">Info</a></li>
                     <li><a class="item" href="../HTML/lesson.html">Lessons</a></li>
                     <li><a class="item" href="../HTML/subscribe.html">Subscribe</a></li>
                 </ul>
             </div>
-            <div class = "wrapper-title">
-                <center><h1>Browse Our Selection</h1></center>
+            <!--Title of the middle section, which will contain photos which are animated when you hover over them-->
+            <div class="wrapper-title">
+                <center>
+                    <h1>Browse Our Selection</h1> <!--Title of middle-->
+                    <i>Our company sells a wide range of merchandise, to allow for customers to become the best musicians they can posibly be</i>
+                    <p>A Message From Our Company CEO</p>
+                </center>
             </div>
-            <!--MIDDLE SECTION-->
-            <section id = "middle">
-               
-            <div class = "wrapper">
-                <img src="../IMAGES/pedels.jpg" alt="pedel">
-                    <div class="overlay">
+            <div class = "line"></div>
+            <!--MIDDLE SECTION
+
+                This middle section holds 5 images relating to merchandise the site sells
+                Each instance of the wrapper div is the same, the only change is the image used.
+                Each image will have a hover animation added to it-->
+
+            <section id="middle">
+                <!--First Image-->
+                <div class="wrapper"> <!--Each image has a container called wrapper, which hold all the content-->
+                    <img src="../IMAGES/pedels.jpg" alt="pedel"> <!--The image used-->
+                    <div class="overlay"> <!--Overlay, which will contain all the hover animation and text-->
                         <div class="content">
-                            <a href="../HTML/constructpg.html">Guitar Pedals</a>
+                            <a href="../HTML/constructpg.html">Guitar Pedals</a> <!--Text which will appear when user hovers over image
+                                                                                    It is stored in an <a> tag, so that the user can be redirected-->
                         </div>
                     </div>
-            </div>
-           
-            <div class = "wrapper">
-                <img src="../IMAGES/picks-cables.jpg" alt="pick-cables">
+                </div>
+                <!--Second Image-->
+                <div class="wrapper">
+                    <img src="../IMAGES/picks-cables.jpg" alt="pick-cables">
                     <div class="overlay">
                         <div class="content">
                             <a href="../HTML/constructpg.html">Picks & Cables</a>
 
                         </div>
                     </div>
-            </div>
-            <div class = "wrapper">
-                <img src="../IMAGES/store guitar.jpg" alt="store-guitar">
+                </div>
+                <!--Third Image-->
+                <div class="wrapper">
+                    <img src="../IMAGES/store guitar.jpg" alt="store-guitar">
                     <div class="overlay">
                         <div class="content">
                             <a href="../HTML/constructpg.html">Guitars</a>
 
                         </div>
                     </div>
-            </div>
-            <div class = "wrapper">
-                <img src="../IMAGES/amp.jpg" alt="amp">
+                </div>
+                <!--Forth Image-->
+                <div class="wrapper">
+                    <img src="../IMAGES/amp.jpg" alt="amp">
                     <div class="overlay">
                         <div class="content">
                             <a href="../HTML/constructpg.html">Amplifiers</a>
 
                         </div>
                     </div>
-            </div>
-            <div class = "wrapper">
-                <img src="../IMAGES/bundel.jpg" alt="bundle">
+                </div>
+                <!--Fifth Image-->
+                <div class="wrapper">
+                    <img src="../IMAGES/bundel.jpg" alt="bundle">
                     <div class="overlay">
                         <div class="content">
                             <a href="../HTML/constructpg.html">Bundle Deals</a>
 
                         </div>
                     </div>
-            </div>
+                </div>
             </section>
+            <!--End of middle section-->
             <center>
-            <div class = "box1">
-                <center><h3>Want to see more?</h3></center>
-                <center><h3 class = "text2">Check out our in-person stores!</h3></center>
-                <!--Locations of stores-->
-                <center><a href="../HTML/constructpg.html">Toronto Store</a></center>
-                <br>
-                <center><a href="../HTML/constructpg.html">Mississauga Store</a></center>
-                <br>
-                <center><a href="../HTML/constructpg.html">Oshuwa Store</a></center>
-                <br>
+                <!--The box div holds links to store locations the user can visit, if they do not like the content they see  -->
+                <div class="box">
+                    <center>
+                        <h3>Want to see more?</h3> 
+                    </center>
+                    <center>
+                        <h3 class="text2">Check out our in-person stores!</h3><!--Gave the second peice of text a class of text2, because I wanted to lower the margin between the two headings-->
+                    </center>
+                    <!--Locations of stores-->
+                    <!--Used <br> tag to decrease clutter within the box-->
+                    <center><a href="../HTML/constructpg.html">Toronto Store</a></center>
+                    <br>
+                    <center><a href="../HTML/constructpg.html">Mississauga Store</a></center>
+                    <br>
+                    <center><a href="../HTML/constructpg.html">Oshuwa Store</a></center>
+                    <br>
 
-
-            </div>
+                </div>
             </center>
         </header>
-          <!--FOOTER-->
+        <!--FOOTER-->
 
-          <footer>
+        <footer>
             <h6>Contact Us: musicmadness@gmail.com</h5>
                 <h6>Website Created By Arya Twohey</h6>
         </footer>
     </main>
-    
+
 </body>
+
 </html>

@@ -12,23 +12,35 @@
     <title>Subscribe</title>
 </head>
 <body>
+    <!--THIS IS THE HEADER-->
     <header>
+<!--This main div has a class of sign-up
+    & it olds the label and input tabs for a standard sign-up
+    form layout. placeholder="" is used, so there is no input text displayed,
+    that the user has not typed-->
+
 <div class = "sign-up">
     <h1>Sign Up</h1>
     <form action="../HTML/index.html">
-        <label for="">First Name</label>
-        <input type="text" placeholder="">
-        <label for="">Last Name</label>
-        <input type="text" placeholder="">
-        <label for="">Email</label>
-        <input type="text" placeholder="">
-        <label for="">Password</label>
-        <input type="text" placeholder="">
-        <label for="">Confirm Password</label>
-        <input type="text" placeholder="">
+        <label for="">First Name</label><!--Label for first input -->
+        <input type="text" placeholder=""><!--Name Input-->
+        <label for="">Last Name</label><!--Label for second input-->
+        <input type="text" placeholder=""><!--Last name input-->
+        <label for="">Email</label><!--Label for third input-->
+        <input type="text" placeholder=""><!--Email Input-->
+        <label for="">Password</label><!--Label for forth input-->
+        <input type="text" placeholder=""><!--Password input-->
+        <label for="">Confirm Password</label><!--Final label for input-->
+        <input type="text" placeholder=""><!--Confirm Password Input-->
+
+        <!--This input of type submit, when clicked, redirects used to home page
+             Because there is no actual information being submitted, the user is 
+             simply sent back to the home page.-->
 
         <input type="submit" value="Submit">
-    </form>
+        </form>
+    
+    <!--Most sign up forms have this statement, there is a terms and contions button & a back to home button-->
     <p class = "p">By clicking the Sign Up button, you agree to our terms and conditions</p>
     <a href="../HTML/constructpg.html">Terms & Conditions</a>
     <a href="../HTML/index.html">Back to Home</a>
