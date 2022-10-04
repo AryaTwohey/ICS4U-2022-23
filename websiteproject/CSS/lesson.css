@@ -9,7 +9,8 @@ body {
 /*Moved title slightly right* */
 .title {
 
-    margin-left: 20px;
+   display: flex;
+   justify-content: center;
 }
 /*Set the pages display to grid
   and aligned all text in container to center 

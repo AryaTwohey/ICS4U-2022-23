@@ -205,7 +205,11 @@ footer {
 
 /**Second media queery for mobile device */
 @media (max-width: 680px) {
-
+  
+body{
+    margin: 0px;
+    padding: 0px;
+}
     /*Changed the position of the navbar to the center, rather than the far right of the page* */
     #showcase ul {
         justify-content: center;
