@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <!--Bulma Link-->
+
+    <title>Bulma Cheat Sheet</title>
+   
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+    <span class="icon is-large">
+        <i class="fa-solid fa-house px-4 mx-4 fa-lg">Home</i>
+        <i class="fa-brands fa-github px-4 mx -4 fa-lg">Github</i>
+      </span>
+      
+      </div>
+      </div>
+  
+   
+    <!--Added the class button, so bulma can make it a button-->
+    <!--apply classes to style the elements
+        -> is-danger changed the colour scheme-->
+
+    <p>Most Bulma elements have alternative styles. To apply them, you only need to append one of the modifier classes.
+        They all start with is- or has-.</p>
+
+    <button class="button is-primary">
+        Button
+    </button>
+    <button class="button is-link">
+        Button
+    </button>
+    <button class="button is-info">
+        Button
+    </button>
+    <button class="button is-success">
+        Button
+    </button>
+    <button class="button is-warning">
+        Button
+    </button>
+    <button class="button is-danger">
+        Button
+    </button>
+
+    <!--Change size of buttons-->
+    <p>Change size of buttons</p>
+    <button class="button is-small">
+        Button
+    </button>
+    <button class="button">
+        Button
+    </button>
+    <button class="button is-medium">
+        Button
+    </button>
+    <button class="button is-large">
+        Button
+    </button>
+
+    <p>More Modifiers</p>
+    <button class="button is-primary is-outlined">
+        Button
+    </button>
+    <button class="button is-loading">
+        Button
+    </button>
+    <button class="button" disabled>
+        Button
+    </button>
+
+    <br>
+    <br>
+    <br>
+    <div class="container is-three-quarters">
+        <!--A container in bulma is used to center content horizontally-->
+        <!--Decide when you want it to change, with is-mobile or is-tablet-->
+        <div class="columns is-three-quarter is-column-line">
+            <div class="column">
+                <p class="is-info notification">
+                    Column 1
+                </p>
+            </div>
+            <div class="column">
+                <p class="is-danger notification">
+                    Column 2
+                </p>
+            </div>
+            <div class="column">
+                <p class="is-warning notification">
+                    Column 3
+                </p>
+            </div>
+            <div class="column">
+                <p class="is-primary notification">
+                    Column 4
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="columns is-multiline">
+        <div class="column is-2">
+            <!--two twelves or 1/6 of the total width available-->
+            <p class="is-primary notification">
+                Column 4
+            </p>
+        </div>
+    </div>
+    <div class="column is-5">
+        <!--5/12 of 6-->
+        <p class="is-primary notification">
+            Column 4
+        </p>
+    </div>
+    </div>
+    </div>
+    <!--Hero is like a banner-->
+    <div class="container">
+        <section class="hero has-background-link-dark ">
+            <!--Changed Background Colour -->
+            <div class="hero-body">
+                <p class="title has-text-info-light">
+                    <!--CHanged Text Colour-->
+                    Hero title
+                </p>
+                <p class="subtitle has-text-info-light">
+                    <!--Changed Text Colour-->
+                    Hero subtitle
+                </p>
+            </div>
+        </section>
+        <!--Middle Section-->
+        <section class="section has-background-info-light">
+            <h1 class="title">Section</h1>
+            <h2 class="subtitle">
+                A simple container to divide your page into <strong>sections</strong>, like the one you're currently
+                reading.
+            </h2>
+        </section>
+        <!--Footer-->
+        <footer class="footer has-background-primary-light	">
+
+            <div class="content has-text-centered">
+                <p>
+                    <strong>Bulma</strong> by <a href="https://jgthms.com">Arya Twohey</a>. The source code is
+                    licensed
+                    <a href="http://opensource.org/licenses/mit-license.php">BVG</a>. The website content
+                    is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+                </p>
+            </div>
+        </footer>
+    
+    </div>
+ 
+
+
+
+
+</body>
+
+</html>
