@@ -21,12 +21,15 @@ omit(nums);
 /*Functional 2 * */
 
 function noZ(str){
+    var counter = 0;
     for(var index = str.length -1; index >= 0; index--){
         if(str[index].indexOf('z') > -1){
             str.splice(index, 1);
+            counter++;
         }
     }
     console.log("noZ")
+    console.log(counter + " words were removed")
     console.log(str);
 }
 
@@ -35,12 +38,15 @@ noZ(zString);
 
 /*no9**/
 function no9(arr){
+    var counter = 0;
     for(var i = arr.length - 1; i >= 0; i--){
         if(arr[i] % 10 === 9){
             arr.splice(i, 1);
+            counter++;
         }
     }
     console.log("no9");
+    console.log(counter + " numbers were removed");
     console.log(arr);
 }
 
