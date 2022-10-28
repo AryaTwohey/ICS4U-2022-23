@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Simple DOM Example</title>
+
+<style>
+    .highlight{
+        padding: 10px;
+        width:250px;
+        color: white;
+        background-color: black;
+        align-content: center;
+    }
+</style>
+
+
+</head>
+
+<body>
+   <section>
+      <img src="../images/dinosaur.png"
+         alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
+         <img src="../images/dinosaur.png"
+         alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
+      <p>Here we will add a link to the <a href="https://www.mozilla.org/">Mozilla homepage</a></p>
+
+      
+   </section>
+
+   <!-- This way the page is loaded before the script runs -->
+   
+</body>
+<!--Put script after html so HTMl stuff loads first-->
+<script>
+/*
+let dinosaurs =  document.querySelectorAll('img');
+let dinosaur =  document.querySelector('img');
+*/
+/*
+let anchor = document.querySelector('a');
+anchor.textContent = 'Mozilla Developer Network';
+
+link.href = 'https://developer.mozilla.org';
+*/
+const section = document.querySelector('section');
+const para = document.createElement('p');
+
+para.textContent = 'We hope you enjoyed the ride';
+
+section.appendChild(para);
+
+const text = document.createTextNode(' -- the premier source for web development');
+
+document.querySelector('p').appendChild(text);
+
+//Iterate through all paragrpahs and add text to it
+
+const paragraphs = document.querySelectorAll('p');
+/*
+paragraphs.forEach(val => {
+    
+    const text =  document.createTextNode(' -- the premier source for web development')
+    val.appendChild(text);
+    
+});
+*/
+
+
+
+ document.querySelector('p:last-of-type').remove();
+
+const p  = document.querySelector('p');
+
+/*
+p.style.color = 'white';
+p.stlye.backgroundColour = 'black';
+p.style.padding = '10px';
+p.style.width = '250px';
+p.style.textAlign = 'center';
+*/
+//Make New Class
+//p.classList.add('highlight');
+
+//Size of window
+console.log(window.innerWidth);
+console.log(window.innerHeight)
+
+//hover 
+p.onmouseover = function(){
+    p.classList.add('highlight')
+}
+//unhover
+p.onmouseleave = function(){
+    p.classList.remove('highlight');
+}
+const img = document.querySelector('img');
+    img.onclick = () => {
+        const para = document.createElement('p');
+
+        para.textContent('We hope you enjoyed the ride');
+        section.appendChild(para);
+    }
+
+
+</script>
+
+</html>

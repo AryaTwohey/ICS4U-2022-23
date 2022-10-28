@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Shopping list</h1>
+  <section>
+<p>
+ <input type="text" name = "input" id = "input">
+ <button id = "addItem">Add Item</button>
+</p>
+<ul class="shoppingList">
+
+
+</ul>
+    
+   </section>
+    
+</body>
+
+<script>
+
+const input = document.querySelector('#input');
+const  btn = document.querySelector('#addItem');
+const itemList = document.querySelector('ul');
+
+const addInput = function(){
+    const itemText = input.value;
+
+    const item = document.createElement('li');
+    item.textContent = itemText;
+    itemList.appendChild(item);
+    const delbut = document.createElement('button');
+    delbut.textContent = 'DELETE';
+    item.append(delbut);
+
+    delbut.addEventListener('click', () => delbut.parentElement.remove());
+
+}
+
+btn.addEventListener('click', addInput);
+
+
+
+</script>
+</html>
