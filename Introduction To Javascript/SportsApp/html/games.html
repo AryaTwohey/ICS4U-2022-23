@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Roboto:wght@100&display=swap"rel="stylesheet">
+    <link rel="icon" href="../images/nbalogo.png">
+
+    <title>Add Game</title>
+</head>
+<body>
+
+    <div class="section">
+        <div class="container">
+            <div class="hero has-text-centered">
+                <h1 class = "is-centered is-size-1">Add A Score</h1>
+             
+            </div>
+           
+            <input class="input has-text-centered has-icons-right mt-3" id="val1" type="text"
+            placeholder="Winning Team Name"><span class="is-flex is-justify-content-center">
+            <input class="input has-text-centered has-icons-right mt-3" id="val2" type="text"
+            placeholder="Losing Team Name"><span class="is-flex is-justify-content-center">
+            
+                
+            
+            
+        </div> 
+        
+        <input class="input has-text-centered has-icons-right mt-3" id="num3" type="text"
+        placeholder="Winning Team Name"><span class="is-flex is-justify-content-center">
+        <input class="input has-text-centered has-icons-right mt-3" id="num4" type="text"
+        placeholder="Losing Team Name"><span class="is-flex is-justify-content-center">
+        
+        
+    </div>
+    <center>
+<button onclick = "addScore()" class="button ">
+    Add Game
+    </button>
+</center>
+    
+<center>
+    <button class="button mt-3 ">
+        <a class = "has-text-black" href="../html/leaugeStandingPage.html">Standings</a>
+        </button>
+    </center>
+        
+    <center>
+        <button class="button mt-3 ">
+            <a class = "has-text-black" href="../html/sportsHomePage.html">Home</a>
+            </button>
+        </center>
+
+</body>
+<script>
+    const teams = JSON.parse(localStorage.getItem('teams'));
+
+function addScore(){
+   
+
+   // const teams = JSON.parse(localStorage.getItem('teams'));
+
+    const winningTeamName = document.querySelector("#val1");
+    const losingTeamName = document.querySelector("#val2");
+
+
+  const team = teams.filter(team=>team.Name === winningTeamName.value)[0];
+  team.W++;
+  const team2 = teams.filter(team=>team.Name === losingTeamName.value)[0];
+  team2.L++;
+
+  localStorage.setItem('teams', JSON.stringify(teams));
+
+}
+
+
+
+
+</script>
+</html>

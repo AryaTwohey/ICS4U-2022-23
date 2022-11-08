@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=di, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Roboto:wght@100&display=swap"rel="stylesheet">
+   <link rel="icon" href="../images/nbalogo.png">
+
+   <title>NBA Standings Page</title>
+</head>
+<style>
+
+  h1{
+      font-weight: bold;
+      font-family: "Nunito";
+   }
+   a{
+     
+      color: black;
+   }
+
+   tr:hover{
+      color: rgb(168, 166, 166);
+   }
+  
+</style>
+<body>
+   <section class="section">
+      <span>
+<div class="container">
+        <div class="hero">
+        
+            <h1 class = "is-size-3 is-bold"> <button href="../html/sportsHomePage.html" class = "button is-size-6"><a href="../html/sportsHomePage.html"><span class="icon is-size-5">
+               <i class="fa-solid fa-arrow-left"></i></a></button> NBA Standings Page</h1>
+            <br>
+        </div>
+
+
+
+    <span> <table id="standings" class="table is-striped is-size-5">
+         <thead>
+            <button onclick ="createTable(teams)"class="button is-rounded pagination-link is-current" id="leaugeBtn">Display By Leauge</button>
+            <button onclick ="createTableByDivision(teams)"class="button is-rounded pagination-link" id = "divisionBtn">Display By Division</button><span>
+
+            </span>
+            <tr>
+               <th id = "name">Name <span class="icon is-size-6">
+                  <i onclick="sortHigh('Name');" class="fa-solid fa-arrow-down"></i>
+                  <i onclick = "sortLow('Name');" class="fa-solid fa-arrow-up"></i>
+              </span> </th>
+               <th>Wins 
+                  <span class="icon is-size-6">
+                     <i onclick="sortHigh('W');" class="fa-solid fa-arrow-down"></i>
+                     <i onclick = "sortLow('W');" class="fa-solid fa-arrow-up"></i>
+                 </span>
+               </th>
+               <th>Losses
+                  <span class="icon is-size-6">
+                     <i onclick="sortHigh('L');" class="fa-solid fa-arrow-down"></i>
+                     <i onclick = "sortLow('L');" class="fa-solid fa-arrow-up"></i>
+                 </span>
+               </th>
+               <th>Points
+                  <span class="icon is-size-6">
+                     <i onclick="sortHigh('PTS');" class="fa-solid fa-arrow-down"></i>
+                     <i onclick = "sortLow('PTS');" class="fa-solid fa-arrow-up"></i>
+                 </span>
+               </th>
+               <th>W/L Ratio
+                  <span class="icon is-size-6">
+                     <i onclick="sortHigh('RAT');" class="fa-solid fa-arrow-down"></i>
+                     <i onclick = "sortLow('RAT');" class="fa-solid fa-arrow-up"></i>
+                 </span>
+
+               </th>
+               <th>H-Wins
+                  <span class="icon is-size-6">
+                     <i onclick="sortHigh('homeWins');" class="fa-solid fa-arrow-down"></i>
+                     <i onclick = "sortLow('homeWins');" class="fa-solid fa-arrow-up"></i>
+                 </span>
+               </th>
+               <th>A-Wins
+
+                  <span class="icon is-size-6">
+                     <i onclick="sortHigh('awayWins');" class="fa-solid fa-arrow-down"></i>
+                     <i onclick = "sortLow('awayWins');" class="fa-solid fa-arrow-up"></i>
+                 </span>
+               </th>
+               <th>PCT <span class="icon is-size-6">
+                  <i onclick="sortHigh('PCT');" class="fa-solid fa-arrow-down"></i>
+                  <i onclick = "sortLow('PCT');" class="fa-solid fa-arrow-up"></i>
+              </span> </th>
+
+            </tr>
+          <!--This is where all the entering score stuff happens-->
+         
+         <tbody>
+          <!--  <div class="columns">
+               <div class="column">
+                  <input class="input has-text-centered has-icons-right" id="team1" type="text"
+                        placeholder="Winning Team Name"><span class="is-flex is-justify-content-center"><!--<button  onclick="addScore()"
+                            class="button is-white">
+                            <span class="icon is-size-4 is-right">
+                              <i class="fa-solid fa-square-check"></i>
+                          </span>-
+               </div>
+               <div class="column">
+                  <input class="input has-text-centered has-icons-right" id="team2" type="text"
+                        placeholder="Losing Team Name"><span class="is-flex is-justify-content-center"><!--<button  onclick="addScore()"
+                            class="button is-white">
+                            <span class="icon is-size-4 is-right">
+                              <i class="fa-solid fa-square-check"></i>
+                          </span>-
+                
+               </div>
+               <div class="column">
+                  <input class="input has-text-centered has-icons-right" id="wScore" type="text"
+                        placeholder="Winning Team Score"><span class="is-flex is-justify-content-center"><!--<button  onclick="addScore()"
+                            class="button is-white">
+                            <span class="icon is-size-4 is-right">
+                              <i class="fa-solid fa-square-check"></i>
+                          </span>-
+                
+               </div>
+               <div class="column">
+                  <input class="input has-text-centered has-icons-right" id="lScore" type="text"
+                        placeholder="Losing Team Score"><span class="is-flex is-justify-content-center"><!--<button onclick="addScore()"
+                            class="button is-white">
+                            <span class="icon is-size-4 is-right">
+                              <i class="fa-solid fa-square-check"></i>
+                          </span>-
+                
+               </div>
+            -->
+            </div>
+         <!--   <center><button onclick = "addScore()" class="button is-primary" id ="sub">Submit</button></center>-->
+         </tbody>
+         
+      </table>
+
+      <nav class="pagination is-rounded is-centered is-size-4 m-auto" role="navigation" aria-label="pagination">
+
+         <ul class="pagination-list is-centered">
+           <li><a onclick = "createTable(teams)" id="paginationOne" class="pagination-link is-current is-rounded" aria-label="Page 1" aria-current="page">1</a></li>
+           <li><a onclick = "createSecondTable(teams)" id = "paginationTwo" class = "pagination-link is-rounded" aria-label="Goto page 2">2</a></li>
+           <li><a onclick = "createThirdTable(teams)" id = "paginationThree" class="pagination-link is-rounded" aria-label="Goto page 3">3</a></li>
+           
+         </ul>
+
+       </nav>
+      
+    </span>
+  
+   </div>
+ 
+ 
+</div>
+</span>
+
+</div>
+
+</body>
+<script>
+   const dataString =
+      '[{"Name":"Toronto Raptors","W":8,"L":3,"PTS":79,"RAT":2.66,"homeWins":6, "awayWins":2, "PCT":100.0 , "Division":"Eastern", "subDivision": "Atlantic"},{"Name":"Golden State Warriors","W":5,"L":8,"PTS":86, "RAT":0.63, "homeWins": 3, "awayWins": 5, "PCT": 66.0, "Division":"Western", "subDivision": "Pacific"},{"Name":"Miluwake Bucks","W":7,"L":3,"PTS":54,"RAT":3.33, "homeWins": 2, "awayWins": 4, "PCT":22.0, "Division":"Eastern", "subDivision": "Central"},{"Name":"New York Knicks","W":8,"L":9,"PTS":75,"RAT":0.44, "homeWins": 4, "awayWins": 9, "PCT":55.0 , "Division":"Eastern", "subDivision": "Atlantic"},{"Name":"Philidelphia 76ers","W":6,"L":7,"PTS":72,"RAT":2.66, "homeWins": 4, "awayWins": 6, "PCT":88.0 , "Division":"Eastern", "subDivision": "Atlantic"}, {"Name":"Brooklyn Nets","W":2,"L":4,"PTS":99,"RAT":1.75, "homeWins": 4, "awayWins": 7, "PCT":24.0 , "Division":"Eastern", "subDivision": "Atlantic"}, {"Name":"Los Angles Lakers","W":9,"L":1,"PTS":100,"RAT":9.11, "homeWins": 2, "awayWins": 4, "PCT":46.0, "Division":"Western", "subDivision": "Pacific"}, {"Name":"Los Angles Clippers","W":2,"L":7,"PTS":89,"RAT":0.28, "homeWins": 7, "awayWins": 6, "PCT":88.0, "Division":"Western", "subDivision": "Pacific"}, {"Name":"San Antonia Spurs","W":7,"L":7,"PTS":90,"RAT":1.01,"homeWins": 9, "awayWins": 2, "PCT":23.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Memphis Grizzlies","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Dallas Mavericks","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Denver Nuggets","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Northwest"}, {"Name":"Boston Celtics","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Eastern" , "subDivision": "Atlantic"}, {"Name":"Houston Rockets","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Detroit Pistons","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Eastern", "subDivision": "Central"}, {"Name":"Cleveland Cavaliers","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Eastern", "subDivision": "Central"}, {"Name":"Oklahome City Thunder","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Northwest"}, {"Name":"Atlanta Hawks","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}, {"Name":"Pheonix Suns","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Pacific"}, {"Name":"Minnesota Timberwolves","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Northwest"}, {"Name":"Chicago Bulls","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Eastern", "subDivision": "Central"}, {"Name":"Orlando Magic","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}, {"Name":"Indiana Pacers","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Eastern" , "subDivision": "Central"}, {"Name":"Sacramento Kings","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Pacific"} , {"Name":"Charlotte Hornets","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}, {"Name":"New Orleans Pelicans","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Utah Jazz  ","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Northwest"}, {"Name":"Portland Trailblazers","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Northwest"}, {"Name":"Miami Heat","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}, {"Name":"Washignton Wizards","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0}, {"Name":"Washignton Wizards","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}]';
+
+
+   teams = JSON.parse(dataString);
+   localStorage.setItem('teams', JSON.stringify(teams));
+
+   createTable(teams);
+/*Three similar functions used for the pagination factor*/
+
+      function createTable(teams) {
+      let tableBody = document.querySelector('#standings tbody');
+
+      tableBody.replaceChildren();
+      for(let i =0; i < 10; i++){
+        
+         const team = teams[i];
+
+         const row = document.createElement('tr');
+         let cell = document.createElement('td');
+         cell.textContent = team.Name;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.W;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.L;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.PTS;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.RAT;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.homeWins;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.awayWins;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.PCT;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+
+      document.querySelector("#paginationOne").classList.add("is-current");
+      document.querySelector("#paginationTwo").classList.remove("is-current");
+      document.querySelector("#paginationThree").classList.remove("is-current");
+         
+      };
+      document.querySelector('#divisionBtn').classList.remove('is-current');
+      document.querySelector('#leaugeBtn').classList.add('is-current');
+      }
+      function createSecondTable(teams) {
+      let tableBody = document.querySelector('#standings tbody');
+
+      tableBody.replaceChildren();
+      for(let i =10; i < 20; i++){
+        
+         const team = teams[i];
+
+         const row = document.createElement('tr');
+         let cell = document.createElement('td');
+         cell.textContent = team.Name;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.W;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.L;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.PTS;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.RAT;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.homeWins;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.awayWins;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.PCT;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+
+         document.querySelector("#paginationTwo").classList.add("is-current");
+         document.querySelector("#paginationOne").classList.remove("is-current");
+         document.querySelector("#paginationThree").classList.remove("is-current");
+
+
+
+      };
+      }
+      function createThirdTable(teams) {
+      let tableBody = document.querySelector('#standings tbody');
+      
+      tableBody.replaceChildren();
+      
+      for(let i =20; i < 30; i++){
+        
+         const team = teams[i];
+
+         const row = document.createElement('tr');
+         let cell = document.createElement('td');
+         cell.textContent = team.Name;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.W;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.L;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.PTS;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.RAT;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.homeWins;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.awayWins;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.PCT;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+
+         document.querySelector("#paginationThree").classList.add("is-current");
+         document.querySelector("#paginationTwo").classList.remove("is-current");
+         document.querySelector("#paginationOne").classList.remove("is-current");
+
+         
+      };
+      }
+      /*
+      teams.forEach((team) => {
+         const row = document.createElement('tr');
+         let cell = document.createElement('td');
+         cell.textContent = team.Name;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.W;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.L;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.PTS;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.RAT;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.homeWins;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.awayWins;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.PCT;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+      });
+   
+*/
+function createTableByDivision(teams) {
+      
+
+      let tableBody = document.querySelector('#standings tbody');
+
+      tableBody.textContent = '';
+
+      
+      
+     
+
+      for(let i =0; i < 30; i++){
+         const team = teams[i];
+        
+         if(team.Division === "Western" && team.subDivision === "Pacific"){
+         //   document.querySelector("#name").textContent = 'Western Confrence-Pacific';
+      
+
+         const row = document.createElement('tr');
+         let cell = document.createElement('td');
+         cell.textContent = team.Name;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.W;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.L;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.PTS;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.RAT;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.homeWins;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.awayWins;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.PCT;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+
+         }
+     if(team.Division === "Western" && team.subDivision === "Southwest"){
+     // document.querySelector("#name").textContent = 'Western Confrence-Southwest';
+
+   const row = document.createElement('tr');
+   let cell = document.createElement('td');
+   cell.textContent = team.Name;
+   row.appendChild(cell);
+   cell = document.createElement('td');
+   cell.textContent = team.W;
+   row.appendChild(cell);
+   cell = document.createElement('td');
+   cell.textContent = team.L;
+   row.appendChild(cell);
+   cell = document.createElement('td');
+   cell.textContent = team.PTS;
+   row.appendChild(cell);
+   tableBody.appendChild(row);
+   cell = document.createElement('td');
+   cell.textContent = team.RAT;
+   row.appendChild(cell);
+   tableBody.appendChild(row);
+   cell = document.createElement('td');
+   cell.textContent = team.homeWins;
+   row.appendChild(cell);
+   tableBody.appendChild(row);
+   cell = document.createElement('td');
+   cell.textContent = team.awayWins;
+   row.appendChild(cell);
+   tableBody.appendChild(row);
+   cell = document.createElement('td');
+   cell.textContent = team.PCT;
+   row.appendChild(cell);
+   tableBody.appendChild(row);
+     } if(team.Division === "Western" && team.subDivision === "Northwest"){
+     // document.querySelector("#name").textContent = 'Western Confrence-Northwest';
+   
+   const row = document.createElement('tr');
+   let cell = document.createElement('td');
+   cell.textContent = team.Name;
+   row.appendChild(cell);
+   cell = document.createElement('td');
+   cell.textContent = team.W;
+   row.appendChild(cell);
+   cell = document.createElement('td');
+   cell.textContent = team.L;
+   row.appendChild(cell);
+   cell = document.createElement('td');
+   cell.textContent = team.PTS;
+   row.appendChild(cell);
+   tableBody.appendChild(row);
+   cell = document.createElement('td');
+   cell.textContent = team.RAT;
+   row.appendChild(cell);
+   tableBody.appendChild(row);
+   cell = document.createElement('td');
+   cell.textContent = team.homeWins;
+   row.appendChild(cell);
+   tableBody.appendChild(row);
+   cell = document.createElement('td');
+   cell.textContent = team.awayWins;
+   row.appendChild(cell);
+   tableBody.appendChild(row);
+   cell = document.createElement('td');
+   cell.textContent = team.PCT;
+   row.appendChild(cell);
+   tableBody.appendChild(row);
+
+   }
+ 
+
+
+      };
+      document.querySelector('#divisionBtn').classList.add('is-current');
+      document.querySelector('#leaugeBtn').classList.remove('is-current');
+      }
+
+
+   function sortHigh(field) {
+
+      if (field === 'Name') {
+         teams = teams.sort((teamA, teamB) => {
+            return (teamA.Name < teamB.Name) ? -1 : 1
+         });
+      } else if (field === 'PTS') {
+         teams = teams.sort((teamA, teamB) => teamB.PTS - teamA.PTS);
+      }else if(field === 'W'){
+        teams = teams.sort((teamA, teamB) => teamB.W - teamA.W)
+      }else if(field === 'L'){
+        teams = teams.sort((teamA, teamB) => teamB.L - teamA.L)
+      }else if(field === 'RAT'){
+         teams = teams.sort((teamA, teamB) => teamB.RAT - teamA.RAT);
+      }else if(field === 'homeWins'){
+         teams = teams.sort((teamA, teamB) => teamB.homeWins - teamA.homeWins);
+      }
+      else if(field === 'awayWins'){
+   teams = teams.sort((teamA, teamB) => teamB.awayWins - teamA.awayWins);
+   }
+   else if(field === 'PCT'){
+   teams = teams.sort((teamA, teamB) => teamB.PCT - teamA.PCT);
+   }
+      createTable(teams);
+   }
+   function sortLow(field) {
+
+if (field === 'Name') {
+   teams = teams.sort((teamA, teamB) => {
+      return (teamA.Name < teamB.Name) ? 1 : -1
+   });
+} else if (field === 'PTS') {
+   teams = teams.sort((teamA, teamB) => teamA.PTS - teamB.PTS);
+}else if(field === 'W'){
+  teams = teams.sort((teamA, teamB) => teamA.W - teamB.W)
+}else if(field === 'L'){
+  teams = teams.sort((teamA, teamB) => teamA.L - teamB.L)
+}else if(field === 'RAT'){
+   teams = teams.sort((teamA, teamB) => teamA.RAT - teamB.RAT);
+}else if(field === 'homeWins'){
+   teams = teams.sort((teamA, teamB) => teamA.homeWins - teamB.homeWins);
+}else if(field === 'awayWins'){
+   teams = teams.sort((teamA, teamB) => teamA.awayWins - teamB.awayWins);
+}
+else if(field === 'PCT'){
+   teams = teams.sort((teamA, teamB) => teamA.PCT - teamB.PCT);
+}
+createTable(teams);
+   }
+
+   function addScore(){
+      const winningTeamName = document.querySelector("#team1");
+      const losingTeamName = document.querySelector("#team2");
+      const winningScore = document.querySelector("#wScore");
+
+      if(winningTeamName.value === "" || losingTeamName.value === "" || winningScore.value === ""){
+         alert("Please Enter Data Into All The Boxes");
+      }
+      /*Some Weird Bug Here*/
+      //const losingScore = document.querySelector("#lscore")
+      else{
+      for(let i = 0; i < teams.length; i++){
+       
+
+         if(teams[i].name === winningTeamName.value){
+            teams[i].W + 1;
+            teams[i].PTS + winningScore.value;
+         
+            createTable(teams)
+           //teams[i].RAT = (teams[i].W + teams[i].L)/2; 
+         } 
+      }       
+}
+   }
+
+
+
+</script>
+
+</html>
