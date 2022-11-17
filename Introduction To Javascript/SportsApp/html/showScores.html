@@ -16,12 +16,40 @@
     h1{
      padding-left: 50px;
     }
+    
+    #test{
+
+        width: 40%;
+        padding: 40px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        
+
+    }
+    #test h1{
+        font-weight: bold;
+
+        
+    }
+    .week{
+        font-family: "Nunito";
+        text-align: center;
+        margin-left: 50px;
+        font-weight: bolder;
+    }
+    .score{
+        font-family: "Nunito";
+    }
 </style>
 <body onload = "start()">
 <section class="section">
+    <button class = "button"><a href="../html/sportsHomePage.html">Home</a></button>
+
     <div class="container has-text-centered">
-        <h1 class = "is-centered is-size-1">Scores</h1>
-    <div id ="test"></div>
+        <div class="hero">
+        <h1 class = "is-centered is-size-1 score">Scores</h1>
+    </div> 
+    <div id ="test" class=""></div>
     
     </div>
 </section>
@@ -40,9 +68,9 @@ games = JSON.parse(gamesString);
 function createCard(){
 
 for(let i = 0; i < games.length; i++){
-    const body = document.querySelector('#test');
+    const cardBody = document.querySelector('#test');
 
-    body.classList.add("card", "is-size-5", "ml-4","mr-4");
+    cardBody.classList.add("card", "is-size-5", "m-auto","box");
 
     const game = games[i];
 
@@ -50,8 +78,10 @@ for(let i = 0; i < games.length; i++){
     const team2 = document.createElement('h1');
     const score1 = document.createElement('h1')
     const score2 = document.createElement('h1');
+    const week = document.createElement('p');
 
-    score1.classList.add("is-bold")
+ 
+
     team1.textContent = game["h-team"] + "   " + game["h-pts"];
     team1.classList.add("mb-4");
 
@@ -64,8 +94,16 @@ for(let i = 0; i < games.length; i++){
 
     score2.textContent = game["a-pts"];
 
-    body.appendChild(team1);
-    body.appendChild(team2);
+    
+    week.classList.add("week");
+    week.textContent =  "WEEK " + game["week"];
+
+
+
+
+    cardBody.appendChild(team1);
+   cardBody.appendChild(team2);
+   cardBody.appendChild(week)
 }
 }
 createCard();
