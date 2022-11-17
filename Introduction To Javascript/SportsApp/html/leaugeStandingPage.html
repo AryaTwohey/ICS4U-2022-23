@@ -12,7 +12,7 @@
    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Roboto:wght@100&display=swap"
       rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap" rel="stylesheet">
-   <link rel="icon" href="../images/nbalogo.png">
+   <link rel="icon" href="../images/basketball.jpeg">
 
    <title>NBA Standings Page</title>
 </head>
@@ -41,6 +41,7 @@
    cursor: pointer;
    }
   
+  
 </style>
 
 <body>
@@ -60,7 +61,7 @@
             <span>
                <table id="standings" class="table is-striped is-size-5 m-auto ">
                   <thead>
-                     <button onclick="createTable(teams)" class="button is-rounded pagination-link is-current"
+                     <button onclick="createTable(teams)" class="button is-rounded pagination-link is-current "
                         id="leaugeBtn">Display By Leauge</button>
                      <button onclick="createTableByDivision(teams)" class="button is-rounded pagination-link"
                         id="divisionBtn">Display By Division</button><span>
@@ -178,20 +179,24 @@
       </div>
       </span>
       </div>
+   </div>
 </body>
 <script>
-    /*   
-   '[{"Name":"Golden State Warriors","W":5,"L":8,"PTS":86, "RAT":0.63, "homeWins": 3, "awayWins": 5, "PCT": 66.0, "Division":"Western", "subDivision": "Pacific"},{"Name":"Los Angles Lakers","W":8,"L":3,"PTS":79,"RAT":2.66,"homeWins":6, "awayWins":2, "PCT":100.0 , "Division":"Western", "subDivision": "Pacific"},{"Name":"Los Angles Clippers","W":7,"L":3,"PTS":54,"RAT":3.33, "homeWins": 2, "awayWins": 4, "PCT":22.0, "Division":"Western", "subDivision": "Pacific"},{"Name":"Pheonix Suns","W":8,"L":9,"PTS":75,"RAT":0.44, "homeWins": 4, "awayWins": 9, "PCT":55.0 , "Division":"Western", "subDivision": "Pacific"},{"Name":"Sacramento Kings","W":6,"L":7,"PTS":72,"RAT":2.66, "homeWins": 4, "awayWins": 6, "PCT":88.0 , "Division":"Western", "subDivision": "Pacific"}, {"Name":"New Orleans Pelicans","W":2,"L":4,"PTS":99,"RAT":1.75, "homeWins": 4, "awayWins": 7, "PCT":24.0 , "Division":"Western", "subDivision": "Southwest"}, {"Name":"San Antonio Spurs","W":9,"L":1,"PTS":100,"RAT":9.11, "homeWins": 2, "awayWins": 4, "PCT":46.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Washington Wizards","W":2,"L":7,"PTS":89,"RAT":0.28, "homeWins": 7, "awayWins": 6, "PCT":88.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Houston Rockets","W":7,"L":7,"PTS":90,"RAT":1.01,"homeWins": 9, "awayWins": 2, "PCT":23.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Dallas Mavericks","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Memphis Grizzlies","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Denver Nuggets","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Northwest"}, {"Name":"Minnesota Timberwolves","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Western" , "subDivision": "Northwest"}, {"Name":"Oklahoma City Thunder","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Northwest"}, {"Name":"Portland Trailblazers","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Western", "subDivision": "Northwest"}, {"Name":"Utah Jazz","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Western", "subDivision": "Northwest"}, {"Name":"Chicago Bulls","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central"}, {"Name":"Cleveland Cavaliers","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central"}, {"Name":"Detroit Pistons","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central"}, {"Name":"Indiana Pacers","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central"}, {"Name":"Miluawke Bucks","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Eastern", "subDivision": "Central"}, {"Name":"Boston Celtics","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic"}, {"Name":"Brooklyn Nets","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Eastern" , "subDivision": "Atlantic"}, {"Name":"New York Knicks","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic"} , {"Name":"Philidelphia 76ers","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic"}, {"Name":"Toronto Raptors","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic"}, {"Name":"Atlanta Hawks","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}, {"Name":"Charolette Hornets","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}, {"Name":"Miami Heat","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}, {"Name":"Orlando Magic","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division": "Eastern", "subDivision":"Southeast"}, {"Name":"Washignton Wizards","W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}]';
-*/
+ 
+
+  //const teams = '[{"Name":"Golden State Warriors", "id":1, "W":5,"L":8,"PTS":86, "RAT":0.63, "homeWins": 3, "awayWins": 5, "PCT": 66.0, "Division":"Western", "subDivision": "Pacific"},{"Name":"Los Angles Lakers","id":2,"W":8,"L":3,"PTS":79,"RAT":2.66,"homeWins":6, "awayWins":2, "PCT":100.0 , "Division":"Western", "subDivision": "Pacific"},{"Name":"Los Angles Clippers","id":3,"W":7,"L":3,"PTS":54,"RAT":3.33, "homeWins": 2, "awayWins": 4, "PCT":22.0, "Division":"Western", "subDivision": "Pacific"},{"Name":"Pheonix Suns","id":4,"W":8,"L":9,"PTS":75,"RAT":0.44, "homeWins": 4, "awayWins": 9, "PCT":55.0 , "Division":"Western", "subDivision": "Pacific"},{"Name":"Sacramento Kings","id":5,"W":6,"L":7,"PTS":72,"RAT":2.66, "homeWins": 4, "awayWins": 6, "PCT":88.0 , "Division":"Western", "subDivision": "Pacific"}, {"Name":"New Orleans Pelicans","id":6,"W":2,"L":4,"PTS":99,"RAT":1.75, "homeWins": 4, "awayWins": 7, "PCT":24.0 , "Division":"Western", "subDivision": "Southwest"}, {"Name":"San Antonio Spurs","id":7,"W":9,"L":1,"PTS":100,"RAT":9.11, "homeWins": 2, "awayWins": 4, "PCT":46.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Washington Wizards","id":8,"W":2,"L":7,"PTS":89,"RAT":0.28, "homeWins": 7, "awayWins": 6, "PCT":88.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Houston Rockets","id":9,"W":7,"L":7,"PTS":90,"RAT":1.01,"homeWins": 9, "awayWins": 2, "PCT":23.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Dallas Mavericks","id":10,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Memphis Grizzlies","id":11,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Denver Nuggets","id":12,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Northwest"}, {"Name":"Minnesota Timberwolves","id":13,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Western" , "subDivision": "Northwest"}, {"Name":"Oklahoma City Thunder","id":14,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Northwest"}, {"Name":"Portland Trailblazers","id":15,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Western", "subDivision": "Northwest"}, {"Name":"Utah Jazz","id":16,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Western", "subDivision": "Northwest"}, {"Name":"Chicago Bulls","id":17,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central"}, {"Name":"Cleveland Cavaliers","id":18,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central"}, {"Name":"Detroit Pistons","id":19,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central"}, {"Name":"Indiana Pacers", "id":20,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central"}, {"Name":"Miluawke Bucks","id":21,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Eastern", "subDivision": "Central"}, {"Name":"Boston Celtics","id":22,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic"}, {"Name":"Brooklyn Nets","id":23,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Eastern" , "subDivision": "Atlantic"}, {"Name":"New York Knicks", "id":24,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic"},{"Name":"Philidelphia 76ers","id":25,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic"}, {"Name":"Toronto Raptors","id":26,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic"}, {"Name":"Atlanta Hawks","id":27,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}, {"Name":"Charolette Hornets","id":28,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}, {"Name":"Miami Heat","id":29,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}, {"Name":"Orlando Magic","id":30,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division": "Eastern", "subDivision":"Southeast"}, {"Name":"Washignton Wizards","id":31, "W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}]';
+ 
+//comment out cons teams [] and change setItem to getItem('teams');
+
+
    const dataString = localStorage.getItem('teams');
   
 
    teams = JSON.parse(dataString);
-   //localStorage.setItem('teams', JSON.stringify(teams));
+   localStorage.setItem('teams', JSON.stringify(teams));
 
    createTable(teams);
    /*Three similar functions used for the pagination factor*/
-
    function createTable(teams) {
       let tableBody = document.querySelector('#standings tbody');
 
@@ -202,7 +207,10 @@
 
          const row = document.createElement('tr');
          let cell = document.createElement('td');
-         cell.textContent = team.Name;
+         let link = document.createElement('a');
+         link.textContent = team.Name;
+         link.href = 'team.html?id=0';
+         cell.append(link);
          row.appendChild(cell);
          cell = document.createElement('td');
          cell.textContent = team.W;
@@ -234,7 +242,6 @@
          document.querySelector("#paginationOne").classList.add("is-current");
          document.querySelector("#paginationTwo").classList.remove("is-current");
          document.querySelector("#paginationThree").classList.remove("is-current");
-
       };
       
       document.querySelector('#divisionBtn').classList.remove('is-current');
@@ -250,8 +257,15 @@
 
          const row = document.createElement('tr');
          let cell = document.createElement('td');
-         cell.textContent = team.Name;
+         let link = document.createElement('a');
+         link.textContent = team.Name;
+         link.href = 'team.html?id=0';
+         cell.append(link);
+
+        // cell.textContent = team.Name;
          row.appendChild(cell);
+     
+
          cell = document.createElement('td');
          cell.textContent = team.W;
          row.appendChild(cell);
@@ -298,7 +312,11 @@
 
          const row = document.createElement('tr');
          let cell = document.createElement('td');
-         cell.textContent = team.Name;
+         let link = document.createElement('a');
+         link.textContent = team.Name;
+         link.href = 'team.html?id=0';
+         cell.append(link);
+       //  cell.textContent = team.Name;
          row.appendChild(cell);
          cell = document.createElement('td');
          cell.textContent = team.W;
@@ -388,7 +406,7 @@
 
             const row = document.createElement('tr');
             let cell = document.createElement('td');
-
+            /*Without some kind of counter, multiple creations of the division title are made*/
             if (x1 < 1) {
                const row = document.createElement('tr');
                let cell = document.createElement('td');
@@ -720,6 +738,7 @@
          }
       }
    }
+
 
 
 

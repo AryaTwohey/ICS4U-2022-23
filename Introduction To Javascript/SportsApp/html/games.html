@@ -14,8 +14,9 @@
     <title>Add Game</title>
 </head>
 <body>
+   
 
-    <div class="section">
+    <div class="section" id="test">
         <div class="container">
             <div class="hero has-text-centered">
                 <h1 class = "is-centered is-size-1">Add A Score</h1>
@@ -32,9 +33,9 @@
             
         </div> 
         
-        <input class="input has-text-centered has-icons-right mt-3" id="num3" type="text"
+        <input class="input has-text-centered has-icons-right mt-3" id="val3" type="text"
         placeholder="Winning Team Name"><span class="is-flex is-justify-content-center">
-        <input class="input has-text-centered has-icons-right mt-3" id="num4" type="text"
+        <input class="input has-text-centered has-icons-right mt-3" id="val4" type="text"
         placeholder="Losing Team Name"><span class="is-flex is-justify-content-center">
         
         
@@ -68,16 +69,25 @@ function addScore(){
 
     const winningTeamName = document.querySelector("#val1");
     const losingTeamName = document.querySelector("#val2");
+    const winningScore = document.querySelector("#val3").value;
+    const losingScore = document.querySelector("#val4").value;
+
 
 
   const team = teams.filter(team=>team.Name === winningTeamName.value)[0];
   team.W++;
+  team.PTS = winningScore;
+  //team.PTS = +team.PTS + +winningScore;
   const team2 = teams.filter(team=>team.Name === losingTeamName.value)[0];
   team2.L++;
+  team2.PTS = losingScore;
 
-  localStorage.setItem('teams', JSON.stringify(teams));
+  //team2.PTS = +team2.PTS + +losingScore;
+
+ localStorage.setItem('teams', JSON.stringify(teams));
 
 }
+
 
 
 

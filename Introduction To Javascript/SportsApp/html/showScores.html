@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Roboto:wght@100&display=swap"rel="stylesheet">
+    <link rel="icon" href="../images/nbalogo.png">
+    <title>Scores</title>
+</head>
+<style>
+    h1{
+     padding-left: 50px;
+    }
+</style>
+<body onload = "start()">
+<section class="section">
+    <div class="container has-text-centered">
+        <h1 class = "is-centered is-size-1">Scores</h1>
+    <div id ="test"></div>
+    
+    </div>
+</section>
+</body>
+<script>
+
+
+// gamesString = '[{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1}]';
+
+const gamesString = localStorage.getItem('games');
+
+games = JSON.parse(gamesString);
+
+//localStorage.setItem('games', JSON.stringify(games));
+
+function createCard(){
+
+for(let i = 0; i < games.length; i++){
+    const body = document.querySelector('#test');
+
+    body.classList.add("card", "is-size-5", "ml-4","mr-4");
+
+    const game = games[i];
+
+    const team1 = document.createElement('h1');
+    const team2 = document.createElement('h1');
+    const score1 = document.createElement('h1')
+    const score2 = document.createElement('h1');
+
+    score1.classList.add("is-bold")
+    team1.textContent = game["h-team"] + "   " + game["h-pts"];
+    team1.classList.add("mb-4");
+
+    team2.textContent = game["a-team"] + " "+ game["a-pts"];
+
+    team2.classList.add("mb-4");
+    
+    score1.textContent = game["h-pts"];
+    score1.classList.add("has-text-weight-bold")
+
+    score2.textContent = game["a-pts"];
+
+    body.appendChild(team1);
+    body.appendChild(team2);
+}
+}
+createCard();
+
+function start() {
+
+const dataString = localStorage.getItem('teams');
+const teams = JSON.parse(dataString);
+let params = (new URL(document.location)).searchParams;
+
+const team = teams.filter(team => team.Id == params.get('id'));
+
+//document.querySelector('#test').textContent = team[0].Name;
+
+
+}
+</script>
+</html>
