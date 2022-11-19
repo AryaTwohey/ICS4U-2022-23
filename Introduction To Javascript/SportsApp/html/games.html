@@ -34,12 +34,21 @@
         </div> 
         
         <input class="input has-text-centered has-icons-right mt-3" id="val3" type="text"
-        placeholder="Winning Team Name"><span class="is-flex is-justify-content-center">
+        placeholder="Winning Team Score"><span class="is-flex is-justify-content-center">
         <input class="input has-text-centered has-icons-right mt-3" id="val4" type="text"
-        placeholder="Losing Team Name"><span class="is-flex is-justify-content-center">
+        placeholder="Losing Team Score"><span class="is-flex is-justify-content-center">
         
+       
         
+    </div class = " columns m-auto">
+
+    <div class="column has-text-centered    ">
+    <button onclick = "homeOrAway(true)" class="button mb-3">HOME</button>
     </div>
+    <div onclick = "homeOrAway(false)" class="column has-text-centered m-auto"><button class="button mb-3">AWAY</button>
+    </div>
+
+</div>
     <center>
 <button onclick = "addScore()" class="button ">
     Add Game
@@ -72,20 +81,75 @@ function addScore(){
     const winningScore = document.querySelector("#val3").value;
     const losingScore = document.querySelector("#val4").value;
 
+  let validTeamNames = false;  
+    for(let i = 0; i < teams.length; i++){
+        if(teams[i] === winningTeamName){
+            validTeamNames === true;
+        }
+        if(teams[i] === losingTeamName){
+            validTeamNames === true;
+        }
+    }
+    if(winningTeamName === "" || losingTeamName==="" || winningScore === "" || losingScore === ""){
+    alert('Please enter data into all the boxes');
+    location.reload();
+}
+else if(validTeamNames === false){
+    alert('These teams do not exist');
+    location.reload();
+}
 
+  else if(losingScore > winningScore){
+    alert('Please enter a valid score for the winning and losing team.');
+    location.reload() 
+  }else{
 
   const team = teams.filter(team=>team.Name === winningTeamName.value)[0];
   team.W++;
-  team.PTS = winningScore;
+//team.PTS = 44
+ team.PTS = team.PTS += parseInt(winningScore);
+  team.RAT = (team.W + team.L)/2
+
+  let totalGames = team.W+team.L;
+  let result =  (team.W / totalGames);
+  result = result.toFixed(3);
+  team.PCT = result + "%";
+
+  if(homeOrAway() === true){
+    team.homeGames + 1;
+}
+
+  //team.PTS =  team.PTS += parseInt(winningScore);
   //team.PTS = +team.PTS + +winningScore;
   const team2 = teams.filter(team=>team.Name === losingTeamName.value)[0];
   team2.L++;
-  team2.PTS = losingScore;
+//team2.PTS = 55
+  team2.PTS = team2.PTS += parseInt(losingScore);
+  team2.RAT = (team2.W + team2.L)/2
+  let totalGames2 = team2.W+team2.L;
+  let result2 = (team2.W / totalGames);
+  result2 = result2.toFixed(3);
+  team2.PCT = result2 + "%";
 
+  if(homeOrAway() === true){
+    
+  }
+  }
   //team2.PTS = +team2.PTS + +losingScore;
 
  localStorage.setItem('teams', JSON.stringify(teams));
 
+}
+
+function homeOrAway(condition){
+    let homeGame = condition;
+    if(homeGame === true){
+        return true;
+    }else{
+        return false;
+    }
+    
+    return false;
 }
 
 

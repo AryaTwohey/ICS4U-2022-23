@@ -19,8 +19,8 @@
     
     #test{
 
-        width: 40%;
-        padding: 40px;
+        width: 50%;
+        padding: 0px;
         padding-top: 50px;
         padding-bottom: 50px;
         
@@ -31,14 +31,18 @@
 
         
     }
+    
     .week{
         font-family: "Nunito";
         text-align: center;
-        margin-left: 50px;
-        font-weight: bolder;
+   
     }
+
     .score{
         font-family: "Nunito";
+    }
+    .textShift{
+        margin-right: 50%;
     }
 </style>
 <body onload = "start()">
@@ -48,15 +52,41 @@
     <div class="container has-text-centered">
         <div class="hero">
         <h1 class = "is-centered is-size-1 score">Scores</h1>
+        <div id="allGames"></div>
+
+        <nav class="pagination is-rounded is-centered is-size-4 m-auto" id="pg-btns" role="navigation" aria-label="pagination">
+
+            <ul class="pagination-list is-centered mt-2">
+               <li><a onclick="removeTable();createCard(1)" id="paginationOne" class="pagination-link is-current is-rounded"
+                     aria-label="Page 1" aria-current="page">1</a></li>
+                     <li><a onclick="removeTable();createCard(2)" id="paginationOne" class="pagination-link is-rounded"
+                        aria-label="Page 1" aria-current="page">2</a></li>
+               <li><a onclick="removeTable();createCard(3)" id="paginationThree" class="pagination-link is-rounded"
+                     aria-label="Goto page 3">3</a></li>
+            </ul>
+         </nav>
+
     </div> 
-    <div id ="test" class=""></div>
+  <!--  <div id ="test"></div>-->
     
     </div>
 </section>
 </body>
 <script>
+    //code for initialization
+const gameString = '[{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Los Angles Lakers", "a-team":"Washignton Wizards", "h-pts":102, "a-pts":88, "week":1},{"h-team":"Memphis Grizzles", "a-team":"Denver Nuggets", "h-pts":99, "a-pts":77, "week":1},{"h-team":"Los Angles Clippers", "a-team":"Miluake Bucks", "h-pts":85, "a-pts":78, "week":1},{"h-team":"Brooklyn Nets", "a-team":"Atlanta Hawks", "h-pts":83, "a-pts":82, "week":2},{"h-team":"Cleveland Cavaliers", "a-team":"Minnesota Timberwolves", "h-pts":103, "a-pts":98, "week":2},{"h-team":"Portland Trailblazers", "a-team":"Boston Celtics", "h-pts":86, "a-pts":94, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1} ]';
+ 
+//comment out cons teams [] and change setItem to getItem('teams');
 
 
+ //  const dataString = localStorage.setItem('games',games);
+   games = JSON.parse(gameString);
+
+
+   localStorage.setItem('gameString', JSON.stringify(games));
+
+/*
+//code for maintaining
 // gamesString = '[{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1}]';
 
 const gamesString = localStorage.getItem('games');
@@ -65,12 +95,16 @@ games = JSON.parse(gamesString);
 
 //localStorage.setItem('games', JSON.stringify(games));
 
-function createCard(){
+*/
+function createCard(weekNumber){
+    const gameBody = document.querySelector("#allGames");
+    gameBody.classList.add("m-auto","textShift")
 
-for(let i = 0; i < games.length; i++){
-    const cardBody = document.querySelector('#test');
 
-    cardBody.classList.add("card", "is-size-5", "m-auto","box");
+for(let i = 0; games[i].week == weekNumber; i++){
+    const cardBody = document.createElement('div');
+
+    cardBody.classList.add("card", "is-size-5","box");
 
     const game = games[i];
 
@@ -98,15 +132,21 @@ for(let i = 0; i < games.length; i++){
     week.classList.add("week");
     week.textContent =  "WEEK " + game["week"];
 
-
-
-
-    cardBody.appendChild(team1);
+   cardBody.appendChild(team1);
    cardBody.appendChild(team2);
    cardBody.appendChild(week)
+
+   gameBody.appendChild(cardBody)
+
+   
 }
+
 }
-createCard();
+function removeTable(){
+    const gameBody = document.querySelector("#allGames");
+    gameBody.textContent = "";
+}
+createCard(1);
 
 function start() {
 
