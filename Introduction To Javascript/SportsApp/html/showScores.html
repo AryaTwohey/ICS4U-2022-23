@@ -57,11 +57,11 @@
         <nav class="pagination is-rounded is-centered is-size-4 m-auto" id="pg-btns" role="navigation" aria-label="pagination">
 
             <ul class="pagination-list is-centered mt-2">
-               <li><a onclick="removeTable();createCard(1)" id="paginationOne" class="pagination-link is-current is-rounded"
+               <li><a onclick="createCard(1)" id="paginationOne" class="pagination-link is-current is-rounded"
                      aria-label="Page 1" aria-current="page">1</a></li>
-                     <li><a onclick="removeTable();createCard(2)" id="paginationOne" class="pagination-link is-rounded"
+                     <li><a onclick="removeTable(); createCard(2);" id="paginationOne" class="pagination-link is-rounded"
                         aria-label="Page 1" aria-current="page">2</a></li>
-               <li><a onclick="removeTable();createCard(3)" id="paginationThree" class="pagination-link is-rounded"
+               <li><a onclick="removeTable(); createCard(3);" id="paginationThree" class="pagination-link is-rounded"
                      aria-label="Goto page 3">3</a></li>
             </ul>
          </nav>
@@ -74,7 +74,7 @@
 </body>
 <script>
     //code for initialization
-const gameString = '[{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Los Angles Lakers", "a-team":"Washignton Wizards", "h-pts":102, "a-pts":88, "week":1},{"h-team":"Memphis Grizzles", "a-team":"Denver Nuggets", "h-pts":99, "a-pts":77, "week":1},{"h-team":"Los Angles Clippers", "a-team":"Miluake Bucks", "h-pts":85, "a-pts":78, "week":1},{"h-team":"Brooklyn Nets", "a-team":"Atlanta Hawks", "h-pts":83, "a-pts":82, "week":2},{"h-team":"Cleveland Cavaliers", "a-team":"Minnesota Timberwolves", "h-pts":103, "a-pts":98, "week":2},{"h-team":"Portland Trailblazers", "a-team":"Boston Celtics", "h-pts":86, "a-pts":94, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1} ]';
+const gameString = '[{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Los Angles Lakers", "a-team":"Washignton Wizards", "h-pts":102, "a-pts":88, "week":1},{"h-team":"Memphis Grizzles", "a-team":"Denver Nuggets", "h-pts":99, "a-pts":77, "week":1},{"h-team":"Los Angles Clippers", "a-team":"Miluake Bucks", "h-pts":85, "a-pts":78, "week":1},{"h-team":"Brooklyn Nets", "a-team":"Atlanta Hawks", "h-pts":83, "a-pts":82, "week":2},{"h-team":"Cleveland Cavaliers", "a-team":"Minnesota Timberwolves", "h-pts":103, "a-pts":98, "week":2},{"h-team":"Portland Trailblazers", "a-team":"Boston Celtics", "h-pts":86, "a-pts":94, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2} ]';
  
 //comment out cons teams [] and change setItem to getItem('teams');
 
@@ -98,15 +98,18 @@ games = JSON.parse(gamesString);
 */
 function createCard(weekNumber){
     const gameBody = document.querySelector("#allGames");
-    gameBody.classList.add("m-auto","textShift")
+    gameBody.classList.add("m-auto")
+
+const thisWeek = games.filter(game => game.week === weekNumber);
 
 
-for(let i = 0; games[i].week == weekNumber; i++){
-    const cardBody = document.createElement('div');
+//for(let i = 0; games[i].week === weekNumber; i++){
+    thisWeek.forEach((game)=>{
+        const cardBody = document.createElement('div');
 
     cardBody.classList.add("card", "is-size-5","box");
 
-    const game = games[i];
+    //const game = games[i];
 
     const team1 = document.createElement('h1');
     const team2 = document.createElement('h1');
@@ -134,19 +137,22 @@ for(let i = 0; games[i].week == weekNumber; i++){
 
    cardBody.appendChild(team1);
    cardBody.appendChild(team2);
-   cardBody.appendChild(week)
+   cardBody.appendChild(week);
 
-   gameBody.appendChild(cardBody)
+   gameBody.appendChild(cardBody);
 
    
-}
+//}
 
+    });
+    
 }
+createCard(1);
+
 function removeTable(){
     const gameBody = document.querySelector("#allGames");
     gameBody.textContent = "";
 }
-createCard(1);
 
 function start() {
 

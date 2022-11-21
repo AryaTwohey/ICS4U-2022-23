@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,153 +9,202 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Roboto:wght@100&display=swap"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Roboto:wght@100&display=swap"
+        rel="stylesheet">
     <link rel="icon" href="../images/nbalogo.png">
 
     <title>Add Game</title>
 </head>
+
 <body>
-   
+
 
     <div class="section" id="test">
         <div class="container">
+
             <div class="hero has-text-centered">
-                <h1 class = "is-centered is-size-1">Add A Score</h1>
-             
+                <h1 class="is-centered is-size-1">Add A Score</h1>
+
             </div>
-           
+<div class="card">
+    <div class="card-content">
             <input class="input has-text-centered has-icons-right mt-3" id="val1" type="text"
-            placeholder="Winning Team Name"><span class="is-flex is-justify-content-center">
-            <input class="input has-text-centered has-icons-right mt-3" id="val2" type="text"
-            placeholder="Losing Team Name"><span class="is-flex is-justify-content-center">
-            
-                
-            
-            
-        </div> 
-        
+                placeholder="Winning Team Name"><span class="is-flex is-justify-content-center">
+                <input class="input has-text-centered has-icons-right mt-3" id="val2" type="text"
+                    placeholder="Losing Team Name"><span class="is-flex is-justify-content-center">
+
+
+
+
+        </div>
+    </div>
+<div class="card">
+    <div class="card-content">
         <input class="input has-text-centered has-icons-right mt-3" id="val3" type="text"
-        placeholder="Winning Team Score"><span class="is-flex is-justify-content-center">
-        <input class="input has-text-centered has-icons-right mt-3" id="val4" type="text"
-        placeholder="Losing Team Score"><span class="is-flex is-justify-content-center">
-        
-       
-        
-    </div class = " columns m-auto">
+            placeholder="Winning Team Score"><span class="is-flex is-justify-content-center">
+            <input class="input has-text-centered has-icons-right mt-3" id="val4" type="text"
+                placeholder="Losing Team Score"><span class="is-flex is-justify-content-center">
 
-    <div class="column has-text-centered    ">
-    <button onclick = "homeOrAway(true)" class="button mb-3">HOME</button>
+                </div>
+                </div>
+                </div>
     </div>
-    <div onclick = "homeOrAway(false)" class="column has-text-centered m-auto"><button class="button mb-3">AWAY</button>
-    </div>
-
 </div>
+    </div class="columns">
+
+    <div class="column has-text-centered">
+        <button onclick="homeOrAway(true)" class="button mb-3">HOME</button>
+    </div>
+    <div class="column has-text-centered">
+        <button onclick="homeOrAway(false)" class="button mb-3">AWAY</button>
+    </div>
+    </div>
+
     <center>
-<button onclick = "addScore()" class="button ">
-    Add Game
-    </button>
-</center>
-    
-<center>
-    <button class="button mt-3 ">
-        <a class = "has-text-black" href="../html/leaugeStandingPage.html">Standings</a>
+        <button onclick="addScore()" class="button ">
+            Add Game
         </button>
     </center>
-        
+
     <center>
-        <button class="button mt-3 ">
-            <a class = "has-text-black" href="../html/sportsHomePage.html">Home</a>
-            </button>
-        </center>
+        <button class="button mt-3 is-info ">
+            <a class="has-text-white" href="../html/leaugeStandingPage.html">Standings</a>
+        </button>
+    </center>
+
+    <center>
+        <button class="button mt-3 is-info ">
+            <a class="has-text-white" href="../html/sportsHomePage.html">Home</a>
+        </button>
+    </center>
 
 </body>
 <script>
-   //const teams = JSON.parse(localStorage.getItem('teams'));
+    //const teams = JSON.parse(localStorage.getItem('teams'));
+    function addScore() {
 
-function addScore(){
-   
+        const teams = JSON.parse(localStorage.getItem('teams'));
 
-    const teams = JSON.parse(localStorage.getItem('teams'));
+        const winningTeamName = document.querySelector("#val1");
+        const losingTeamName = document.querySelector("#val2");
+        const winningScore = document.querySelector("#val3").value;
+        const losingScore = document.querySelector("#val4").value;
+      let validWinningTeam = true;
+       let validLosingTeam = true;
 
-    const winningTeamName = document.querySelector("#val1");
-    const losingTeamName = document.querySelector("#val2");
-    const winningScore = document.querySelector("#val3").value;
-    const losingScore = document.querySelector("#val4").value;
-
-  let validTeamNames = false;  
-    for(let i = 0; i < teams.length; i++){
-        if(teams[i] === winningTeamName){
-            validTeamNames === true;
+        for (let i = 0; i < teams.length; i++) {
+         
+            if (teams[i].Name === winningTeamName) {
+               
+                validWinningTeam = true;
+            }
+            
         }
-        if(teams[i] === losingTeamName){
-            validTeamNames === true;
+        for(let i = 0; i < teams.length; i++){
+            if(teams[i].Name === losingTeamName){
+                validLosingTeam = true;
+            }
         }
-    }
-    if(winningTeamName === "" || losingTeamName==="" || winningScore === "" || losingScore === ""){
-    alert('Please enter data into all the boxes');
-    location.reload();
-}
-else if(validTeamNames === false){
-    alert('These teams do not exist');
-    location.reload();
-}
-
-  else if(losingScore > winningScore){
-    alert('Please enter a valid score for the winning and losing team.');
-    location.reload() 
-  }else{
-
-  const team = teams.filter(team=>team.Name === winningTeamName.value)[0];
-  team.W++;
-//team.PTS = 44
- team.PTS = team.PTS += parseInt(winningScore);
-  team.RAT = (team.W + team.L)/2
-
-  let totalGames = team.W+team.L;
-  let result =  (team.W / totalGames);
-  result = result.toFixed(3);
-  team.PCT = result + "%";
-
-  if(homeOrAway() === true){
-    team.homeGames + 1;
-}
-
-  //team.PTS =  team.PTS += parseInt(winningScore);
-  //team.PTS = +team.PTS + +winningScore;
-  const team2 = teams.filter(team=>team.Name === losingTeamName.value)[0];
-  team2.L++;
-//team2.PTS = 55
-  team2.PTS = team2.PTS += parseInt(losingScore);
-  team2.RAT = (team2.W + team2.L)/2
-  let totalGames2 = team2.W+team2.L;
-  let result2 = (team2.W / totalGames);
-  result2 = result2.toFixed(3);
-  team2.PCT = result2 + "%";
-
-  if(homeOrAway() === true){
+        
+        
     
-  }
-  }
-  //team2.PTS = +team2.PTS + +losingScore;
+        if (winningTeamName === "" || losingTeamName === "" || winningScore === "" || losingScore === "") {
+            alert('Please enter data into all the boxes');
+            location.reload();
+        
+        }
+        else if (validWinningTeam === false || validLosingTeam === false) {
+            alert('These teams do not exist');
+            location.reload();
+        }
 
- localStorage.setItem('teams', JSON.stringify(teams));
+        else if (losingScore > winningScore) {
+            alert('Please enter a valid score for the winning and losing team.');
+            location.reload()
+            
+        }else if (losingScore === winningScore) {
+            alert('Scores cannot equal.');
+            location.reload()
+        
+        } else {
 
-}
+            const team = teams.filter(team => team.Name === winningTeamName.value)[0];
+            team.W++;
+            //team.PTS = 44
+            team.PTS = team.PTS += parseInt(winningScore);
+            team.RAT = (team.W + team.L) / 2
 
-function homeOrAway(condition){
-    let homeGame = condition;
-    if(homeGame === true){
-        return true;
-    }else{
+            let totalGames = team.W + team.L;
+            let result = (team.W / totalGames) * 100;
+            result = result.toFixed(3);
+            team.PCT = result;
+/*
+            if (homeOrAway() === true) {
+                team.homeGames + 1;
+            }
+*/
+            //team.PTS =  team.PTS += parseInt(winningScore);
+            //team.PTS = +team.PTS + +winningScore;
+            const team2 = teams.filter(team => team.Name === losingTeamName.value)[0];
+            team2.L++;
+            //team2.PTS = 55
+            team2.PTS = team2.PTS += parseInt(losingScore);
+            team2.RAT = (team2.W + team2.L) / 2
+            let totalGames2 = team2.W + team2.L;
+            let result2 = (team2.W / totalGames) * 100;
+            result2 = result2.toFixed(3);
+            team2.PCT = result2;
+/*
+            if (homeOrAway() === true) {
+
+            }
+            */
+        }
+        //team2.PTS = +team2.PTS + +losingScore;
+
+        localStorage.setItem('teams', JSON.stringify(teams));
+
+    }
+
+    function homeOrAway(condition) {
+        let homeGame = condition;
+        if (homeGame === true) {
+            return true;
+        } else {
+            return false;
+        }
+
         return false;
     }
-    
-    return false;
-}
+
+    function verifyTeams(team1, team2){
+        const teams = localStorage.getItem('teams');
+
+        let verified = false;
+
+        for (let i = 0; i < teams.length; i++) {
+            if (teams[i] === team1) {
+               
+                verified = true;
+            }
+            if(teams[i] === team2){
+                verified = true;
+            }
+            
+        }
+        if(verified === true){
+            return true;
+        }
+        return false;
+       
+
+    }
+   
 
 
 
 
 
 </script>
+
 </html>
