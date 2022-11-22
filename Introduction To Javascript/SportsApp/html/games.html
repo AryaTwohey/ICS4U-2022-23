@@ -24,7 +24,9 @@
     h1{
         color: white;
     }
-
+.bothCards{
+    border-radius: 50px;
+}
 </style>
 <body>
 
@@ -36,6 +38,7 @@
                 <h1 class="is-centered is-size-1">Add A Score</h1>
 
             </div>
+<div class="bothCards">
 <div class="card has-text-black">
     <div class="card-content">
             <input class="input has-text-centered has-icons-right mt-3" id="val1" type="text"
@@ -79,11 +82,42 @@
             <input class="input has-text-centered has-icons-right mt-3" id="val4" type="text"
                 placeholder="Losing Team Score"><span class="is-flex is-justify-content-center">
 
-                </div>
+                </div>  
                 </div>
                 </div>
     </div>
-</div>
+    <div class="card">
+        <div class="card-content">
+            <center>
+                <div class="dropdown is-hoverable has-text-black">
+                    <div class="dropdown-trigger">
+                      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                        <span>WEEK</span>
+                        <span class="icon is-small">
+                          <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                      </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                      <div class="dropdown-content">
+                        <div class="dropdown-item">
+                          <button onclick = "addtoGames(1);" class = "button is-info">1</button>
+                         
+                          <button onclick = "addtoGames(2);" class="button is-info">2</button>
+                          <br>
+                          <br>
+                          <button onclick = "addtoGames(3);" class="button is-info">3</button>
+
+                          <button onclick = "addtoGames(4);"class="button is-info">4</button>
+
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                  </center>
+        </div>
+</div></div>
     </div class="columns">
 <!--
     <div class="column has-text-centered">
@@ -205,28 +239,14 @@
         const winningTeam = document.querySelector("#val1");
         const teams = JSON.parse(localStorage.getItem('teams'));
 
+
         const name = teams.filter(team =>team.Name === winningTeam)[0];
 
         name.homeWins++;
-
-        /*
-
-        const winningTeam = document.querySelector("#val1");
-
-        const teams = JSON.parse(localStorage.getItem('teams'));
-
-        for(let i = 0; teams.length; i++){
-            const teams = JSON.parse(localStorage.getItem('teams'));
-
-            if(teams[i].Name === winningTeam){
-                teams[i].homeWins+ 1;
-            }  
-        }
-       */
     }
     function awayWin(){
         const winningTeam = document.querySelector("#val1");
-        const teams = (JSON.parse(localStorage.getItem('teams')));
+        const teams = JSON.parse(localStorage.getItem('teams'));
 
         const name = teams.filter(team =>team.Name === winningTeam)[0];
 
@@ -252,7 +272,19 @@
             return true;
         }
         return false;
-       
+    }
+    function addtoGames(num){
+
+        const winningTeamName = document.querySelector("#val1").value;
+        const losingTeamName = document.querySelector("#val2").value;
+        const winningScore = document.querySelector("#val3").value;
+        const losingScore = document.querySelector("#val4").value;
+
+        
+
+      const games = JSON.parse(localStorage.getItem('gameString'));
+
+      games.push({"h-team":"winningTeamName", "a-team": "losingTeamName", "h-points": "winningScore", "l-points": "losingScore", "week": num});
 
     }
    
