@@ -279,12 +279,9 @@
         const losingTeamName = document.querySelector("#val2").value;
         const winningScore = document.querySelector("#val3").value;
         const losingScore = document.querySelector("#val4").value;
-
-        
-
       const games = JSON.parse(localStorage.getItem('gameString'));
 
-      games.push({"h-team":"winningTeamName", "a-team": "losingTeamName", "h-points": "winningScore", "l-points": "losingScore", "week": num});
+      games.push({"h-team":"winningTeamName", "a-team": "losingTeamName", "h-points": "winningScore", "l-points": "losingScore", "week":num});
 
     }
    
