@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class=  "has-background-black >
 
 <head>
     <meta charset="UTF-8">
@@ -14,19 +14,29 @@
     <link rel="icon" href="../images/nbalogo.png">
 
     <title>Add Game</title>
-</head>
 
+</head>
+<style>
+    *{
+        color: black;
+
+    }
+    h1{
+        color: white;
+    }
+
+</style>
 <body>
 
 
     <div class="section" id="test">
-        <div class="container">
+        <div class="container" >
 
             <div class="hero has-text-centered">
                 <h1 class="is-centered is-size-1">Add A Score</h1>
 
             </div>
-<div class="card">
+<div class="card has-text-black">
     <div class="card-content">
             <input class="input has-text-centered has-icons-right mt-3" id="val1" type="text"
                 placeholder="Winning Team Name"><span class="is-flex is-justify-content-center">
@@ -37,7 +47,31 @@
 
 
         </div>
+        <center>
+        <div class="dropdown is-hoverable has-text-black">
+            <div class="dropdown-trigger">
+              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                <span>Winning Home of Away</span>
+                <span class="icon is-small">
+                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+              <div class="dropdown-content">
+                <div class="dropdown-item">
+                  <button onclick = "homeWin();" class = "button is-info">Home</button>
+                  <br>
+                  <br>
+                  <button onclick = "awayWin();" class="button is-info">Away</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          </center>
     </div>
+
 <div class="card">
     <div class="card-content">
         <input class="input has-text-centered has-icons-right mt-3" id="val3" type="text"
@@ -51,14 +85,14 @@
     </div>
 </div>
     </div class="columns">
-
+<!--
     <div class="column has-text-centered">
         <button onclick="homeOrAway(true)" class="button mb-3">HOME</button>
     </div>
     <div class="column has-text-centered">
         <button onclick="homeOrAway(false)" class="button mb-3">AWAY</button>
     </div>
-    </div>
+    </div>-->
 
     <center>
         <button onclick="addScore()" class="button ">
@@ -136,7 +170,7 @@
 
             let totalGames = team.W + team.L;
             let result = (team.W / totalGames) * 100;
-            result = result.toFixed(3);
+            result = result.toFixed(1);
             team.PCT = result;
 /*
             if (homeOrAway() === true) {
@@ -152,7 +186,7 @@
             team2.RAT = (team2.W + team2.L) / 2
             let totalGames2 = team2.W + team2.L;
             let result2 = (team2.W / totalGames) * 100;
-            result2 = result2.toFixed(3);
+            result2 = result2.toFixed(1);
             team2.PCT = result2;
 /*
             if (homeOrAway() === true) {
@@ -166,15 +200,37 @@
 
     }
 
-    function homeOrAway(condition) {
-        let homeGame = condition;
-        if (homeGame === true) {
-            return true;
-        } else {
-            return false;
-        }
 
-        return false;
+    function homeWin() {
+        const winningTeam = document.querySelector("#val1");
+        const teams = JSON.parse(localStorage.getItem('teams'));
+
+        const name = teams.filter(team =>team.Name === winningTeam)[0];
+
+        name.homeWins++;
+
+        /*
+
+        const winningTeam = document.querySelector("#val1");
+
+        const teams = JSON.parse(localStorage.getItem('teams'));
+
+        for(let i = 0; teams.length; i++){
+            const teams = JSON.parse(localStorage.getItem('teams'));
+
+            if(teams[i].Name === winningTeam){
+                teams[i].homeWins+ 1;
+            }  
+        }
+       */
+    }
+    function awayWin(){
+        const winningTeam = document.querySelector("#val1");
+        const teams = (JSON.parse(localStorage.getItem('teams')));
+
+        const name = teams.filter(team =>team.Name === winningTeam)[0];
+
+        name.awayWins++;
     }
 
     function verifyTeams(team1, team2){

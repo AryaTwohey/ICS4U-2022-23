@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html class = "has-background-black">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,6 +13,11 @@
     <title>Scores</title>
 </head>
 <style>
+    body{
+        background-color: black;
+        color: white;
+
+    }
     h1{
      padding-left: 50px;
     }
@@ -44,6 +49,9 @@
     .textShift{
         margin-right: 50%;
     }
+    li{
+        margin-top: 50px;
+    }
 </style>
 <body onload = "start()">
 <section class="section">
@@ -57,12 +65,14 @@
         <nav class="pagination is-rounded is-centered is-size-4 m-auto" id="pg-btns" role="navigation" aria-label="pagination">
 
             <ul class="pagination-list is-centered mt-2">
-               <li><a onclick="createCard(1)" id="paginationOne" class="pagination-link is-current is-rounded"
+               <li><a onclick="removeTable();createCard(1)" id="paginationOne" class="pagination-link is-current is-rounded"
                      aria-label="Page 1" aria-current="page">1</a></li>
-                     <li><a onclick="removeTable(); createCard(2);" id="paginationOne" class="pagination-link is-rounded"
+                     <li><a onclick="removeTable(); createCard(2);" id="paginationTwo" class="pagination-link is-rounded is-current"
                         aria-label="Page 1" aria-current="page">2</a></li>
-               <li><a onclick="removeTable(); createCard(3);" id="paginationThree" class="pagination-link is-rounded"
+               <li><a onclick="removeTable(); createCard(3);" id="paginationThree" class="pagination-link is-rounded is-current"
                      aria-label="Goto page 3">3</a></li>
+                     <li><a onclick="removeTable(); createCard(4);" id="paginationFour" class="pagination-link is-rounded is-current"
+                        aria-label="Goto page 3">4</a></li>
             </ul>
          </nav>
 
@@ -74,7 +84,7 @@
 </body>
 <script>
     //code for initialization
-const gameString = '[{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Los Angles Lakers", "a-team":"Washignton Wizards", "h-pts":102, "a-pts":88, "week":1},{"h-team":"Memphis Grizzles", "a-team":"Denver Nuggets", "h-pts":99, "a-pts":77, "week":1},{"h-team":"Los Angles Clippers", "a-team":"Miluake Bucks", "h-pts":85, "a-pts":78, "week":1},{"h-team":"Brooklyn Nets", "a-team":"Atlanta Hawks", "h-pts":83, "a-pts":82, "week":2},{"h-team":"Cleveland Cavaliers", "a-team":"Minnesota Timberwolves", "h-pts":103, "a-pts":98, "week":2},{"h-team":"Portland Trailblazers", "a-team":"Boston Celtics", "h-pts":86, "a-pts":94, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2}]';
+const gameString = '[{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Los Angles Lakers", "a-team":"Washignton Wizards", "h-pts":102, "a-pts":88, "week":1},{"h-team":"Memphis Grizzles", "a-team":"Denver Nuggets", "h-pts":99, "a-pts":77, "week":1},{"h-team":"Los Angles Clippers", "a-team":"Miluake Bucks", "h-pts":85, "a-pts":78, "week":1},{"h-team":"Brooklyn Nets", "a-team":"Atlanta Hawks", "h-pts":83, "a-pts":82, "week":2},{"h-team":"Cleveland Cavaliers", "a-team":"Minnesota Timberwolves", "h-pts":103, "a-pts":98, "week":2},{"h-team":"Portland Trailblazers", "a-team":"Boston Celtics", "h-pts":86, "a-pts":94, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":103, "a-pts":102, "week":3},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Dallas Mavericks", "a-team":"Denver Nuggets", "h-pts":83, "a-pts":73, "week":3}, {"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Cleveland Cavaliers", "a-team":"New York Knics", "h-pts":88, "a-pts":87, "week":3}, {"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Brooklyn Nets", "a-team":"Houston Rockets", "h-pts":94, "a-pts":92, "week":3}, {"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Pheonix Suns", "a-team":"Miami Heat", "h-pts":92, "a-pts":91, "week":3},{"h-team":"Chicago Bulls", "a-team":"Memphis Grizzlies", "h-pts":92, "a-pts":83, "week":4},{"h-team":"Oklahoma City Thunder", "a-team":"Minnesota Timberwolves", "h-pts":112, "a-pts":101, "week":4}, {"h-team":"Detroit Pistons", "a-team":"Atlanta Hawks", "h-pts":101, "a-pts":99, "week":4},{"h-team":"Indiana Pacers", "a-team":"Orlando Magic", "h-pts":99, "a-pts":98, "week":4}, {"h-team":"Milwaukee Bucks", "a-team":"Miami Heat", "h-pts":97, "a-pts":94, "week":4} ]';
  
 //comment out cons teams [] and change setItem to getItem('teams');
 

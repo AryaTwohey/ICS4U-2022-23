@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  lang="en" class = "has-background-black has-text-white">
 
 <head>
    <meta charset="UTF-8">
@@ -40,11 +40,19 @@
    i{
    cursor: pointer;
    }
-  
+   table{
+      border-radius: 0px;
+     
+
+   }
+   ul{
+      padding-top: 20px;
+   }
+
   
 </style>
 
-<body>
+<body class = 'has-text-white'>
    <section class="section">
       <span>
          <div class="container">
@@ -61,13 +69,13 @@
             <span>
                <table id="standings" class="table is-striped is-size-5 m-auto ">
                   <thead>
-                     <button onclick="createTable(teams)" class="button is-rounded pagination-link is-current "
+                     <button onclick="createTable(teams)" class="button is-rounded pagination-link is-current has-text-white mt-2 mb-5 "
                         id="leaugeBtn">Display By League</button>
-                     <button onclick="createTableByDivision(teams)" class="button is-rounded pagination-link"
+                     <button onclick="createTableByDivision(teams)" class="button is-rounded pagination-link mt-2 mb-5 "
                         id="divisionBtn">Display By Division</button><span>
 
                      </span><span>
-                        <button class="button is-rounded pagination-link"
+                        <button class="button is-rounded pagination-link has-text-white mt-2 mb-5 "
                         id="divisionBtn"><a href="../html/showScores.html">Display Scores</a></button><span>
                      </span>
                      <tr>
