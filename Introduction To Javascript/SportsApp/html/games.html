@@ -173,35 +173,40 @@
 
         const teams = JSON.parse(localStorage.getItem('teams'));
 
-        const homeTeam= document.querySelector("#val1").value;
+        const homeTeam = document.querySelector("#val1").value;
         const homeScore = document.querySelector("#val2").value;
         const awayTeam = document.querySelector("#val3").value;
         const awayScore = document.querySelector("#val4").value;
 
+    let validHomeTeam = false;
+    let validAwayTeam = false;
 
-      
+    for(let i = 0; i < teams.length;i++){
+        if(teams[i].Name === homeTeam){
+            validHomeTeam = true;
+        }else{
+        validHomeTeam=false;
+    }
+}
+        for(let i = 0; i < teams.length;  i++){
+            if(teams[i].Name === awayTeam){
+                validAwayTeam = true;
+            }else{
+            validAwayTeam = false;
+        }}
 
 
-/*
-        if (winningTeamName === "" || losingTeamName === "" || winningScore === "" || losingScore === "") {
-            alert('Please enter data into all the boxes');
-            location.reload();
+    if(homeTeam === "" || awayTeam==="" || homeScore===""||awayScore===""){
+        alert("Please enter data into all the boxes");
+        location.reload();
+    }
+    else if(validHomeTeam === false || validAwayTeam === false){
+        alert("These teams do not exists");
+        location.reload();
+    }
 
-        }
-        else if (validWinningTeam === false || validLosingTeam === false) {
-            alert('These teams do not exist');
-            location.reload();
-        }
-
-        else if (losingScore > winningScore) {
-            alert('Please enter a valid score for the winning and losing team.');
-            location.reload()
-
-        } else if (losingScore === winningScore) {
-            alert('Scores cannot equal.');
-            location.reload()
-*/
-         if(homeScore > awayScore) {
+    
+     else if(homeScore > awayScore) {
 
          
             const team = teams.filter(team => team.Name === homeTeam)[0];
