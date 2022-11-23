@@ -13,7 +13,7 @@
     rel="stylesheet">
 <link rel="icon" href="../images/nbalogo.png">
 
-<title>Add Game</title>
+<title>Admin</title>
 
 </head>
 <style>
@@ -287,11 +287,7 @@
         localStorage.setItem('teams', JSON.stringify(teams));
 
     }
-
-
-
-
-
+/*
     function verifyTeams(team1, team2) {
         const teams = localStorage.getItem('teams');
 
@@ -311,7 +307,7 @@
             return true;
         }
         return false;
-    }
+    }*/
     function addtoGames(num) {
 
         const winningTeamName = document.querySelector("#val1").value;
@@ -324,11 +320,6 @@
         games.push({ "h-team": "winningTeamName", "a-team": "losingTeamName", "h-points": winningScore, "l-points": losingScore, "week": num });
 
     }
-
-
-
-
-
 
 </script>
 
