@@ -48,6 +48,8 @@
    ul{
       padding-top: 20px;
    }
+   
+ 
 
   
 </style>
@@ -76,7 +78,7 @@
 
                      </span><span>
                         <button class="button is-rounded pagination-link has-text-white mt-2 mb-5 "
-                        id="divisionBtn"><a href="../html/showScores.html">Display Scores</a></button><span>
+                        id="divisionBtn"><a class="has-text-black" href="../html/showScores.html">Display Scores</a></button><span>
                      </span>
                      <tr>
                         <th id="name">Name <span class="icon is-size-6">
@@ -280,6 +282,7 @@
       };
       
       document.querySelector('#divisionBtn').classList.remove('is-current');
+
       document.querySelector('#leaugeBtn').classList.add('is-current');
    }
    function createSecondTable(teams) {
@@ -329,6 +332,7 @@
          tableBody.appendChild(row);
 
          document.querySelector("#paginationTwo").classList.add("is-current");
+
          document.querySelector("#paginationOne").classList.remove("is-current");
          document.querySelector("#paginationThree").classList.remove("is-current");
 
@@ -697,6 +701,8 @@
       };
   
       document.querySelector('#divisionBtn').classList.add('is-current');
+
+
       document.querySelector('#leaugeBtn').classList.remove('is-current');
    }
    function sortHigh(field) {

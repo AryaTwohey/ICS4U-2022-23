@@ -1,125 +1,145 @@
 <!DOCTYPE html>
-<html lang="en" class=  "has-background-black >
+<html lang="en" class="has-background-black >
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Roboto:wght@100&display=swap"
-        rel="stylesheet">
-    <link rel="icon" href="../images/nbalogo.png">
+    <meta charset=" UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Roboto:wght@100&display=swap"
+    rel="stylesheet">
+<link rel="icon" href="../images/nbalogo.png">
 
-    <title>Add Game</title>
+<title>Add Game</title>
 
 </head>
 <style>
-    *{
+    * {
         color: black;
 
     }
-    h1{
+
+    h1 {
         color: white;
     }
-.bothCards{
-    border-radius: 50px;
-}
+
+    .bothCards {
+        border-radius: 50px;
+    }
 </style>
+
 <body>
 
 
     <div class="section" id="test">
-        <div class="container" >
+        <div class="container">
 
             <div class="hero has-text-centered">
                 <h1 class="is-centered is-size-1">Add A Score</h1>
 
             </div>
-<div class="bothCards">
-<div class="card has-text-black">
-    <div class="card-content">
-            <input class="input has-text-centered has-icons-right mt-3" id="val1" type="text"
-                placeholder="Winning Team Name"><span class="is-flex is-justify-content-center">
-                <input class="input has-text-centered has-icons-right mt-3" id="val2" type="text"
-                    placeholder="Losing Team Name"><span class="is-flex is-justify-content-center">
+            <div class="bothCards">
+                <div class="card has-text-black">
+                    <div class="card-content">
+                        <span>
+                            <div>
+                                <span>
+                        <input class="input has-text-centered has-icons-right mt-3" id="val1" type="text"
+                            placeholder="Home Team"></span><span class="is-flex is-justify-content-center"></span>
+                            <input class="input has-text-centered has-icons-right mt-3" id="val2" type="text"
+                            placeholder="Score"></span><span class="is-flex is-justify-content-center"></span>
+                            <input class="input has-text-centered has-icons-right mt-3" id="val3" type="text"
+                            placeholder="Away Team"></span><span class="is-flex is-justify-content-center"></span>
+                            <input class="input has-text-centered has-icons-right mt-3" id="val4" type="text"
+                            placeholder="Score"></span><span class="is-flex is-justify-content-center"></span>
+                            <!--
+                            <span><input class="input has-text-centered has-icons-right mt-3" id="val2" type="text"
+                                placeholder="Score"></span><span class="is-flex is-justify-content-center"></span>
+                            <input class="input has-text-centered has-icons-right mt-3" id="val2" type="text"
+                                placeholder="Away Team"><span class="is-flex is-justify-content-center"><span>
+                                    <input class="input has-text-centered has-icons-right mt-3" id="val2" type="text"
+                                placeholder="Score"><span class="is-flex is-justify-content-center">
+                                </span>
+                            -->
 
 
 
-
-        </div>
-        <center>
-        <div class="dropdown is-hoverable has-text-black">
-            <div class="dropdown-trigger">
-              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                <span>Winning Home of Away</span>
-                <span class="icon is-small">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </div>
-            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-              <div class="dropdown-content">
-                <div class="dropdown-item">
-                  <button onclick = "homeWin();" class = "button is-info">Home</button>
-                  <br>
-                  <br>
-                  <button onclick = "awayWin();" class="button is-info">Away</button>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          </center>
-    </div>
-
-<div class="card">
-    <div class="card-content">
-        <input class="input has-text-centered has-icons-right mt-3" id="val3" type="text"
-            placeholder="Winning Team Score"><span class="is-flex is-justify-content-center">
-            <input class="input has-text-centered has-icons-right mt-3" id="val4" type="text"
-                placeholder="Losing Team Score"><span class="is-flex is-justify-content-center">
-
-                </div>  
-                </div>
-                </div>
-    </div>
-    <div class="card">
-        <div class="card-content">
-            <center>
-                <div class="dropdown is-hoverable has-text-black">
-                    <div class="dropdown-trigger">
-                      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                        <span>WEEK</span>
-                        <span class="icon is-small">
-                          <i class="fas fa-angle-down" aria-hidden="true"></i>
-                        </span>
-                      </button>
                     </div>
-                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-                      <div class="dropdown-content">
-                        <div class="dropdown-item">
-                          <button onclick = "addtoGames(1);" class = "button is-info">1</button>
-                         
-                          <button onclick = "addtoGames(2);" class="button is-info">2</button>
-                          <br>
-                          <br>
-                          <button onclick = "addtoGames(3);" class="button is-info">3</button>
-
-                          <button onclick = "addtoGames(4);"class="button is-info">4</button>
+                    <!--
+                    <center>
+                        <div class="dropdown is-hoverable has-text-black">
+                            <div class="dropdown-trigger">
+                                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                    <span>Winning Home or Away</span>
+                                    <span class="icon is-small">
+                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                                <div class="dropdown-content">
+                                    <div class="dropdown-item">
+                                        <button onclick="homeWin();" class="button is-info">Home</button>
+                                        <br>
+                                        <br>
+                                        <button onclick="awayWin();" class="button is-info">Away</button>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
-                      </div>
-                    </div>
-        
-                  </div>
-                  </center>
-        </div>
-</div></div>
-    </div class="columns">
+                    </center>-->
+                </div>
 <!--
+                <div class="card">
+                    <div class="card-content">
+                        <input class="input has-text-centered has-icons-right mt-3" id="val3" type="text"
+                            placeholder="Winning Team Score"><span class="is-flex is-justify-content-center">
+                            <input class="input has-text-centered has-icons-right mt-3" id="val4" type="text"
+                                placeholder="Losing Team Score"><span class="is-flex is-justify-content-center">
+
+                    </div>
+                </div>-->
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <center>
+                    <div class="dropdown is-hoverable has-text-black">
+                        <div class="dropdown-trigger">
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                <span>WEEK</span>
+                                <span class="icon is-small">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                            <div class="dropdown-content">
+                                <div class="dropdown-item">
+                                    <button onclick="addtoGames(1);" class="button is-info">1</button>
+
+                                    <button onclick="addtoGames(2);" class="button is-info">2</button>
+                                    <br>
+                                    <br>
+                                    <button onclick="addtoGames(3);" class="button is-info">3</button>
+
+                                    <button onclick="addtoGames(4);" class="button is-info">4</button>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </center>
+            </div>
+        </div>
+    </div>
+    </div class="columns">
+    <!--
     <div class="column has-text-centered">
         <button onclick="homeOrAway(true)" class="button mb-3">HOME</button>
     </div>
@@ -153,33 +173,20 @@
 
         const teams = JSON.parse(localStorage.getItem('teams'));
 
-        const winningTeamName = document.querySelector("#val1");
-        const losingTeamName = document.querySelector("#val2");
-        const winningScore = document.querySelector("#val3").value;
-        const losingScore = document.querySelector("#val4").value;
-      let validWinningTeam = true;
-       let validLosingTeam = true;
+        const homeTeam= document.querySelector("#val1").value;
+        const homeScore = document.querySelector("#val2").value;
+        const awayTeam = document.querySelector("#val3").value;
+        const awayScore = document.querySelector("#val4").value;
 
-        for (let i = 0; i < teams.length; i++) {
-         
-            if (teams[i].Name === winningTeamName) {
-               
-                validWinningTeam = true;
-            }
-            
-        }
-        for(let i = 0; i < teams.length; i++){
-            if(teams[i].Name === losingTeamName){
-                validLosingTeam = true;
-            }
-        }
-        
-        
-    
+
+      
+
+
+/*
         if (winningTeamName === "" || losingTeamName === "" || winningScore === "" || losingScore === "") {
             alert('Please enter data into all the boxes');
             location.reload();
-        
+
         }
         else if (validWinningTeam === false || validLosingTeam === false) {
             alert('These teams do not exist');
@@ -189,13 +196,29 @@
         else if (losingScore > winningScore) {
             alert('Please enter a valid score for the winning and losing team.');
             location.reload()
-            
-        }else if (losingScore === winningScore) {
+
+        } else if (losingScore === winningScore) {
             alert('Scores cannot equal.');
             location.reload()
-        
-        } else {
+*/
+         if(homeScore > awayScore) {
 
+         
+            const team = teams.filter(team => team.Name === homeTeam)[0];
+            team.W++;
+            //team.PTS = 44
+            team.PTS = team.PTS += parseInt(homeScore);
+            team.RAT = (team.W + team.L) / 2
+
+            let totalGames = team.W + team.L;
+            let result = (team.W / totalGames) * 100;
+            result = result.toFixed(1);
+            team.PCT = result;
+            team.homeWins++;
+
+
+    
+/*
             const team = teams.filter(team => team.Name === winningTeamName.value)[0];
             team.W++;
             //team.PTS = 44
@@ -206,13 +229,14 @@
             let result = (team.W / totalGames) * 100;
             result = result.toFixed(1);
             team.PCT = result;
-/*
-            if (homeOrAway() === true) {
-                team.homeGames + 1;
-            }
-*/
+            /*
+                        if (homeOrAway() === true) {
+                            team.homeGames + 1;
+                        }
+            */
             //team.PTS =  team.PTS += parseInt(winningScore);
             //team.PTS = +team.PTS + +winningScore;
+            /*
             const team2 = teams.filter(team => team.Name === losingTeamName.value)[0];
             team2.L++;
             //team2.PTS = 55
@@ -222,11 +246,36 @@
             let result2 = (team2.W / totalGames) * 100;
             result2 = result2.toFixed(1);
             team2.PCT = result2;
-/*
-            if (homeOrAway() === true) {
+            /*
+                        if (homeOrAway() === true) {
+            
+                        }
+                        */
+        }
+        else if(homeScore < awayScore){
+            const team = teams.filter(team => team.Name === homeTeam)[0];
+           
+            //team.PTS = 44
+            team.PTS = team.PTS += parseInt(homeScore);
+            team.RAT = (team.W + team.L) / 2
 
-            }
-            */
+            let totalGames = team.W + team.L;
+            let result = (team.W / totalGames) * 100;
+            result = result.toFixed(1);
+            team.PCT = result;
+            
+        }else if(awayScore > homeScore){
+            const team = teams.filter(team => team.Name === awayTeam)[0];
+            team.W++;
+            //team.PTS = 44
+            team.PTS = team.PTS += parseInt(awayScore);
+            team.RAT = (team.W + team.L) / 2
+
+            let totalGames = team.W + team.L;
+            let result = (team.W / totalGames) * 100;
+            result = result.toFixed(1);
+            team.PCT = result;
+            team.awayWins++;
         }
         //team2.PTS = +team2.PTS + +losingScore;
 
@@ -235,56 +284,42 @@
     }
 
 
-    function homeWin() {
-        const winningTeam = document.querySelector("#val1");
-        const teams = JSON.parse(localStorage.getItem('teams'));
 
 
-        const name = teams.filter(team =>team.Name === winningTeam)[0];
 
-        name.homeWins++;
-    }
-    function awayWin(){
-        const winningTeam = document.querySelector("#val1");
-        const teams = JSON.parse(localStorage.getItem('teams'));
-
-        const name = teams.filter(team =>team.Name === winningTeam)[0];
-
-        name.awayWins++;
-    }
-
-    function verifyTeams(team1, team2){
+    function verifyTeams(team1, team2) {
         const teams = localStorage.getItem('teams');
 
         let verified = false;
 
         for (let i = 0; i < teams.length; i++) {
             if (teams[i] === team1) {
-               
+
                 verified = true;
             }
-            if(teams[i] === team2){
+            if (teams[i] === team2) {
                 verified = true;
             }
-            
+
         }
-        if(verified === true){
+        if (verified === true) {
             return true;
         }
         return false;
     }
-    function addtoGames(num){
+    function addtoGames(num) {
 
         const winningTeamName = document.querySelector("#val1").value;
         const losingTeamName = document.querySelector("#val2").value;
         const winningScore = document.querySelector("#val3").value;
         const losingScore = document.querySelector("#val4").value;
-      const games = JSON.parse(localStorage.getItem('gameString'));
 
-      games.push({"h-team":"winningTeamName", "a-team": "losingTeamName", "h-points": "winningScore", "l-points": "losingScore", "week":num});
+        const games = JSON.parse(localStorage.getItem('gameString'));
+
+        games.push({ "h-team": "winningTeamName", "a-team": "losingTeamName", "h-points": winningScore, "l-points": losingScore, "week": num });
 
     }
-   
+
 
 
 
