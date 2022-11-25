@@ -29,6 +29,9 @@
     .bothCards {
         border-radius: 50px;
     }
+    #home-btn{
+        width: 106px;
+    }
 </style>
 
 <body>
@@ -117,7 +120,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                        <div class="dropdown-menu " id="dropdown-menu4" role="menu">
                             <div class="dropdown-content">
                                 <div class="dropdown-item">
                                     <button onclick="addtoGames(1);" class="button is-info">1</button>
@@ -149,7 +152,7 @@
     </div>-->
 
     <center>
-        <button onclick="addScore()" class="button ">
+        <button onclick="addScore()" class="button is-info">
             Add Game
         </button>
     </center>
@@ -161,7 +164,7 @@
     </center>
 
     <center>
-        <button class="button mt-3 is-info ">
+        <button id="home-btn" class="button mt-3 is-info ">
             <a class="has-text-white" href="../html/sportsHomePage.html">Home</a>
         </button>
     </center>

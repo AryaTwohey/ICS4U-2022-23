@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  lang="en" class = "has-background-black has-text-white">
+<html  lang="en" class = "has-text-black">
 
 <head>
    <meta charset="UTF-8">
@@ -54,7 +54,7 @@
   
 </style>
 
-<body class = 'has-text-white'>
+<body>
    <section class="section">
       <span>
          <div class="container">
@@ -71,7 +71,7 @@
             <span>
                <table id="standings" class="table is-striped is-size-5 m-auto ">
                   <thead>
-                     <button onclick="createTable(teams)" class="button is-rounded pagination-link is-current has-text-white mt-2 mb-5 "
+                     <button onclick="createTable(teams)" class="button is-rounded pagination-link is-current  mt-2 mb-5 "
                         id="leaugeBtn">Display By League</button>
                      <button onclick="createTableByDivision(teams)" class="button is-rounded pagination-link mt-2 mb-5 "
                         id="divisionBtn">Display By Division</button><span>
@@ -755,38 +755,7 @@
       createTable(teams);
    }
 
-   function addScore() {
-      const winningTeamName = document.querySelector("#team1");
-      const losingTeamName = document.querySelector("#team2");
-      const winningScore = document.querySelector("#wScore");
-      const losingScore = document.querySelector("#lScore");
-
-
-      if (winningTeamName.value === "" || losingTeamName.value === "" || winningScore.value === "") {
-         alert("Please Enter Data Into All The Boxes");
-      }
-      /*Some Weird Bug Here*/
-      //const losingScore = document.querySelector("#lscore")
-      else {
-         for (let i = 0; i < teams.length; i++) {
-
-
-            if (teams[i].Name === winningTeamName.value) {
-               teams[i].W + 1;
-                teams[i].PTS + parseInt(winningScore.value);
-                
-                createTable(teams);
-               if(teams[i].Name === losingTeamName.value){
-                  teams[i].L + 1;
-                  teams[i].PTS + parseInt(losingScore.value);
-                  createTable(teams);
-               }
-            
-               //teams[i].RAT = (teams[i].W + teams[i].L)/2; 
-            }
-         }
-      }
-   }
+  
 
 
 
