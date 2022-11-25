@@ -48,6 +48,13 @@
    ul{
       padding-top: 20px;
    }
+   #scoreBtn{
+      width: 179px;
+   }
+   #paginate{
+      position: sticky;
+      margin-right: 200px;
+   }
    
  
 
@@ -78,7 +85,7 @@
 
                      </span><span>
                         <button class="button is-rounded pagination-link has-text-white mt-2 mb-5 "
-                        id="divisionBtn"><a class="has-text-black" href="../html/showScores.html">Display Scores</a></button><span>
+                        id="scoreBtn"><a class="has-text-black" href="../html/showScores.html">Display Scores</a></button><span>
                      </span>
                      <tr>
                         <th id="name">Name <span class="icon is-size-6">
@@ -177,16 +184,24 @@
          </table>
 
          <nav class="pagination is-rounded is-centered is-size-4 m-auto" id="pg-btns" role="navigation" aria-label="pagination">
+            <a class="pagination-previous is-size-6" title="This is the first page">Previous</a>
 
-            <ul class="pagination-list is-centered">
+            <ul id="paginate" class="pagination-list is-centered ">               
+
+
+
                <li><a onclick="createTable(teams)" id="paginationOne" class="pagination-link is-current is-rounded"
-                     aria-label="Page 1" aria-current="page">1</a></li>
+                     aria-label="Page 1" aria-current="page">1</a></li></span>
                <li><a onclick="createSecondTable(teams)" id="paginationTwo" class="pagination-link is-rounded"
                      aria-label="Goto page 2">2</a></li>
                <li><a onclick="createThirdTable(teams)" id="paginationThree" class="pagination-link is-rounded"
                      aria-label="Goto page 3">3</a></li>
+
             </ul>
+            <a class="pagination-previous is-size-6 " title="This is the first page">Next Page</a>
+
          </nav>
+
       </span>
       </div>
       </div>
@@ -246,7 +261,7 @@
          let cell = document.createElement('td');
          let link = document.createElement('a');
         link.textContent = team.Name;
-         link.href = 'team.html?id=0';
+         link.href = 'team.html?id='+ team.id;
          cell.append(link);
          row.appendChild(cell);
          cell = document.createElement('td');
@@ -297,7 +312,7 @@
          let cell = document.createElement('td');
          let link = document.createElement('a');
          link.textContent = team.Name;
-         link.href = 'team.html?id=0';
+         link.href = 'team.html?id='+ team.id;
          cell.append(link);
 
         // cell.textContent = team.Name;
@@ -353,7 +368,7 @@
          let cell = document.createElement('td');
          let link = document.createElement('a');
          link.textContent = team.Name;
-         link.href = 'team.html?id=0';
+         link.href = 'team.html?id='+ team.id;
          cell.append(link);
        //  cell.textContent = team.Name;
          row.appendChild(cell);
