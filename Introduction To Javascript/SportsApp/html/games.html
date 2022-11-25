@@ -178,8 +178,8 @@
         const awayTeam = document.querySelector("#val3").value;
         const awayScore = document.querySelector("#val4").value;
 
-    let validHomeTeam = false;
-    let validAwayTeam = false;
+    let validHomeTeam = true;
+    let validAwayTeam = true;
 
     for(let i = 0; i < teams.length;i++){
         if(teams[i].Name === homeTeam){
@@ -200,10 +200,11 @@
         alert("Please enter data into all the boxes");
         location.reload();
     }
+    /*
     else if(validHomeTeam === false || validAwayTeam === false){
         alert("These teams do not exists");
         location.reload();
-    }
+    }*/
 
     
      else if(homeScore > awayScore) {
@@ -310,14 +311,16 @@
     }*/
     function addtoGames(num) {
 
-        const winningTeamName = document.querySelector("#val1").value;
-        const losingTeamName = document.querySelector("#val2").value;
-        const winningScore = document.querySelector("#val3").value;
-        const losingScore = document.querySelector("#val4").value;
+        const homeTeamName = document.querySelector("#val1").value;
+        const homeScore = parseInt(document.querySelector("#val2").value);
+        const awayTeamName = document.querySelector("#val3").value;
+        const awayScore = parseInt(document.querySelector("#val4").value)   ;
+
 
         const games = JSON.parse(localStorage.getItem('gameString'));
 
-        games.push({ "h-team": "winningTeamName", "a-team": "losingTeamName", "h-points": winningScore, "l-points": losingScore, "week": num });
+  
+        games.push({ "h-team": homeTeamName, "a-team": awayTeamName, "h-pts": homeScore, "a-pts":awayScore, "week": num });
 
     }
 
