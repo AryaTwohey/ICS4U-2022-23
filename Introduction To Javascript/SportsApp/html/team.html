@@ -21,13 +21,18 @@
         color: white;
         
        }
+       #test{
+        font-family: "Nunito";
+       }
     </style>
 </head>
-<body>
+<body onload="start();">
     <section class="section">
-        <div class="container ">
-            <div class="content has-text-centered">
-            <div class="hero is-size-1">Team Scores</div>
+        <div class="container has-text-centered ">
+           <div id = "test" class = "hero is-size-1 "></div>
+           <div id="gameContent">
+
+           </div>
         </div>
         </div>
     </section>
@@ -35,6 +40,48 @@
 </body>
 <script>
     
+   function start() {
+
+      const dataString = localStorage.getItem('teams');
+      const teams = JSON.parse(dataString);
+      let params = (new URL(document.location)).searchParams;
+
+      const team = teams.filter(team => team.id == params.get('id'));
+
+      document.querySelector('#test').textContent = team[0].Name;
+
+   }
+
+   function displayTeamGames(){
+    
+    const dataString = localStorage.getItem('teams');
+      const teams = JSON.parse(dataString);
+
+      let params = (new URL(document.location)).searchParams;
+
+      const team = teams.filter(team => team.id == params.get('id'));
+      const gameCard = document.createElement('div');
+
+      const homeTeam = document.createElement('h1');
+      const awayTeam = document.createElement('h1');
+      const homeScore = document.createElement('h1');
+      const awayScore = document.createElement('h1');
+
+    //   homeTeam.textContent = team.games.home;
+    //   awayTeam.textContent = team.games.away;
+    //   homeScore.textContent = team.games.homeScore;
+    //   awayScore.textContent = team.games.awayScore;
+
+      gameCard.appendChild(homeTeam);
+      gameCard.appendChild(awayTeam);
+      gameCard.appendChild(homeScore);
+      gameCard.appendChild(awayScore);
+
+
+        document.querySelector('#gameContent').appendChild(gameCard)
+
+   }
+   displayTeamGames();
 
 </script>
 </html>
