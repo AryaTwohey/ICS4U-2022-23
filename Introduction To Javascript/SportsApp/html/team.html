@@ -31,6 +31,7 @@
         <div class="container has-text-centered ">
            <div id = "test" class = "hero is-size-1 "></div>
            <div id="gameContent">
+            
 
            </div>
         </div>
@@ -49,7 +50,32 @@
       const team = teams.filter(team => team.Id == params.get('id'));
     
       document.querySelector('#test').textContent = team[0].Name;
+   
 
+      const card= document.createElement('div');
+
+    card.classList.add('card', 'is-size-5', 'card-');
+
+   const home= document.createElement('h1')
+   const homeScore = document.createElement('h1')
+
+    const away = document.createElement('h1')
+    const awayScore = document.createElement('h1')
+
+    for(let i = 0; i < teams.length; i++){
+    home.textContent = team[0].games[i].home;
+    away.textContent = team[0].games[i].away;
+    homeScore.textContent = team[0].games[i].homeScore;
+    awayScore.textContent = team[0].games[i].awayScore;
+
+    card.appendChild(home);
+    card.appendChild(homeScore);
+     card.appendChild(away);
+     card.appendChild(awayScore);
+
+    document.querySelector('#gameContent').appendChild(card);
+
+    }
 
    }
 /*
