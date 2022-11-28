@@ -291,42 +291,8 @@
         localStorage.setItem('teams', JSON.stringify(teams));
 
     }
-/*
-    function verifyTeams(team1, team2) {
-        const teams = localStorage.getItem('teams');
-
-        let verified = false;
-
-        for (let i = 0; i < teams.length; i++) {
-            if (teams[i] === team1) {
-
-                verified = true;
-            }
-            if (teams[i] === team2) {
-                verified = true;
-            }
-
-        }
-        if (verified === true) {
-            return true;
-        }
-        return false;
-    }*/
-    function addtoGames(weekNumber) {
-
-        const homeTeamName = document.querySelector("#val1").value;
-        const homeScore = parseInt(document.querySelector("#val2").value);
-        const awayTeamName = document.querySelector("#val3").value;
-        const awayScore = parseInt(document.querySelector("#val4").value)   ;
-
-        const games = JSON.parse(localStorage.getItem('gameString'));
 
 
-        games.push({ "h-team": homeTeamName, "a-team": awayTeamName, "h-pts": homeScore, "a-pts":awayScore, "week": weekNumber });
-        localStorage.setItem('gameString',JSON.stringify(games));
-
-   
-    }
 
 </script>
 
