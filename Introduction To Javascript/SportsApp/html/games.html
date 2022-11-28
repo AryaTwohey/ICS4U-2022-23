@@ -286,11 +286,20 @@
             team.PCT = result;
             team.awayWins++;
         }
+        const team1 = teams.filter(team => team.Name === homeTeam)
+        const team2 = teams.filter(team => team.Name === awayTeam);
+
+        team1[0].games.push({"home": homeTeam, "away": awayTeam, "homeScore": homeScore, "awayScore": awayScore});
+        team2[0].games.push({"home": homeTeam, "away": awayTeam, "homeScore": homeScore, "awayScore": awayScore});
+
+
         //team2.PTS = +team2.PTS + +losingScore;
 
         localStorage.setItem('teams', JSON.stringify(teams));
 
     }
+
+  
 
 
 

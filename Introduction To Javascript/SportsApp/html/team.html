@@ -51,31 +51,32 @@
 
    function start() {
 
+     
       const dataString = localStorage.getItem('teams');
-
       const teams = JSON.parse(dataString);
-
       let params = (new URL(document.location)).searchParams;
 
-      const team = teams.filter(team => team.Id == params.get('id'));
+      const team = teams.filter(team => team.id == params.get('id'))[0];
 
-      document.querySelector('#test').textContent = team[0].Name;
 
-      const card = document.createElement('div');
+      document.querySelector('#test').textContent = team.Name;
 
-      card.classList.add('card', 'is-size-5', 'card-');
+      
+
+      for (let i = 0; i < team.games.length; i++) {
+         const card = document.createElement('div');
+
+      card.classList.add('card', 'is-size-5');
 
       const home = document.createElement('h1')
       const homeScore = document.createElement('h1')
 
       const away = document.createElement('h1')
       const awayScore = document.createElement('h1')
-
-      for (let i = 0; i < teams.length; i++) {
-         home.textContent = team[0].games[i].home;
-         away.textContent = team[0].games[i].away;
-         homeScore.textContent = team[0].games[i].homeScore;
-         awayScore.textContent = team[0].games[i].awayScore;
+         home.textContent = team.games[i].home;
+         away.textContent = team.games[i].away;
+         homeScore.textContent = team.games[i].homeScore;
+         awayScore.textContent = team.games[i].awayScore;
 
          card.appendChild(home);
          card.appendChild(homeScore);
