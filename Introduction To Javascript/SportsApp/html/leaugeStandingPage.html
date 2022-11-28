@@ -51,25 +51,25 @@
    #scoreBtn{
       width: 179px;
    }
-   #paginate{
-      position: sticky;
-      margin-right: 200px;
+
+   #title{
+      width: 350px;
+      
    }
-   
  
 
   
 </style>
 
 <body>
-   <section class="section">
+   <section class="section is-mobile">
       <span>
          <div class="container">
             <div class="hero">
 
-               <h1 class="is-size-3 is-bold"> <button href="../html/sportsHomePage.html" class="button is-size-6"><a
+               <h1 id="title" class="is-size-3 is-bold"> <button href="../html/sportsHomePage.html" class="button is-size-6"><a
                         href="../html/sportsHomePage.html"><span class="icon is-size-5">
-                           <i class="fa-solid fa-arrow-left"></i></a></button> NBA Standings Page</h1>
+                           <i  id = "title-btn" class="fa-solid fa-arrow-left"></i></a></button> NBA Standings Page</h1>
                <br>
             </div>
 
@@ -184,9 +184,8 @@
          </table>
 
          <nav class="pagination is-rounded is-centered is-size-4 m-auto" id="pg-btns" role="navigation" aria-label="pagination">
-            <a class="pagination-previous is-size-6" title="This is the first page">Previous</a>
 
-            <ul id="paginate" class="pagination-list is-centered ">               
+            <ul id="paginate" class="pagination-list is-centered m-auto">               
 
 
 
@@ -198,7 +197,6 @@
                      aria-label="Goto page 3">3</a></li>
 
             </ul>
-            <a class="pagination-previous is-size-6 " title="This is the first page">Next Page</a>
 
          </nav>
 
