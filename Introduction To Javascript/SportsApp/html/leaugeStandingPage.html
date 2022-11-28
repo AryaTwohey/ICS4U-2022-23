@@ -259,7 +259,7 @@ localStorage.setItem('teams', JSON.stringify(teams));
          const row = document.createElement('tr');
          let cell = document.createElement('td');
          let link = document.createElement('a');
-        link.textContent = team.Name;
+         link.textContent = team.Name;
          link.href = 'team.html?id='+ team.id;
          cell.append(link);
          row.appendChild(cell);
