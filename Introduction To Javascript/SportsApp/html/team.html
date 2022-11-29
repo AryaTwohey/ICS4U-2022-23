@@ -28,13 +28,18 @@
       #test {
          font-family: "Nunito";
       }
+      .boldFont{
+         font-weight: bolder;
+      
+      }
+      
    </style>
 </head>
 
 <body onload="start();">
    <section class="section">
       <div class="container has-text-centered ">
-         <button class="button is-flex is-justify-content-flex-start"><a class = "has-text-black" href="../html/leaugeStandingPage.html">Standings</a></button>
+         <button class="button is-flex is-justify-content-flex-start "><a class = "has-text-black" href="../html/leaugeStandingPage.html">Standings</a></button>
 
          <div id="test" class="hero is-size-1 ">
          </div>
@@ -66,7 +71,8 @@
       for (let i = 0; i < team.games.length; i++) {
          const card = document.createElement('div');
 
-      card.classList.add('card', 'is-size-5', 'mb-6', 'mt-3');
+
+      card.classList.add('card', 'is-size-4', 'mb-4', 'mt-6');
 
       const home = document.createElement('h1')
       const homeScore = document.createElement('h1')
@@ -78,6 +84,9 @@
          homeScore.textContent = team.games[i].homeScore;
          awayScore.textContent = team.games[i].awayScore;
 
+         homeScore.classList.add('boldFont')
+         awayScore.classList.add('boldFont');
+
          card.appendChild(home);
          card.appendChild(homeScore);
          card.appendChild(away);
@@ -88,38 +97,6 @@
       }
 
    }
-/*
-      function displayTeamGames(){
-       
-       const dataString = localStorage.getItem('teams');
-         const teams = JSON.parse(dataString);
-   
-         let params = (new URL(document.location)).searchParams;
-   
-         const team = teams.filter(team => team.id == params.get('id'));
-         const gameCard = document.createElement('div');
-   
-         const homeTeam = document.createElement('h1');
-         const awayTeam = document.createElement('h1');
-         const homeScore = document.createElement('h1');
-         const awayScore = document.createElement('h1');
-   
-       //   homeTeam.textContent = team.games.home;
-       //   awayTeam.textContent = team.games.away;
-       //   homeScore.textContent = team.games.homeScore;
-       //   awayScore.textContent = team.games.awayScore;
-   
-         gameCard.appendChild(homeTeam);
-         gameCard.appendChild(awayTeam);
-         gameCard.appendChild(homeScore);
-         gameCard.appendChild(awayScore);
-   
-   
-           document.querySelector('#gameContent').appendChild(gameCard)
-   
-      }
-      displayTeamGames();
-      */
 
 </script>
 

@@ -59,17 +59,45 @@
       width: 350px;
 
    }
+   #leaugeBtn{
+         width: 120px;
+
+      }
+      #scoreBtn{
+         width: 120px;
+      }
+      #divisionBtn{
+         width: 120px;
+      }
+      #adminBtn{
+         width: 120px;
+      }
+   @media (max-width: 680px) {
+      #leaugeBtn{
+         width: 61px;
+
+      }
+      #scoreBtn{
+         width: 61px;
+      }
+      #divisionBtn{
+         width: 61px;
+      }
+      #adminBtn{
+         width: 61px;
+      }
+   }
 </style>
 
 <body>
    <section class="section is-mobile">
       <span>
          <div class="container">
-            <div class="hero">
-
-               <h1 id="title" class="is-size-3 is-bold"> <button href="../html/sportsHomePage.html"
-                     class="button is-size-6"><a href="../html/sportsHomePage.html"><span class="icon is-size-5">
-                           <i id="title-btn" class="fa-solid fa-arrow-left"></i></a></button> NBA Standings Page</h1>
+            <div class="hero has-background-info has-text-white">
+         <!--Removed the home page-->
+               <h1 id="title" class="is-size-3 is-bold has-background-info ml-3 mt-3"><button href=""
+                     class="button is-size-6"><a href=""><span class="icon is-size-5">
+                           <i id="title-btn" class="fa-solid fa-arrow-left ml-3 mt-3"></i></a></button> NBA Standings Page</h1>
                <br>
             </div>
 
@@ -79,14 +107,15 @@
                <table id="standings" class="table is-striped is-size-5 m-auto ">
                   <thead>
                      <button onclick="createTable(teams)"
-                        class="button is-rounded pagination-link is-current  mt-2 mb-5 " id="leaugeBtn">Display By
-                        League</button>
+                        class="button is-rounded pagination-link is-current  mt-2 mb-5 " id="leaugeBtn">League</button>
                      <button onclick="createTableByDivision(teams)" class="button is-rounded pagination-link mt-2 mb-5 "
-                        id="divisionBtn">Display By Division</button><span>
+                        id="divisionBtn">Division</button><span>
 
                      </span><span>
                         <button class="button is-rounded pagination-link has-text-white mt-2 mb-5 " id="scoreBtn"><a
-                              class="has-text-black" href="../html/showScores.html">Display Scores</a></button><span>
+                              class="has-text-black" href="../html/showScores.html">Scores</a></button><span>
+                                 <button class="button is-rounded pagination-link mt-2 mb-5 "
+                                 id="adminBtn"><a href="../html/games.html">Admin</a></button><span>
                         </span>
                         <tr>
                            <th id="name">Name <span class="icon is-size-6">
@@ -406,41 +435,7 @@
 
       };
    }
-   /*
-   teams.forEach((team) => {
-      const row = document.createElement('tr');
-      let cell = document.createElement('td');
-      cell.textContent = team.Name;
-      row.appendChild(cell);
-      cell = document.createElement('td');
-      cell.textContent = team.W;
-      row.appendChild(cell);
-      cell = document.createElement('td');
-      cell.textContent = team.L;
-      row.appendChild(cell);
-      cell = document.createElement('td');
-      cell.textContent = team.PTS;
-      row.appendChild(cell);
-      tableBody.appendChild(row);
-      cell = document.createElement('td');
-      cell.textContent = team.RAT;
-      row.appendChild(cell);
-      tableBody.appendChild(row);
-      cell = document.createElement('td');
-      cell.textContent = team.homeWins;
-      row.appendChild(cell);
-      tableBody.appendChild(row);
-      cell = document.createElement('td');
-      cell.textContent = team.awayWins;
-      row.appendChild(cell);
-      tableBody.appendChild(row);
-      cell = document.createElement('td');
-      cell.textContent = team.PCT;
-      row.appendChild(cell);
-      tableBody.appendChild(row);
-   });
- 
-*/
+
    function createTableByDivision(teams) {
 
 

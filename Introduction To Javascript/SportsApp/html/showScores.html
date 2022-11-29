@@ -67,22 +67,29 @@
         padding-left: 10px;
         padding-right: 10px;
     }
+    @media (max-width: 680px) {
+        .title{
+            text-align: center;
+            color: white;
+          
+        }
+   }
     
 </style>
 <body onload = "start()">
 <section class="section">
-
+<div class="title">
   <div class="hero has-background-info mb-3">
-    <h1 class = 'is-size-1 pl-3 m-3'>NBA Scores</h1>
+    <h1 class = 'is-size-1 pl-3 m-3 has-text-white'>NBA Scores</h1>
 
     <div>
         <div class = 'ml-5 mb-5'>
     <button class = "button" id="navBtn"><a id = "nav" class = "has-text-black" href="../html/leaugeStandingPage.html">Standings</a></button>
 
-    <button class="button " id="navBtn"><a id="nav" class = "has-text-black" href="../html/sportsHomePage.html">Home</a></button>
 
     <button class="button " id="navBtn"><a id="nav" class = "has-text-black" href="../html/showScores.html">Scores</a></button>
     </div>
+</div>
 </div>
 </div>
 

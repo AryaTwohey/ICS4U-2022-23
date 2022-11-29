@@ -80,55 +80,10 @@
                             placeholder="Away Team"></span><span class="is-flex is-justify-content-center"></span>
                             <input class="input has-text-centered has-icons-right mt-3" id="val4" type="text"
                             placeholder="Score"></span><span class="is-flex is-justify-content-center"></span>
-                            
-                            <!--
-                            <span><input class="input has-text-centered has-icons-right mt-3" id="val2" type="text"
-                                placeholder="Score"></span><span class="is-flex is-justify-content-center"></span>
-                            <input class="input has-text-centered has-icons-right mt-3" id="val2" type="text"
-                                placeholder="Away Team"><span class="is-flex is-justify-content-center"><span>
-                                    <input class="input has-text-centered has-icons-right mt-3" id="val2" type="text"
-                                placeholder="Score"><span class="is-flex is-justify-content-center">
-                                </span>
-                            -->
-
-
-
                     </div>
-                    <!--
-                    <center>
-                        <div class="dropdown is-hoverable has-text-black">
-                            <div class="dropdown-trigger">
-                                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                                    <span>Winning Home or Away</span>
-                                    <span class="icon is-small">
-                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                    </span>
-                                </button>
-                            </div>
-                            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-                                <div class="dropdown-content">
-                                    <div class="dropdown-item">
-                                        <button onclick="homeWin();" class="button is-info">Home</button>
-                                        <br>
-                                        <br>
-                                        <button onclick="awayWin();" class="button is-info">Away</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </center>-->
+           
                 </div>
-<!--
-                <div class="card">
-                    <div class="card-content">
-                        <input class="input has-text-centered has-icons-right mt-3" id="val3" type="text"
-                            placeholder="Winning Team Score"><span class="is-flex is-justify-content-center">
-                            <input class="input has-text-centered has-icons-right mt-3" id="val4" type="text"
-                                placeholder="Losing Team Score"><span class="is-flex is-justify-content-center">
 
-                    </div>
-                </div>-->
             </div>
         </div>
         <div class="card">
@@ -202,17 +157,17 @@
         const awayTeam = document.querySelector("#val3").value;
         const awayScore = document.querySelector("#val4").value;
 
-    let validHomeTeam = true;
-    let validAwayTeam = true;
+    let validHomeTeam = false;
+    let validAwayTeam = false;
 
-    for(let i = 0; i < teams.length;i++){
+    for(let i = 0; validHomeTeam === true;i++){
         if(teams[i].Name === homeTeam){
             validHomeTeam = true;
         }else{
         validHomeTeam=false;
     }
 }
-        for(let i = 0; i < teams.length;  i++){
+        for(let i = 0; validAwayTeam === true;  i++){
             if(teams[i].Name === awayTeam){
                 validAwayTeam = true;
             }else{
@@ -227,11 +182,7 @@
 
         
     }
-    /*
-    else if(validHomeTeam === false || validAwayTeam === false){
-        alert("These teams do not exists");
-        location.reload();
-    }*/
+    
     else if(homeScore < 0 || awayScore < 0){
         document.querySelector('#errorBox').textContent = '';
 
@@ -243,6 +194,13 @@
 
         document.querySelector('#errorBox').textContent = 'Scores cannot equal';
         }
+    
+        else if(validAwayTeam === false || validHomeTeam === false){
+            document.querySelector('#errorBox').textContent = '';
+
+document.querySelector('#errorBox').textContent = 'Error: Please enter valid teams';
+        }
+        
 
     
      else if(homeScore > awayScore) {
