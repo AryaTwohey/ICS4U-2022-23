@@ -32,6 +32,10 @@
     #home-btn{
         width: 106px;
     }
+    #btn{
+        width: 100px;
+        text-align: center;
+    }
 </style>
 
 <body>
@@ -40,10 +44,33 @@
     <div class="section" id="test">
         <div class="container">
 
-            <div class="hero has-text-centered">
-                <h1 class="is-centered is-size-1">Add A Score</h1>
+            <div class="hero">
+                <div class = ' has-background-info mb-3'>
+                <h1 class = 'is-size-1 pl-3 m-3'>NBA Scores</h1>
+                <span>
+                <nav class="pl-3 m-3" >
+                    <button id="btn" class="button mt-3   ">
+                        <a class="has-text-black" href="../html/leaugeStandingPage.html">Standings</a>
+                    </button>
+                    <button id="btn" class="button mt-3   ">
+                        <a class="has-text-black" href="../html/showScores.html">Scores</a>
+                    </button>
+                </nav>
+                </span>
+                </div>
+                <h1 class="is-centered is-size-1 has-text-centered">Add a Game</h1>
 
             </div>
+            <!---
+            <article class="message">
+                <div class="message-header">
+                  <p></p>
+                  <button class="delete" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
+                </div>
+              </article>
+            -->
             <div class="bothCards">
                 <div class="card has-text-black">
                     <div class="card-content">
@@ -58,6 +85,7 @@
                             placeholder="Away Team"></span><span class="is-flex is-justify-content-center"></span>
                             <input class="input has-text-centered has-icons-right mt-3" id="val4" type="text"
                             placeholder="Score"></span><span class="is-flex is-justify-content-center"></span>
+                            
                             <!--
                             <span><input class="input has-text-centered has-icons-right mt-3" id="val2" type="text"
                                 placeholder="Score"></span><span class="is-flex is-justify-content-center"></span>
@@ -139,6 +167,13 @@
                     </div>
                 </center>
             </div>
+           
+            <center>
+                
+                <button onclick="addScore()" class="button is-info mb-3">
+                    Add Game
+                </button>
+            </center>
         </div>
     </div>
     </div class="columns">
@@ -150,25 +185,16 @@
         <button onclick="homeOrAway(false)" class="button mb-3">AWAY</button>
     </div>
     </div>-->
-
+<!--
     <center>
         <button onclick="addScore()" class="button is-info">
             Add Game
         </button>
     </center>
 
-    <center>
-        <button class="button mt-3 is-info ">
-            <a class="has-text-white" href="../html/leaugeStandingPage.html">Standings</a>
-        </button>
-    </center>
+-->
 
-    <center>
-        <button id="home-btn" class="button mt-3 is-info ">
-            <a class="has-text-white" href="../html/sportsHomePage.html">Home</a>
-        </button>
-    </center>
-
+   
 </body>
 <script>
     //const teams = JSON.parse(localStorage.getItem('teams'));
@@ -208,6 +234,15 @@
         alert("These teams do not exists");
         location.reload();
     }*/
+    else if(homeScore < 0 || awayScore < 0){
+            alert('Please enter valid numbers');
+            location.reload();
+
+        }
+        else if(homeScore === awayScore){
+            alert('Scores cannot equal');
+            location.reload()
+        }
 
     
      else if(homeScore > awayScore) {
