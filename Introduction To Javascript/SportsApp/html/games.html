@@ -36,6 +36,7 @@
         width: 100px;
         text-align: center;
     }
+    
 </style>
 
 <body>
@@ -65,7 +66,7 @@
             <div class="bothCards">
                 <div class="card has-text-black">
                     <div class="card-content">
-                        <div id="errorBox" class= "has-text-white has-background-danger is-size-3 ">
+                        <div id="errorBox" class= "has-text-white has-background-danger is-size-3  ">
 
                         </div>
                         <span>
@@ -222,7 +223,7 @@
     if(homeTeam === "" || awayTeam==="" || homeScore===""||awayScore===""){
      const del = document.createElement('button');
         del.classList.add('delete')
-        document.querySelector('#errorBox').textContent = 'Please Enter Data Into All The Boxes'
+        document.querySelector('#errorBox').textContent = 'Error: Please Enter Values Into All The Boxes'
 
         
     }
@@ -234,13 +235,13 @@
     else if(homeScore < 0 || awayScore < 0){
         document.querySelector('#errorBox').textContent = '';
 
-        document.querySelector('#errorBox').textContent = 'Please Enter Valid Scores Into All The Boxes';
+        document.querySelector('#errorBox').textContent = 'Error: Please Enter Valid Scores Into All The Boxes';
 
         }
         else if(homeScore === awayScore){
             document.querySelector('#errorBox').textContent = '';
 
-        document.querySelector('#errorBox').textContent = 'Scores';
+        document.querySelector('#errorBox').textContent = 'Scores cannot equal';
         }
 
     
