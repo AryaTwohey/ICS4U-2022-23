@@ -120,107 +120,63 @@
 </section>
 </body>
 <script>
-    /*CODE FOR INITIALIZATION*/
-    //code for initialization
- /*   
-const gameString = '[{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Los Angles Lakers", "a-team":"Washignton Wizards", "h-pts":102, "a-pts":88, "week":1},{"h-team":"Memphis Grizzles", "a-team":"Denver Nuggets", "h-pts":99, "a-pts":77, "week":1},{"h-team":"Los Angles Clippers", "a-team":"Miluake Bucks", "h-pts":85, "a-pts":78, "week":1},{"h-team":"Brooklyn Nets", "a-team":"Atlanta Hawks", "h-pts":83, "a-pts":82, "week":2},{"h-team":"Cleveland Cavaliers", "a-team":"Minnesota Timberwolves", "h-pts":103, "a-pts":98, "week":2},{"h-team":"Portland Trailblazers", "a-team":"Boston Celtics", "h-pts":86, "a-pts":94, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":103, "a-pts":102, "week":3},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Dallas Mavericks", "a-team":"Denver Nuggets", "h-pts":83, "a-pts":73, "week":3}, {"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Cleveland Cavaliers", "a-team":"New York Knics", "h-pts":88, "a-pts":87, "week":3}, {"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Brooklyn Nets", "a-team":"Houston Rockets", "h-pts":94, "a-pts":92, "week":3}, {"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Pheonix Suns", "a-team":"Miami Heat", "h-pts":92, "a-pts":91, "week":3},{"h-team":"Chicago Bulls", "a-team":"Memphis Grizzlies", "h-pts":92, "a-pts":83, "week":4},{"h-team":"Oklahoma City Thunder", "a-team":"Minnesota Timberwolves", "h-pts":112, "a-pts":101, "week":4}, {"h-team":"Detroit Pistons", "a-team":"Atlanta Hawks", "h-pts":101, "a-pts":99, "week":4},{"h-team":"Indiana Pacers", "a-team":"Orlando Magic", "h-pts":99, "a-pts":98, "week":4}, {"h-team":"Milwaukee Bucks", "a-team":"Miami Heat", "h-pts":97, "a-pts":94, "week":4} ]';
- 
-//comment out cons teams [] and change setItem to getItem('teams');
-
-
- //  const dataString = localStorage.setItem('games',games);
-   games = JSON.parse(gameString);
-
-
-   localStorage.setItem('gameString', JSON.stringify(games));
-
-/*
-    /*CODE FOR MAINTAINING*/
-
-//code for maintaining
-/*MAINTAIN*/
+  
 //gamesString = '[{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Los Angles Lakers", "a-team":"Washignton Wizards", "h-pts":102, "a-pts":88, "week":1},{"h-team":"Memphis Grizzles", "a-team":"Denver Nuggets", "h-pts":99, "a-pts":77, "week":1},{"h-team":"Los Angles Clippers", "a-team":"Miluake Bucks", "h-pts":85, "a-pts":78, "week":1},{"h-team":"Brooklyn Nets", "a-team":"Atlanta Hawks", "h-pts":83, "a-pts":82, "week":2},{"h-team":"Cleveland Cavaliers", "a-team":"Minnesota Timberwolves", "h-pts":103, "a-pts":98, "week":2},{"h-team":"Portland Trailblazers", "a-team":"Boston Celtics", "h-pts":86, "a-pts":94, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":103, "a-pts":102, "week":3},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Dallas Mavericks", "a-team":"Denver Nuggets", "h-pts":83, "a-pts":73, "week":3}, {"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Cleveland Cavaliers", "a-team":"New York Knics", "h-pts":88, "a-pts":87, "week":3}, {"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Brooklyn Nets", "a-team":"Houston Rockets", "h-pts":94, "a-pts":92, "week":3}, {"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Pheonix Suns", "a-team":"Miami Heat", "h-pts":92, "a-pts":91, "week":3},{"h-team":"Chicago Bulls", "a-team":"Memphis Grizzlies", "h-pts":92, "a-pts":83, "week":4},{"h-team":"Oklahoma City Thunder", "a-team":"Minnesota Timberwolves", "h-pts":112, "a-pts":101, "week":4}, {"h-team":"Detroit Pistons", "a-team":"Atlanta Hawks", "h-pts":101, "a-pts":99, "week":4},{"h-team":"Indiana Pacers", "a-team":"Orlando Magic", "h-pts":99, "a-pts":98, "week":4}, {"h-team":"Milwaukee Bucks", "a-team":"Miami Heat", "h-pts":97, "a-pts":94, "week":4} ]';
-//const gamesString = localStorage.getItem('gameString');
+const gamesString = localStorage.getItem('gameString'); //grab the games from localStorage
 
-//games = JSON.parse(gamesString);
-/*INIT*/
-//gamesString = '[{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Los Angles Lakers", "a-team":"Washignton Wizards", "h-pts":102, "a-pts":88, "week":1},{"h-team":"Memphis Grizzles", "a-team":"Denver Nuggets", "h-pts":99, "a-pts":77, "week":1},{"h-team":"Los Angles Clippers", "a-team":"Miluake Bucks", "h-pts":85, "a-pts":78, "week":1},{"h-team":"Brooklyn Nets", "a-team":"Atlanta Hawks", "h-pts":83, "a-pts":82, "week":2},{"h-team":"Cleveland Cavaliers", "a-team":"Minnesota Timberwolves", "h-pts":103, "a-pts":98, "week":2},{"h-team":"Portland Trailblazers", "a-team":"Boston Celtics", "h-pts":86, "a-pts":94, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":103, "a-pts":102, "week":3},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Dallas Mavericks", "a-team":"Denver Nuggets", "h-pts":83, "a-pts":73, "week":3}, {"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Cleveland Cavaliers", "a-team":"New York Knics", "h-pts":88, "a-pts":87, "week":3}, {"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Brooklyn Nets", "a-team":"Houston Rockets", "h-pts":94, "a-pts":92, "week":3}, {"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Pheonix Suns", "a-team":"Miami Heat", "h-pts":92, "a-pts":91, "week":3},{"h-team":"Chicago Bulls", "a-team":"Memphis Grizzlies", "h-pts":92, "a-pts":83, "week":4},{"h-team":"Oklahoma City Thunder", "a-team":"Minnesota Timberwolves", "h-pts":112, "a-pts":101, "week":4}, {"h-team":"Detroit Pistons", "a-team":"Atlanta Hawks", "h-pts":101, "a-pts":99, "week":4},{"h-team":"Indiana Pacers", "a-team":"Orlando Magic", "h-pts":99, "a-pts":98, "week":4}, {"h-team":"Milwaukee Bucks", "a-team":"Miami Heat", "h-pts":97, "a-pts":94, "week":4} ]';
-const gamesString = localStorage.getItem('gameString');
-
-games = JSON.parse(gamesString);
+games = JSON.parse(gamesString);//parse gameString
 
 //localStorage.setItem('games', JSON.stringify(games));
 
-
+/*createCard makes a card with all the games played in a specific week*/
 function createCard(weekNumber){
-    const gameBody = document.querySelector("#allGames");
-    gameBody.classList.add("m-auto")
-
+    const gameBody = document.querySelector("#allGames"); //grab the allGames div
+    gameBody.classList.add("m-auto") //center all the cards in the gameBody using m-auto class
+//filter to find each game with a specific week
 const thisWeek = games.filter(game => game.week === weekNumber);
 
 
-//for(let i = 0; games[i].week === weekNumber; i++){
     thisWeek.forEach((game)=>{
-        const cardBody = document.createElement('div');
-
+        const cardBody = document.createElement('div');//create a card body on each iteration
+    //give some style
     cardBody.classList.add("card", "is-size-5","box");
-
-    //const game = games[i];
-
+   //create elements for each value the card is gonna display
     const team1 = document.createElement('h1');
     const team2 = document.createElement('h1');
     const score1 = document.createElement('h1')
     const score2 = document.createElement('h1');
     const week = document.createElement('p');
+    /*Here we are setting the text content of each value in teh card to the game that was played values*/
+    team1.textContent = game["h-team"] + "   " + game["h-pts"];//the home team and their points
+    team1.classList.add("mb-4");//add some margin for spacing
 
- 
+    team2.textContent = game["a-team"] + " "+ game["a-pts"];//the away team and their points
 
-    team1.textContent = game["h-team"] + "   " + game["h-pts"];
-    team1.classList.add("mb-4");
-
-    team2.textContent = game["a-team"] + " "+ game["a-pts"];
-
-    team2.classList.add("mb-4");
+    team2.classList.add("mb-4");//add some margin for spacing
     
-    score1.textContent = game["h-pts"];
-    score1.classList.add("has-text-weight-bold")
+    score1.textContent = game["h-pts"];//set scoreOnes text content to be the home points
+    score1.classList.add("has-text-weight-bold") //make bold
 
-    score2.textContent = game["a-pts"];
+    score2.textContent = game["a-pts"]; //set scoreTwos text content to be awayPoints
 
-    
-    week.classList.add("week");
-    week.textContent =  "WEEK " + game["week"];
-
+    week.classList.add("week"); //add week to the class week, which gives it a different font
+    week.textContent =  "WEEK " + game["week"]; //grab the week that the game was played and set week.textContent to that value
+    //append team1, team2 and week to the cardBody
    cardBody.appendChild(team1);
    cardBody.appendChild(team2);
    cardBody.appendChild(week);
-
+   //append the cardBody to the gameBody
    gameBody.appendChild(cardBody);
-
-   
-//}
-
     });
     
 }
+//call createCard(1) for week one games as the games that pop up when you hit show scores on the standings page
 createCard(1);
-
+//remove table which will be used when paginating to another week, simply removes all the textCotent in allgames so new games can fill the space
 function removeTable(){
     const gameBody = document.querySelector("#allGames");
     gameBody.textContent = "";
 }
 
-function start() {
-
-const dataString = localStorage.getItem('teams');
-const teams = JSON.parse(dataString);
-let params = (new URL(document.location)).searchParams;
-
-const team = teams.filter(team => team.Id == params.get('id'));
-
-//document.querySelector('#test').textContent = team[0].Name;
-
-
-}
 </script>
 </html>
