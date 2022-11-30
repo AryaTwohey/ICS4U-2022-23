@@ -127,39 +127,30 @@
         </div>
     </div>
     </div class="columns">
-    <!--
-    <div class="column has-text-centered">
-        <button onclick="homeOrAway(true)" class="button mb-3">HOME</button>
-    </div>
-    <div class="column has-text-centered">
-        <button onclick="homeOrAway(false)" class="button mb-3">AWAY</button>
-    </div>
-    </div>-->
-<!--
-    <center>
-        <button onclick="addScore()" class="button is-info">
-            Add Game
-        </button>
-    </center>
-
--->
 
    
 </body>
 <script>
     //const teams = JSON.parse(localStorage.getItem('teams'));
+
+    /*This function verifies and adds data that is entered in
+      via the admin page, into the local storae, & updates the
+      values on the standings table*/
     function addScore() {
 
-        const teams = JSON.parse(localStorage.getItem('teams'));
-
+        const teams = JSON.parse(localStorage.getItem('teams'));//grab teams from local storage and parse it
+        //These are the 4 values that are entered in from the user on the admin page
         const homeTeam = document.querySelector("#val1").value;
         const homeScore = document.querySelector("#val2").value;
         const awayTeam = document.querySelector("#val3").value;
         const awayScore = document.querySelector("#val4").value;
 
+    //These are the two variables that are going to be set to true if the teams are valid
+    //& remain false if the teams are not vlaid
     let validHomeTeam = false;
     let validAwayTeam = false;
-
+        //iterate through teams and until a name in localstorage matches with the name entered, 
+        //validHomeTeam remains false
     for(let i = 0; validHomeTeam === true;i++){
         if(teams[i].Name === homeTeam){
             validHomeTeam = true;
@@ -167,6 +158,8 @@
         validHomeTeam=false;
     }
 }
+              //iterate through teams and until a name in localstorage matches with the name entered, 
+             // validAwayTeam remains false
         for(let i = 0; validAwayTeam === true;  i++){
             if(teams[i].Name === awayTeam){
                 validAwayTeam = true;
@@ -174,55 +167,55 @@
             validAwayTeam = false;
         }}
 
-
+        //check to see if enter fields are blank
     if(homeTeam === "" || awayTeam==="" || homeScore===""||awayScore===""){
-     const del = document.createElement('button');
+        //if at any point the values entered by the user are invalid, a error message pops up
         del.classList.add('delete')
         document.querySelector('#errorBox').textContent = 'Error: Please Enter Values Into All The Boxes'
 
         
     }
-    
+    //check for negative scores
     else if(homeScore < 0 || awayScore < 0){
+        //if at any point the values entered by the user are invalid, a error message pops up
+
         document.querySelector('#errorBox').textContent = '';
 
         document.querySelector('#errorBox').textContent = 'Error: Please Enter Valid Scores Into All The Boxes';
 
         }
+        //check for draws, as in basketball draws cannot happen
         else if(homeScore === awayScore){
+            //if at any point the values entered by the user are invalid, a error message pops up
+
             document.querySelector('#errorBox').textContent = '';
 
         document.querySelector('#errorBox').textContent = 'Scores cannot equal';
         }
-    
+        //check to see if the validAwayTeam was false of validHomeTeam was false
         else if(validAwayTeam === false || validHomeTeam === false){
-            document.querySelector('#errorBox').textContent = '';
+        //if at any point the values entered by the user are invalid, a error message pops up
 
-document.querySelector('#errorBox').textContent = 'Error: Please enter valid teams';
-        }
-        
-
-    
-     else if(homeScore > awayScore) {
-
-         
-            const team = teams.filter(team => team.Name === homeTeam)[0];
-            team.W++;
-            //team.PTS = 44
-            team.PTS = team.PTS += parseInt(homeScore);
-            team.RAT = (team.W + team.L) / 2
-
-            let totalGames = team.W + team.L;
-            let result = (team.W / totalGames) * 100;
-            result = result.toFixed(1);
-            team.PCT = result;
-            team.homeWins++;
-
-            
         document.querySelector('#errorBox').textContent = '';
 
+      document.querySelector('#errorBox').textContent = 'Error: Please enter valid teams';
+        }
+        //Getting to this section means that the validation was successful
+     else if(homeScore > awayScore) {//if home score is greater than away score do the following
+            const team = teams.filter(team => team.Name === homeTeam)[0];//filter and find the teams in localStorage
+            team.W++;//update the homeTeams wins
+            //team.PTS = 44
+            team.PTS = team.PTS += parseInt(homeScore);//update their point
+            team.RAT = (team.W + team.L) / 2//calculae their RAT
 
-    
+            let totalGames = team.W + team.L;//add all games played
+            let result = (team.W / totalGames) * 100;//result is their win loss percentage
+            result = result.toFixed(1);//fixed to one decimal place
+            team.PCT = result;//their PCT is result
+            team.homeWins++;//update their home wins
+
+        //hide the error box if all the validation worked
+        document.querySelector('#errorBox').textContent = '';
 /*
             const team = teams.filter(team => team.Name === winningTeamName.value)[0];
             team.W++;
@@ -257,6 +250,7 @@ document.querySelector('#errorBox').textContent = 'Error: Please enter valid tea
                         }
                         */
         }
+        /*All thats different here is that the homeWins is not updated*/
         else if(homeScore < awayScore){
             const team = teams.filter(team => team.Name === homeTeam)[0];
            
@@ -272,53 +266,51 @@ document.querySelector('#errorBox').textContent = 'Error: Please enter valid tea
 
             
         }else if(awayScore > homeScore){
-            const team = teams.filter(team => team.Name === awayTeam)[0];
-            team.W++;
+            /*Now we are handelling an awayWin, everything the the same as the first if statement when homeScore > awayScore 
+              however now we are updating the awayWins*/
+            const team = teams.filter(team => team.Name === awayTeam)[0];//match a team to the away team
+            team.W++; //update wins
             //team.PTS = 44
-            team.PTS = team.PTS += parseInt(awayScore);
-            team.RAT = (team.W + team.L) / 2
+            team.PTS = team.PTS += parseInt(awayScore);//update points
+            team.RAT = (team.W + team.L) / 2//calculate RAT
 
-            let totalGames = team.W + team.L;
-            let result = (team.W / totalGames) * 100;
-            result = result.toFixed(1);
+            let totalGames = team.W + team.L;//add to find total games
+            let result = (team.W / totalGames) * 100;//find percentage of w to total games and * 100 to get percent value
+            result = result.toFixed(1);//fix it to one decimal
             team.PCT = result;
-            team.awayWins++;
-            document.querySelector('#errorBox').textContent = '';
+            team.awayWins++;//update awayWins
+            document.querySelector('#errorBox').textContent = '';//hide error
 
         }
-        const team1 = teams.filter(team => team.Name === homeTeam)
-        const team2 = teams.filter(team => team.Name === awayTeam);
-
+        //Now we need to push the game that was played into each teams array of games
+        const team1 = teams.filter(team => team.Name === homeTeam)//filter to find each team
+        const team2 = teams.filter(team => team.Name === awayTeam);//filter to find each team
+        //filter returns array so [0]
         team1[0].games.push({"home": homeTeam, "away": awayTeam, "homeScore": homeScore, "awayScore": awayScore});
         team2[0].games.push({"home": homeTeam, "away": awayTeam, "homeScore": homeScore, "awayScore": awayScore});
 
 
         //team2.PTS = +team2.PTS + +losingScore;
-
+        //re-initialize local storage
         localStorage.setItem('teams', JSON.stringify(teams));
 
     }
-//
 
+//This is updating the gameString, so all the games that were played can be displayed when the user clicks show scores
 function addtoGames(weekNumber) {
+    //grab the values in the fields
         const homeTeamName = document.querySelector("#val1").value;
         const homeScore = parseInt(document.querySelector("#val2").value);
         const awayTeamName = document.querySelector("#val3").value;
         const awayScore = parseInt(document.querySelector("#val4").value)   ;
 
+        //grab the gameString
         const games = JSON.parse(localStorage.getItem('gameString'));
-
-  
-
+        //push the game that was played into the localStorage
         games.push({ "h-team": homeTeamName, "a-team": awayTeamName, "h-pts": homeScore, "a-pts":awayScore, "week": weekNumber });
-        localStorage.setItem('gameString',JSON.stringify(games));
-
-
+        localStorage.setItem('gameString',JSON.stringify(games));//re-initalize the gameString
     }
   
-
-
-
 </script>
 
 </html>
