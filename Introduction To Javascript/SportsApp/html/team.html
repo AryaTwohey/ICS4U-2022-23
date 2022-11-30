@@ -36,7 +36,7 @@
    </style>
 </head>
 
-<body onload="start();">
+<body onload="start();"><!--Load up with start-->
    <section class="section">
       <div class="container has-text-centered ">
          <button class="button is-flex is-justify-content-flex-start "><a class = "has-text-black" href="../html/leaugeStandingPage.html">Standings</a></button>
@@ -56,44 +56,42 @@
 
    function start() {
 
-     
+     //dataString holds all the teams and the games that were played by each team
       const dataString = localStorage.getItem('teams');
-      const teams = JSON.parse(dataString);
-      let params = (new URL(document.location)).searchParams;
-
+      const teams = JSON.parse(dataString);//parse it to be used in the code
+      let params = (new URL(document.location)).searchParams; //create a search parametre
+//filter through the teams to find the team that maches the id that is in the URL
       const team = teams.filter(team => team.id == params.get('id'))[0];
-
-
+      //the title for test is the team name
       document.querySelector('#test').textContent = team.Name;
 
-      
-
+      //iterate through the teams games and create a card with data for each game
       for (let i = 0; i < team.games.length; i++) {
          const card = document.createElement('div');
 
-
+      //give the card some styling
       card.classList.add('card', 'is-size-4', 'mb-4', 'mt-6');
-
+      //create a home and homeScore element
       const home = document.createElement('h1')
       const homeScore = document.createElement('h1')
-
+      //create an away and awayScore element
       const away = document.createElement('h1')
       const awayScore = document.createElement('h1')
+      //match the text content of each element with the data that is in that particular game in the array
          home.textContent = team.games[i].home;
          away.textContent = team.games[i].away;
          homeScore.textContent = team.games[i].homeScore;
          awayScore.textContent = team.games[i].awayScore;
-
+        //give the score a bold font
          homeScore.classList.add('boldFont')
          awayScore.classList.add('boldFont');
-
+         //append each element to the card
          card.appendChild(home);
          card.appendChild(homeScore);
          card.appendChild(away);
          card.appendChild(awayScore);
-
+         //append the card to the gameContent div
          document.querySelector('#gameContent').appendChild(card);
-
       }
 
    }
