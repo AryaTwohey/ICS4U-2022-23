@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //need to define function as async to use await anywhere in it
+
+    //  async function fetchUsers(){
+
+    //     const res = await fetch('http://jsonplaceholder.typicode.com/users');
+    //     //await waits for the asychronous request to be made and then stories the response in res
+    //     console.log(res);
+
+
+
+    //     const data = await res.json();
+    //     console.log(data);
+
+    // }
+    async function fetchUsers(){
+
+       const res = fetch('http://jsonplaceholder.typicode.com/users').then(res => {return res.json}).then(body => console.log(body));
+        console.log(res);
+
+       
+    }
+    fetchUsers();  
+</script>
+</html>
