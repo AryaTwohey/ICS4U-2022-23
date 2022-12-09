@@ -12,9 +12,6 @@
 
     <title>Twillio</title>
 </head>
-<style>
-
-</style>
 
 <body>
     <section class="section">
@@ -27,15 +24,19 @@
                     Please Enter Data
                 </div>
                 <div class="card-content">
+
                     <input class="input has-text-centered has-icons-right mt-3" id="val1" type="text"
-                        placeholder="Sender Phone Number"></span><span class="is-flex is-justify-content-center"></span>
-                    <input class="input has-text-centered has-icons-right mt-3" id="val2" type="text"
                         placeholder="Reciever Phone Number"></span><span
                         class="is-flex is-justify-content-center"></span>
-                    <input class="input has-text-centered has-icons-right mt-3" id="val3" type="text"
+                    <input class="input has-text-centered has-icons-right mt-3" id="val2" type="text"
                         placeholder="Message"></span><span class="is-flex is-justify-content-center"></span>
                 </div>
-                <button class="button is-info">Submit</button>
+                <button onclick='sendMsg();' class="button is-info">Submit</button>
+  
+                <div id = "popUpContainer" class = "has-text-centered-desktop, has-background-danger mt-3 message is-size-4">
+                <div id = "popUpMsg" class = "message, is-size-1, has-text-white"></div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -43,11 +44,51 @@
 
 <script>
 
-    function getData() {
-        const msgSender = document.querySelector('#val1');
-        const msgReciever = document.querySelector('#val2');
-        const msg = document.querySelector('#val3');
+    function sendMsg() {
+        const msgReciever = document.querySelector('#val1').value;
+        const msg = document.querySelector('#val2').value;
+        
+        const popUp = document.querySelector('#popUpMsg');
+
+        if(msgReciever.length < 12){
+            popUp.textContent = "Error: Invalid Phone Number";
+        }else if(msg.length === 0){
+            
+        popUp.textContent = "Error: Please Enter A Message";
+
+        }else{
+           
+        
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Basic QUMwNzhjZjk2YjIyZjYyYWRhNjU4YWY2OWI0MTg5ZGJlMzpkNzZiOTE5ZmE1MzI2ZDI3MGI2YTEzZTk0NWRjY2VkMw==");
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("To", msgReciever);
+        urlencoded.append("From", "+16067071480");
+        urlencoded.append("Body", msg);
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: 'follow'
+        };
+        fetch("https://api.twilio.com/2010-04-01/Accounts/AC078cf96b22f62ada658af69b4189dbe3/Messages.json", requestOptions)
+
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+            popUp.textContent = "";
+
     }
+    }
+
+
+
+
+
 
 
 
