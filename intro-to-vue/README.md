@@ -1,4 +1,4 @@
-# vue-crash-course2022
+# intro-to-vue
 
 ## Project setup
 ```
