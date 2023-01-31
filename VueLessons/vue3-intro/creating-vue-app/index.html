@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <title>Vue Mastery</title>
+   <!-- Import Styles -->
+   <link rel="stylesheet" href="./assets/styles.css" />
+   <!-- Import Vue.js -->
+   <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+</head>
+
+<body>
+   <div id="app">
+   <!--Curly-Curly braces allow for any javascript to go inside of it-->
+
+      <h1>{{product}}</h1> <!--Use currly braces to get properties of the app that has been mounted to the div-->
+      <h2>{{description}}</h2>
+   </div>
+
+   <!-- Import Js -->
+   <script src="./main.js"></script>
+   <script>
+      const mountedApp = app.mount('#app') //connecting the app to the div with the id of app
+   </script>
+</body>
+
+</html>

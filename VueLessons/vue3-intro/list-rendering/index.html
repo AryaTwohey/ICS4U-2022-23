@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <title>Vue Mastery</title>
+   <!-- Import Styles -->
+   <link rel="stylesheet" href="./assets/styles.css" />
+   <!-- Import Vue.js -->
+   <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+</head>
+
+<body>
+   <div id="app">
+      <div class="nav-bar"></div>
+
+      <div class="product-display">
+         <div class="product-container">
+            <div class="product-image">
+               <img v-bind:src="image">
+            </div>
+            <div class="product-info">
+               <h1>{{ product }}</h1>
+               <p v-if="inStock">In Stock</p>
+               <p v-else>Out of Stock</p>
+
+               <ul>
+                  <!--Iteration through an array in Vue-->
+                  <!--Make sure to use = & ""-->
+                  <li v-for="detail in details">{{detail}}</li>
+                
+               </ul>
+               <ul>
+                  <!--Binding each id to a key, so we can make each indivial element to have an id
+                      this will allow us to access variants quickly-->
+                  <li :key="variant.id" v-for="variant in variants">{{variant.color}}</li>
+               </ul>
+               <ul>
+                  <li v-for="size in sizes">{{size}}</li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- Import App -->
+   <script src="./main.js"></script>
+
+   <!-- Mount App -->
+   <script>
+      const mountedApp = app.mount('#app')
+   </script>
+</body>
+
+</html>
