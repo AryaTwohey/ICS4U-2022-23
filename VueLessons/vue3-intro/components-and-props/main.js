@@ -4,6 +4,7 @@ const app = Vue.createApp({
       return {
          cart: 0,
          premium: true,
+         
       }
    },
    methods: {

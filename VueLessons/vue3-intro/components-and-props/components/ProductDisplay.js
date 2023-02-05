@@ -25,6 +25,7 @@ app.component(
             <p v-if="inStock">In Stock</p>
             <p v-else>Out of Stock</p>
             <p>Shipping : {{shipping}}</p>
+            <p>Details: {{details}}</p>
     
             <div 
               v-for="(variant, index) in variants" 
@@ -80,7 +81,8 @@ app.component(
          },
          shipping(){
             return (this.premium) ? 'Free' : '2.99'
-         }
+         },
+      
      }
     }
 )
