@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en" class="has-text-black">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=di, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Roboto:wght@100&display=swap"
+      rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap" rel="stylesheet">
+   <link rel="icon" href="../images/nbalogo.png">
+
+   <title>NBA Standings Page</title>
+</head>
+<style>
+   h1 {
+
+      font-weight: bold;
+      font-family: "Nunito";
+   }
+
+   a {
+
+      color: black;
+   }
+
+   tr:hover {
+      color: rgb(168, 166, 166);
+   }
+
+   .text {
+      font-family: "Nunito";
+      font-weight: bolder;
+   }
+
+   i {
+      cursor: pointer;
+   }
+
+   table {
+      border-radius: 0px;
+
+
+   }
+
+   ul {
+      padding-top: 20px;
+   }
+
+   #scoreBtn {
+      width: 179px;
+   }
+
+   #title {
+      width: 350px;
+
+   }
+   #leaugeBtn{
+         width: 120px;
+
+      }
+      #scoreBtn{
+         width: 120px;
+      }
+      #divisionBtn{
+         width: 120px;
+      }
+      #adminBtn{
+         width: 120px;
+      }
+   @media (max-width: 680px) {
+      #leaugeBtn{
+         width: 61px;
+
+      }
+      #scoreBtn{
+         width: 61px;
+      }
+      #divisionBtn{
+         width: 61px;
+      }
+      #adminBtn{
+         width: 61px;
+      }
+   }
+</style>
+
+<body>
+   <section class="section is-mobile">
+      <span>
+         <div class="container">
+            <div class="hero has-background-info has-text-white">
+         <!--Removed the home page-->
+               <h1 id="title" class="is-size-3 is-bold has-background-info ml-3 mt-3"><button href=""
+                     class="button is-size-6"><a href=""><span class="icon is-size-5">
+                           <i id="title-btn" class="fa-solid fa-arrow-left ml-3 mt-3"></i></a></button> NBA Standings Page</h1>
+               <br>
+            </div>
+
+
+
+            <span>
+               <table id="standings" class="table is-striped is-size-5 m-auto ">
+                  <thead>
+                     <button onclick="createTable(teams)"
+                        class="button is-rounded pagination-link is-current  mt-2 mb-5 " id="leaugeBtn">League</button>
+                     <button onclick="createTableByDivision(teams)" class="button is-rounded pagination-link mt-2 mb-5 "
+                        id="divisionBtn">Division</button><span>
+
+                     </span><span>
+                        <button class="button is-rounded pagination-link has-text-white mt-2 mb-5 " id="scoreBtn"><a
+                              class="has-text-black" href="../html/showScores.html">Scores</a></button><span>
+                                 <button class="button is-rounded pagination-link mt-2 mb-5 "
+                                 id="adminBtn"><a href="../html/games.html">Admin</a></button><span>
+                        </span>
+                        <tr>
+                           <th id="name">Name <span class="icon is-size-6">
+                                 <i onclick="sortHigh('Name');" class="fa-solid fa-arrow-down"></i>
+                                 <i onclick="sortLow('Name');" class="fa-solid fa-arrow-up"></i>
+                              </span> </th>
+                           <th id="wins">Wins
+                              <span class="icon is-size-6">
+                                 <i onclick="sortHigh('W');" class="fa-solid fa-arrow-down"></i>
+                                 <i onclick="sortLow('W');" class="fa-solid fa-arrow-up"></i>
+                              </span>
+                           </th>
+                           <th id="losses">Losses
+                              <span class="icon is-size-6">
+                                 <i onclick="sortHigh('L');" class="fa-solid fa-arrow-down"></i>
+                                 <i onclick="sortLow('L');" class="fa-solid fa-arrow-up"></i>
+                              </span>
+                           </th>
+                           <th id="points">Total Points
+                              <span class="icon is-size-6">
+                                 <i onclick="sortHigh('PTS');" class="fa-solid fa-arrow-down"></i>
+                                 <i onclick="sortLow('PTS');" class="fa-solid fa-arrow-up"></i>
+                              </span>
+                           </th>
+                           <th id="ratio">W/L Ratio
+                              <span class="icon is-size-6">
+                                 <i onclick="sortHigh('RAT');" class="fa-solid fa-arrow-down"></i>
+                                 <i onclick="sortLow('RAT');" class="fa-solid fa-arrow-up"></i>
+                              </span>
+
+                           </th>
+                           <th id="h-wins">H-Wins
+                              <span class="icon is-size-6">
+
+                                 <i onclick="sortHigh('homeWins');" class="fa-solid fa-arrow-down"></i>
+                                 <i onclick="sortLow('homeWins');" class="fa-solid fa-arrow-up"></i>
+                              </span>
+                           </th>
+                           <th id="a-wins">A-Wins
+
+                              <span class="icon is-size-6">
+                                 <i onclick="sortHigh('awayWins');" class="fa-solid fa-arrow-down"></i>
+                                 <i onclick="sortLow('awayWins');" class="fa-solid fa-arrow-up"></i>
+                              </span>
+                           </th>
+                           <th id="pct">PCT <span class="icon is-size-6">
+                                 <i onclick="sortHigh('PCT');" class="fa-solid fa-arrow-down"></i>
+                                 <i onclick="sortLow('PCT');" class="fa-solid fa-arrow-up"></i>
+                              </span> </th>
+
+                        </tr>
+                        <!--This is where all the entering score stuff happens-->
+
+                  <tbody>
+                     <!--  <div class="columns">
+               <div class="column">
+                  <input class="input has-text-centered has-icons-right" id="team1" type="text"
+                        placeholder="Winning Team Name"><span class="is-flex is-justify-content-center"><!--<button  onclick="addScore()"
+                            class="button is-white">
+                            <span class="icon is-size-4 is-right">
+                              <i class="fa-solid fa-square-check"></i>
+                          </span>-
+               </div>
+               <div class="column">
+                  <input class="input has-text-centered has-icons-right" id="team2" type="text"
+                        placeholder="Losing Team Name"><span class="is-flex is-justify-content-center"><!--<button  onclick="addScore()"
+                            class="button is-white">
+                            <span class="icon is-size-4 is-right">
+                              <i class="fa-solid fa-square-check"></i>
+                          </span>-
+                
+               </div>
+               <div class="column">
+                  <input class="input has-text-centered has-icons-right" id="wScore" type="text"
+                        placeholder="Winning Team Score"><span class="is-flex is-justify-content-center"><!--<button  onclick="addScore()"
+                            class="button is-white">
+                            <span class="icon is-size-4 is-right">
+                              <i class="fa-solid fa-square-check"></i>
+                          </span>-
+                
+               </div>
+               <div class="column">
+                  <input class="input has-text-centered has-icons-right" id="lScore" type="text"
+                        placeholder="Losing Team Score"><span class="is-flex is-justify-content-center"><!--<button onclick="addScore()"
+                            class="button is-white">
+                            <span class="icon is-size-4 is-right">
+                              <i class="fa-solid fa-square-check"></i>
+                          </span>-
+                
+               </div>
+            -->
+         </div>
+         <!--   <center><button onclick = "addScore()" class="button is-primary" id ="sub">Submit</button></center>-->
+         </tbody>
+
+         </table>
+
+         <nav class="pagination is-rounded is-centered is-size-4 m-auto" id="pg-btns" role="navigation"
+            aria-label="pagination">
+
+            <ul id="paginate" class="pagination-list is-centered m-auto">
+
+
+
+               <li><a onclick="createTable(teams)" id="paginationOne" class="pagination-link is-current is-rounded"
+                     aria-label="Page 1" aria-current="page">1</a></li>
+      </span>
+      <li><a onclick="createSecondTable(teams)" id="paginationTwo" class="pagination-link is-rounded"
+            aria-label="Goto page 2">2</a></li>
+      <li><a onclick="createThirdTable(teams)" id="paginationThree" class="pagination-link is-rounded"
+            aria-label="Goto page 3">3</a></li>
+
+      </ul>
+
+      </nav>
+
+      </span>
+      </div>
+      </div>
+      </span>
+      </div>
+      </div>
+</body>
+<script>
+
+
+   // const dataString = '[{"Name":"Golden State Warriors", "id":1, "W":5,"L":8,"PTS":86, "RAT":0.63, "homeWins": 3, "awayWins": 5, "PCT": 66.0, "Division":"Western", "subDivision": "Pacific", "games": [{"home": "Golden State Warriors", "away":"Toronto Raptors", "homeScore":98, "awayScore":97}]},{"Name":"Los Angles Lakers","id":2,"W":8,"L":3,"PTS":79,"RAT":2.66,"homeWins":6, "awayWins":2, "PCT":100.0 , "Division":"Western", "subDivision": "Pacific", "games": [{"home": "Los Angles Clippers", "away":"Minnesota Timberwolves", "homeScore":82, "awayScore":77}]},{"Name":"Los Angles Clippers","id":3,"W":7,"L":3,"PTS":54,"RAT":3.33, "homeWins": 2, "awayWins": 4, "PCT":22.0, "Division":"Western", "subDivision": "Pacific", "games": [{"home": "Los Angles Lakers", "away":"Memphis Grizzlies", "homeScore":95, "awayScore":92}]},{"Name":"Pheonix Suns","id":4,"W":8,"L":9,"PTS":75,"RAT":0.44, "homeWins": 4, "awayWins": 9, "PCT":55.0 , "Division":"Western", "subDivision": "Pacific", "games": [{"home": "Pheonix Suns", "away":"San Antonio Spurs", "homeScore":81, "awayScore":80}]},{"Name":"Sacramento Kings","id":5,"W":6,"L":7,"PTS":72,"RAT":2.66, "homeWins": 4, "awayWins": 6, "PCT":88.0 , "Division":"Western", "subDivision": "Pacific","games": [{"home": "Sacramento Kings", "away":"Portland Trailblazers", "homeScore":98, "awayScore":96}]}, {"Name":"New Orleans Pelicans","id":6,"W":2,"L":4,"PTS":99,"RAT":1.75, "homeWins": 4, "awayWins": 7, "PCT":24.0 , "Division":"Western", "subDivision": "Southwest", "games": [{"home": "New Orleans Pelicans", "away":"Dallas Mavericks", "homeScore":104, "awayScore":79}]}, {"Name":"San Antonio Spurs","id":7,"W":9,"L":1,"PTS":100,"RAT":9.11, "homeWins": 2, "awayWins": 4, "PCT":46.0, "Division":"Western", "subDivision": "Southwest", "games": [{"home": "San Antonio Spurs", "away":"Toronto Raptors", "homeScore":72, "awayScore":69}]}, {"Name":"Washington Wizards","id":8,"W":2,"L":7,"PTS":89,"RAT":0.28, "homeWins": 7, "awayWins": 6, "PCT":88.0, "Division":"Western", "subDivision": "Southwest", "games": [{"home": "Washington Wizards", "away":"Golden State Warriors", "homeScore":98, "awayScore":97}]}, {"Name":"Houston Rockets","id":9,"W":7,"L":7,"PTS":90,"RAT":1.01,"homeWins": 9, "awayWins": 2, "PCT":23.0, "Division":"Western", "subDivision": "Southwest", "games": [{"home": "Houston Rockets", "away":"Dallas Mavericks", "homeScore":95, "awayScore":94}]}, {"Name":"Dallas Mavericks","id":10,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Southwest", "games": [{"home": "Dallas Mavericks", "away":"New York Knicks", "homeScore":98, "awayScore":97}]}, {"Name":"Memphis Grizzlies","id":11,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Southwest", "games": [{"home": "Memphis Grizzlies", "away":"Portland Trailblazers", "homeScore":94, "awayScore":92}]}, {"Name":"Denver Nuggets","id":12,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Northwest", "games": [{"home": "Denver Nuggets", "away":"Toronto Raptors", "homeScore":94, "awayScore":85}]}, {"Name":"Minnesota Timberwolves","id":13,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Western" , "subDivision": "Northwest","games": [{"home": "Minnesota Timberwolves", "away":"Brooklyn Nets", "homeScore":91, "awayScore":79}]}, {"Name":"Oklahoma City Thunder","id":14,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Northwest","games": [{"home": "Oklahoma City Thunder", "away":"Boston Celtics", "homeScore":94, "awayScore":92}]}, {"Name":"Portland Trailblazers","id":15,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Western", "subDivision": "Northwest","games": [{"home": "Portland Trailblazers", "away":"Los Angles Clippers", "homeScore":88, "awayScore":87}]}, {"Name":"Utah Jazz","id":16,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Western", "subDivision": "Northwest","games": [{"home": "Utah Jazz", "away":"Boston Celtics", "homeScore":94, "awayScore":92}]}, {"Name":"Chicago Bulls","id":17,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central","games": [{"home": "Chicago Bulls", "away":"Philidelphia 76ers", "homeScore":98, "awayScore":97}]}, {"Name":"Cleveland Cavaliers","id":18,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central", "games": [{"home": "Cleveland Cavaliers", "away":"Golden State Warriors", "homeScore":94, "awayScore":93}]}, {"Name":"Detroit Pistons","id":19,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central", "games": [{"home": "Detroit Pistons", "away":"Golden State Warriors", "homeScore":92, "awayScore":82}]}, {"Name":"Indiana Pacers", "id":20,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central", "games": [{"home": "Indiana Pacers", "away":"Detroit Pistons", "homeScore":88, "awayScore":77}]}, {"Name":"Miluawke Bucks","id":21,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Eastern", "subDivision": "Central", "games": [{"home": "Milwaukee Bucks", "away":"Indiana Pacers", "homeScore":94, "awayScore":92}]}, {"Name":"Boston Celtics","id":22,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic", "games": [{"home": "Boston Celtics", "away":"Cleveland Cavaliers", "homeScore":95, "awayScore":93}]}, {"Name":"Brooklyn Nets","id":23,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Eastern" , "subDivision": "Atlantic", "games": [{"home": "Brooklyn", "away":"Detroit Pistons", "homeScore":98, "awayScore":97}]}, {"Name":"New York Knicks", "id":24,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic", "games": [{"home": "New York Knicks", "away":"Houston Rockets", "homeScore":93, "awayScore":77}]},{"Name":"Philidelphia 76ers","id":25,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic", "games": [{"home": "Philidelphia 76ers", "away":"Brooklyn Nets", "homeScore":98, "awayScore":97}]}, {"Name":"Toronto Raptors","id":26,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic", "games": [{"home": "Toronto Raptors", "away":"Boston Celtics", "homeScore":94, "awayScore":93}]}, {"Name":"Atlanta Hawks","id":27,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast", "games": [{"home": "Atlanta Hawks", "away":"Boston Celtics", "homeScore":98, "awayScore":97}]}, {"Name":"Charolette Hornets","id":28,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast", "games": [{"home": "Charlotte Hornets", "away":"Golden State Warriors", "homeScore":98, "awayScore":97}]}, {"Name":"Miami Heat","id":29,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast", "games": [{"home": "Miami Heat", "away":"Toronto Raptors", "homeScore":98, "awayScore":97}]}, {"Name":"Orlando Magic","id":30,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division": "Eastern", "subDivision":"Southeast"}, {"Name":"Washignton Wizards","id":31, "W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast", "games": [{"home": "Washington Wizards", "away":"New York Knicks", "homeScore":98, "awayScore":97}]}]';
+   // localStorage.setItem('teams',dataString);
+
+   //comment out cons teams [] and change setItem to getItem('teams');
+
+   //localStorage.setItem('teams', JSON.stringify(teams));
+
+   //  teams = JSON.parse(dataString);
+
+
+   // localStorage.setItem('teams', JSON.stringify(teams));
+
+   //const dataString = '[{"Name":"Golden State Warriors", "id":1, "W":5,"L":8,"PTS":86, "RAT":0.63, "homeWins": 3, "awayWins": 5, "PCT": 66.0, "Division":"Western", "subDivision": "Pacific"},{"Name":"Los Angles Lakers","id":2,"W":8,"L":3,"PTS":79,"RAT":2.66,"homeWins":6, "awayWins":2, "PCT":100.0 , "Division":"Western", "subDivision": "Pacific"},{"Name":"Los Angles Clippers","id":3,"W":7,"L":3,"PTS":54,"RAT":3.33, "homeWins": 2, "awayWins": 4, "PCT":22.0, "Division":"Western", "subDivision": "Pacific"},{"Name":"Pheonix Suns","id":4,"W":8,"L":9,"PTS":75,"RAT":0.44, "homeWins": 4, "awayWins": 9, "PCT":55.0 , "Division":"Western", "subDivision": "Pacific"},{"Name":"Sacramento Kings","id":5,"W":6,"L":7,"PTS":72,"RAT":2.66, "homeWins": 4, "awayWins": 6, "PCT":88.0 , "Division":"Western", "subDivision": "Pacific"}, {"Name":"New Orleans Pelicans","id":6,"W":2,"L":4,"PTS":99,"RAT":1.75, "homeWins": 4, "awayWins": 7, "PCT":24.0 , "Division":"Western", "subDivision": "Southwest"}, {"Name":"San Antonio Spurs","id":7,"W":9,"L":1,"PTS":100,"RAT":9.11, "homeWins": 2, "awayWins": 4, "PCT":46.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Washington Wizards","id":8,"W":2,"L":7,"PTS":89,"RAT":0.28, "homeWins": 7, "awayWins": 6, "PCT":88.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Houston Rockets","id":9,"W":7,"L":7,"PTS":90,"RAT":1.01,"homeWins": 9, "awayWins": 2, "PCT":23.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Dallas Mavericks","id":10,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Memphis Grizzlies","id":11,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Denver Nuggets","id":12,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Northwest"}, {"Name":"Minnesota Timberwolves","id":13,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Western" , "subDivision": "Northwest"}, {"Name":"Oklahoma City Thunder","id":14,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Northwest"}, {"Name":"Portland Trailblazers","id":15,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Western", "subDivision": "Northwest"}, {"Name":"Utah Jazz","id":16,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Western", "subDivision": "Northwest"}, {"Name":"Chicago Bulls","id":17,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central"}, {"Name":"Cleveland Cavaliers","id":18,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central"}, {"Name":"Detroit Pistons","id":19,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central"}, {"Name":"Indiana Pacers", "id":20,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central"}, {"Name":"Miluawke Bucks","id":21,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Eastern", "subDivision": "Central"}, {"Name":"Boston Celtics","id":22,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic"}, {"Name":"Brooklyn Nets","id":23,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Eastern" , "subDivision": "Atlantic"}, {"Name":"New York Knicks", "id":24,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic"},{"Name":"Philidelphia 76ers","id":25,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic"}, {"Name":"Toronto Raptors","id":26,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic"}, {"Name":"Atlanta Hawks","id":27,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}, {"Name":"Charolette Hornets","id":28,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}, {"Name":"Miami Heat","id":29,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}, {"Name":"Orlando Magic","id":30,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division": "Eastern", "subDivision":"Southeast"}, {"Name":"Washignton Wizards","id":31, "W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}]';
+   const dataString = localStorage.getItem('teams'); //grabbing teams from local array
+
+   //comment out cons teams [] and change setItem to getItem('teams');
+
+
+   teams = JSON.parse(dataString);//parsing it for usage in the code
+   localStorage.setItem('teams', JSON.stringify(teams)); 
+
+
+   /*
+     //const teams = '[{"Name":"Golden State Warriors", "id":1, "W":5,"L":8,"PTS":86, "RAT":0.63, "homeWins": 3, "awayWins": 5, "PCT": 66.0, "Division":"Western", "subDivision": "Pacific"},{"Name":"Los Angles Lakers","id":2,"W":8,"L":3,"PTS":79,"RAT":2.66,"homeWins":6, "awayWins":2, "PCT":100.0 , "Division":"Western", "subDivision": "Pacific"},{"Name":"Los Angles Clippers","id":3,"W":7,"L":3,"PTS":54,"RAT":3.33, "homeWins": 2, "awayWins": 4, "PCT":22.0, "Division":"Western", "subDivision": "Pacific"},{"Name":"Pheonix Suns","id":4,"W":8,"L":9,"PTS":75,"RAT":0.44, "homeWins": 4, "awayWins": 9, "PCT":55.0 , "Division":"Western", "subDivision": "Pacific"},{"Name":"Sacramento Kings","id":5,"W":6,"L":7,"PTS":72,"RAT":2.66, "homeWins": 4, "awayWins": 6, "PCT":88.0 , "Division":"Western", "subDivision": "Pacific"}, {"Name":"New Orleans Pelicans","id":6,"W":2,"L":4,"PTS":99,"RAT":1.75, "homeWins": 4, "awayWins": 7, "PCT":24.0 , "Division":"Western", "subDivision": "Southwest"}, {"Name":"San Antonio Spurs","id":7,"W":9,"L":1,"PTS":100,"RAT":9.11, "homeWins": 2, "awayWins": 4, "PCT":46.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Washington Wizards","id":8,"W":2,"L":7,"PTS":89,"RAT":0.28, "homeWins": 7, "awayWins": 6, "PCT":88.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Houston Rockets","id":9,"W":7,"L":7,"PTS":90,"RAT":1.01,"homeWins": 9, "awayWins": 2, "PCT":23.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Dallas Mavericks","id":10,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Memphis Grizzlies","id":11,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Southwest"}, {"Name":"Denver Nuggets","id":12,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Northwest"}, {"Name":"Minnesota Timberwolves","id":13,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Western" , "subDivision": "Northwest"}, {"Name":"Oklahoma City Thunder","id":14,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Western", "subDivision": "Northwest"}, {"Name":"Portland Trailblazers","id":15,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Western", "subDivision": "Northwest"}, {"Name":"Utah Jazz","id":16,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Western", "subDivision": "Northwest"}, {"Name":"Chicago Bulls","id":17,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central"}, {"Name":"Cleveland Cavaliers","id":18,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central"}, {"Name":"Detroit Pistons","id":19,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central"}, {"Name":"Indiana Pacers", "id":20,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Central"}, {"Name":"Miluawke Bucks","id":21,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Eastern", "subDivision": "Central"}, {"Name":"Boston Celtics","id":22,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic"}, {"Name":"Brooklyn Nets","id":23,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0 , "Division":"Eastern" , "subDivision": "Atlantic"}, {"Name":"New York Knicks", "id":24,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic"},{"Name":"Philidelphia 76ers","id":25,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic"}, {"Name":"Toronto Raptors","id":26,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Atlantic"}, {"Name":"Atlanta Hawks","id":27,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}, {"Name":"Charolette Hornets","id":28,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}, {"Name":"Miami Heat","id":29,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}, {"Name":"Orlando Magic","id":30,"W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division": "Eastern", "subDivision":"Southeast"}, {"Name":"Washignton Wizards","id":31, "W":2,"L":4,"PTS":96,"RAT":0.51, "homeWins": 2, "awayWins": 1, "PCT":43.0, "Division":"Eastern", "subDivision": "Southeast"}]';
+    
+   //comment out cons teams [] and change setItem to getItem('teams');
+   
+   
+      const dataString = localStorage.getItem('teams');
+     
+   
+      teams = JSON.parse(dataString);
+      localStorage.setItem('teams', JSON.stringify(teams));
+   */
+   createTable(teams); //calling create table to make the first 10 standings
+   /*Three similar functions used for the pagination factor*/
+   function createTable(teams) {
+      let tableBody = document.querySelector('#standings tbody'); //create the tablebody to hold all the content
+
+      tableBody.replaceChildren();
+      for (let i = 0; i < 10; i++) { //iterate through the first ten teams of the teams array
+
+         const team = teams[i];
+         //create the row, cell and link to be used on each teach
+         const row = document.createElement('tr');
+         let cell = document.createElement('td');
+         let link = document.createElement('a');
+         link.textContent = team.Name; //set the text content of the link to be the team name
+         link.href = 'team.html?id=' + team.id; //make the href of each link the url + the unique id of the team
+         cell.append(link); //append the link to the cell
+         row.appendChild(cell); //append the cell to the row
+         /*Do the same process above for all other table headings such as wins and points*/
+         cell = document.createElement('td'); 
+         cell.textContent = team.W;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.L;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.PTS;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.RAT;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.homeWins;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.awayWins;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.PCT;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+
+         //creating the first table sets the pagination button to one, so the first button gets a class of 'is-current'
+         //while all the other buttons have is-current removed from them
+         document.querySelector("#paginationOne").classList.add("is-current");
+         document.querySelector("#paginationTwo").classList.remove("is-current");
+         document.querySelector("#paginationThree").classList.remove("is-current");
+      };
+      //we are viewing the standings for the whole league, so remove is-current from the display by division button
+      document.querySelector('#divisionBtn').classList.remove('is-current');
+      //add the is-current to the page we are one
+      document.querySelector('#leaugeBtn').classList.add('is-current');
+   }
+   /*When we want to paginate to the next page, we are loading up the next 10 teams, 
+     so start the iteration at 10, and go until 20*/
+   function createSecondTable(teams) {
+      let tableBody = document.querySelector('#standings tbody');
+
+      tableBody.replaceChildren();
+      for (let i = 10; i < 20; i++) {
+
+         const team = teams[i];
+         /*Create all the links rows and cells*/
+         const row = document.createElement('tr');
+         let cell = document.createElement('td');
+         let link = document.createElement('a');
+         link.textContent = team.Name; //team name is the link text content
+         link.href = 'team.html?id=' + team.id; //unique id
+         cell.append(link);
+
+         // cell.textContent = team.Name;
+         row.appendChild(cell);
+
+         /*Same process as the createTable() function*/
+         cell = document.createElement('td');
+         cell.textContent = team.W;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.L;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.PTS;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.RAT;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.homeWins;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.awayWins;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.PCT;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+
+         //This time we are viewing the second page, so give the second pagination button a class of 
+           //'is-current' and remove it from the rest
+         document.querySelector("#paginationTwo").classList.add("is-current");
+
+         document.querySelector("#paginationOne").classList.remove("is-current");
+         document.querySelector("#paginationThree").classList.remove("is-current");
+
+
+
+      };
+   }
+   /*This is the third table, there are only three for the standings as there are 30 teams in the NBA*/
+   function createThirdTable(teams) {
+      let tableBody = document.querySelector('#standings tbody');
+
+      tableBody.replaceChildren();
+      //same process just this time we are starting at the 20th team and going until the 30th
+      for (let i = 20; i < 30; i++) {
+
+         const team = teams[i];
+
+         const row = document.createElement('tr');
+         let cell = document.createElement('td');
+         let link = document.createElement('a');
+         link.textContent = team.Name; //team name is text content of the link
+         link.href = 'team.html?id=' + team.id; //unique id
+         cell.append(link);
+         //  cell.textContent = team.Name;
+         /*Same process described in createTable()*/
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.W;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.L;
+         row.appendChild(cell);
+         cell = document.createElement('td');
+         cell.textContent = team.PTS;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.RAT;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.homeWins;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.awayWins;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+         cell = document.createElement('td');
+         cell.textContent = team.PCT;
+         row.appendChild(cell);
+         tableBody.appendChild(row);
+
+         //Third page now so give the third pagination button a class of 'is-current'
+         // And remove it from all the rest
+         document.querySelector("#paginationThree").classList.add("is-current");
+
+         document.querySelector("#paginationTwo").classList.remove("is-current");
+         document.querySelector("#paginationOne").classList.remove("is-current");
+
+
+      };
+   }
+
+   function createTableByDivision(teams) {
+
+      //This function sorts each team into a new table with their specific divion and confrence
+
+      let tableBody = document.querySelector('#standings tbody');
+      //I am replacing the entire tableBodys content, so erase the old stuff first
+      tableBody.textContent = '';
+
+      //I used this counter variables in each for loop, so only one instance of the divion name and title are made
+      //They update after each iteration, and once reaching the value one, no more divion-confrence titles are made
+      let x1 = x2 = x3 = x4 = x5 = x6 = 0;
+
+
+      for (let i = 0; i < 30; i++) {
+         const team = teams[i];
+         //first I check the divison and subDivision
+         if (team.Division === "Western" && team.subDivision === "Pacific") {
+            //create my 
+            const row = document.createElement('tr');
+            let cell = document.createElement('td');
+            //create my row and cell
+            /*Without some kind of counter, multiple creations of the division & confrence title are made*/
+            //here my counter is set to 0, so it makes a division and subdivision title
+            //then the value of x1 is increased by one, so no more versions of that title are made
+            if (x1 < 1) {
+               const row = document.createElement('tr');
+               let cell = document.createElement('td');
+
+               cell.textContent = "Western: Pacific"
+               tableBody.appendChild(cell);
+               cell.classList.add('is-size-4', 'is-bold', "text", 'is-underlined');//give it some different classes, to enlarge the division and subdivision title
+               x1++;
+            }
+            /*After that is done, all the teams that match the division and subdivision,
+              will be placed into the table*/
+            cell.textContent = team.Name;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.W;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.L;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.PTS;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.RAT;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.homeWins;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.awayWins;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.PCT;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+
+         }
+
+         /*Same functionality as the if statement above as up above, however there is a different division and subdivision
+           and x2 is being used instead of x1*/
+         if (team.Division === "Western" && team.subDivision === "Southwest") {
+
+            const row = document.createElement('tr');
+            let cell = document.createElement('td');
+           
+            if (x2 < 1) {
+               const row = document.createElement('tr');
+               let cell = document.createElement('td');
+
+               cell.textContent = "Western: Southwest";
+               tableBody.appendChild(cell);
+               cell.classList.add('is-size-4', 'is-bold', 'text', 'is-underlined')
+               x2++;
+            }
+            cell.textContent = team.Name;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.W;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.L;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.PTS;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.RAT;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.homeWins;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.awayWins;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.PCT;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            /*Same functionality as the if statement above as up above, however there is a different division and subdivision
+           and x3 is being used instead of x3*/
+         } if (team.Division === "Western" && team.subDivision === "Northwest") {
+            // document.querySelector("#name").textContent = 'Western Confrence-Northwest';
+            if (x3 < 1) {
+               const row = document.createElement('tr');
+               let cell = document.createElement('td');
+               let link = document.createElement('a');
+               link.textContent = team.Name;
+               link.href = 'team.html?id=' + team.id;
+               cell.append(link);
+
+               cell.textContent = "Western: Northwest";
+               tableBody.appendChild(cell);
+               cell.classList.add('is-size-4', 'is-bold', 'text', 'is-underlined')
+               x3++;
+            }
+            const row = document.createElement('tr');
+            let cell = document.createElement('td');
+            cell.textContent = team.Name;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.W;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.L;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.PTS;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.RAT;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.homeWins;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.awayWins;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.PCT;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            /*Same functionality as the if statement above as up above, however there is a different division and subdivision
+           and x4 is being used instead of x3*/
+         } if (team.Division === "Eastern" && team.subDivision === "Central") {
+            // document.querySelector("#name").textContent = 'Western Confrence-Northwest';
+            if (x4 < 1) {
+               const row = document.createElement('tr');
+               let cell = document.createElement('td');
+
+               cell.textContent = "Eastern: Central";
+               tableBody.appendChild(cell);
+               cell.classList.add('is-size-4', 'is-bold', 'text', 'is-underlined')
+               x4++;
+            }
+            const row = document.createElement('tr');
+            let cell = document.createElement('td');
+            cell.textContent = team.Name;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.W;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.L;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.PTS;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.RAT;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.homeWins;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.awayWins;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.PCT;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+         }
+         /*Same functionality as the if statement above as up above, however there is a different division and subdivision
+           and x5 is being used instead of x4*/
+         if (team.Division === "Eastern" && team.subDivision === "Atlantic") {
+            // document.querySelector("#name").textContent = 'Western Confrence-Northwest';
+            if (x5 < 1) {
+               const row = document.createElement('tr');
+               let cell = document.createElement('td');
+
+               cell.textContent = "Eastern: Atlantic";
+               tableBody.appendChild(cell);
+               cell.classList.add('is-size-4', 'is-bold', 'text', 'is-underlined')
+               x5++;
+            }
+            const row = document.createElement('tr');
+            let cell = document.createElement('td');
+            cell.textContent = team.Name;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.W;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.L;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.PTS;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.RAT;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.homeWins;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.awayWins;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.PCT;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+         }
+            /*Same functionality as the if statement above as up above, however there is a different division and subdivision
+           and x6 is being used instead of x5*/
+         if (team.Division === "Eastern" && team.subDivision === "Southeast") {
+            if (x6 < 1) {
+               const row = document.createElement('tr');
+               let cell = document.createElement('td');
+
+               cell.textContent = "Eastern: Southeast";
+               tableBody.appendChild(cell);
+               cell.classList.add('is-size-4', 'is-bold', 'text', 'is-underlined')
+               x6++;
+            }
+            const row = document.createElement('tr');
+            let cell = document.createElement('td');
+            cell.textContent = team.Name;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.W;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.L;
+            row.appendChild(cell);
+            cell = document.createElement('td');
+            cell.textContent = team.PTS;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.RAT;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.homeWins;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.awayWins;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            cell = document.createElement('td');
+            cell.textContent = team.PCT;
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+         }
+
+
+      };
+      //Now that we are displaying by division, the 'is-current' class is added
+      //to divisionBtn and removed from leagueBtn
+      document.querySelector('#divisionBtn').classList.add('is-current');
+
+
+      document.querySelector('#leaugeBtn').classList.remove('is-current');
+   }
+   //Sort high sorts the functions from highest to lowest
+   function sortHigh(field) {
+      //sorting alphabetically
+      if (field === 'Name') {
+         teams = teams.sort((teamA, teamB) => {
+            return (teamA.Name < teamB.Name) ? -1 : 1
+         });
+         //sorting from highest points to lowest points
+      } else if (field === 'PTS') {
+         teams = teams.sort((teamA, teamB) => teamB.PTS - teamA.PTS);
+         //sorting from most wins to least wins
+      } else if (field === 'W') {
+         teams = teams.sort((teamA, teamB) => teamB.W - teamA.W)
+         //sorting from most losses to lease losses
+      } else if (field === 'L') {
+         teams = teams.sort((teamA, teamB) => teamB.L - teamA.L)
+         //sortings highest RAT to lowest RAT
+      } else if (field === 'RAT') {
+         teams = teams.sort((teamA, teamB) => teamB.RAT - teamA.RAT);
+         //Sorting most homeWins to lease homeWins
+      } else if (field === 'homeWins') {
+         teams = teams.sort((teamA, teamB) => teamB.homeWins - teamA.homeWins);
+      }
+      //sorting most awayWins to least awayWins
+      else if (field === 'awayWins') {
+         teams = teams.sort((teamA, teamB) => teamB.awayWins - teamA.awayWins);
+      }
+      //sorting most PCT to least PCT
+      else if (field === 'PCT') {
+         teams = teams.sort((teamA, teamB) => teamB.PCT - teamA.PCT);
+      }
+      createTable(teams);
+   }
+   function sortLow(field) {
+/*This function sortLow does the exact same thing as sortHigh, except sorting from lowest value to highest value*/
+      if (field === 'Name') {
+         teams = teams.sort((teamA, teamB) => {
+            return (teamA.Name < teamB.Name) ? 1 : -1
+         });
+      } else if (field === 'PTS') {
+         teams = teams.sort((teamA, teamB) => teamA.PTS - teamB.PTS);
+      } else if (field === 'W') {
+         teams = teams.sort((teamA, teamB) => teamA.W - teamB.W)
+      } else if (field === 'L') {
+         teams = teams.sort((teamA, teamB) => teamA.L - teamB.L)
+      } else if (field === 'RAT') {
+         teams = teams.sort((teamA, teamB) => teamA.RAT - teamB.RAT);
+      } else if (field === 'homeWins') {
+         teams = teams.sort((teamA, teamB) => teamA.homeWins - teamB.homeWins);
+      } else if (field === 'awayWins') {
+         teams = teams.sort((teamA, teamB) => teamA.awayWins - teamB.awayWins);
+      }
+      else if (field === 'PCT') {
+         teams = teams.sort((teamA, teamB) => teamA.PCT - teamB.PCT);
+      }
+      createTable(teams);
+   }
+</script>
+
+</html>

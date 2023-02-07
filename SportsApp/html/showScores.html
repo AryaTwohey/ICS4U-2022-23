@@ -1,0 +1,182 @@
+<!DOCTYPE html class = "has-background-black">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Roboto:wght@100&display=swap"rel="stylesheet">
+    <link rel="icon" href="../images/nbalogo.png">
+    <title>Scores</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        color: white;
+
+    }
+    h1{
+     padding-left: 50px;
+    }
+    
+    #test{
+
+        width: 50%;
+        padding: 0px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        
+
+    }
+    #test h1{
+        font-weight: bold;
+
+        
+    }
+    
+    .week{
+        font-family: "Nunito";
+        text-align: center;
+   
+    }
+
+    .score{
+        font-family: "Nunito";
+    }
+    .textShift{
+        margin-right: 50%;
+    }
+    li{
+        margin-top: 50px;
+    }
+    #title{
+       margin-right: 40px;
+       margin-bottom: 20px;
+    }#navBtn{
+        width: 100px;
+        text-align: center;
+        margin-right: 20px;
+        
+        
+    }
+    #nav{
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    @media (max-width: 680px) {
+        .title{
+            text-align: center;
+            color: white;
+          
+        }
+   }
+    
+</style>
+<body onload = "start()">
+<section class="section">
+<div class="title">
+  <div class="hero has-background-info mb-3">
+    <h1 class = 'is-size-1 pl-3 m-3 has-text-white'>NBA Scores</h1>
+
+    <div>
+        <div class = 'ml-5 mb-5'>
+    <button class = "button" id="navBtn"><a id = "nav" class = "has-text-black" href="../html/leaugeStandingPage.html">Standings</a></button>
+
+
+    <button class="button " id="navBtn"><a id="nav" class = "has-text-black" href="../html/games.html">Admin</a></button>
+    </div>
+</div>
+</div>
+</div>
+
+
+    <div class="container has-text-centered">
+        <div class="hero">
+        <h1 id = "title" class = "is-centered is-size-1 score">Scores</h1>
+        <div id="allGames"></div>
+
+        <nav class="pagination is-centered is-size-4 m-auto pr-1" id="pg-btns" role="navigation" aria-label="pagination">
+
+            <ul class="pagination-list is-centered mt-2">
+               <li><a onclick="removeTable();createCard(1)" id="paginationOne" class="pagination-link is-current is-rounded"
+                     aria-label="Page 1" aria-current="page">Week 1</a></li>
+                     <li><a onclick="removeTable(); createCard(2);" id="paginationTwo" class="pagination-link is-rounded is-current"
+                        aria-label="Page 1" aria-current="page">Week 2</a></li>
+               <li><a onclick="removeTable(); createCard(3);" id="paginationThree" class="pagination-link is-rounded is-current"
+                     aria-label="Goto page 3">Week 3</a></li>
+                     <li><a onclick="removeTable(); createCard(4);" id="paginationFour" class="pagination-link is-rounded is-current"
+                        aria-label="Goto page 3">Week 4</a></li>
+            </ul>
+         </nav>
+
+    </div> 
+  <!--  <div id ="test"></div>-->
+    
+    </div>
+</section>
+</body>
+<script>
+  
+//gamesString = '[{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Los Angles Lakers", "a-team":"Washignton Wizards", "h-pts":102, "a-pts":88, "week":1},{"h-team":"Memphis Grizzles", "a-team":"Denver Nuggets", "h-pts":99, "a-pts":77, "week":1},{"h-team":"Los Angles Clippers", "a-team":"Miluake Bucks", "h-pts":85, "a-pts":78, "week":1},{"h-team":"Brooklyn Nets", "a-team":"Atlanta Hawks", "h-pts":83, "a-pts":82, "week":2},{"h-team":"Cleveland Cavaliers", "a-team":"Minnesota Timberwolves", "h-pts":103, "a-pts":98, "week":2},{"h-team":"Portland Trailblazers", "a-team":"Boston Celtics", "h-pts":86, "a-pts":94, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":103, "a-pts":102, "week":3},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Dallas Mavericks", "a-team":"Denver Nuggets", "h-pts":83, "a-pts":73, "week":3}, {"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Cleveland Cavaliers", "a-team":"New York Knics", "h-pts":88, "a-pts":87, "week":3}, {"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Brooklyn Nets", "a-team":"Houston Rockets", "h-pts":94, "a-pts":92, "week":3}, {"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":1},{"h-team":"Golden State Warriors", "a-team":"Toronto Raptors", "h-pts":77, "a-pts":55, "week":2   },{"h-team":"Pheonix Suns", "a-team":"Miami Heat", "h-pts":92, "a-pts":91, "week":3},{"h-team":"Chicago Bulls", "a-team":"Memphis Grizzlies", "h-pts":92, "a-pts":83, "week":4},{"h-team":"Oklahoma City Thunder", "a-team":"Minnesota Timberwolves", "h-pts":112, "a-pts":101, "week":4}, {"h-team":"Detroit Pistons", "a-team":"Atlanta Hawks", "h-pts":101, "a-pts":99, "week":4},{"h-team":"Indiana Pacers", "a-team":"Orlando Magic", "h-pts":99, "a-pts":98, "week":4}, {"h-team":"Milwaukee Bucks", "a-team":"Miami Heat", "h-pts":97, "a-pts":94, "week":4} ]';
+const gamesString = localStorage.getItem('gameString'); //grab the games from localStorage
+
+games = JSON.parse(gamesString);//parse gameString
+
+//localStorage.setItem('games', JSON.stringify(games));
+
+/*createCard makes a card with all the games played in a specific week*/
+function createCard(weekNumber){
+    const gameBody = document.querySelector("#allGames"); //grab the allGames div
+    gameBody.classList.add("m-auto") //center all the cards in the gameBody using m-auto class
+//filter to find each game with a specific week
+const thisWeek = games.filter(game => game.week === weekNumber);
+
+
+    thisWeek.forEach((game)=>{
+        const cardBody = document.createElement('div');//create a card body on each iteration
+    //give some style
+    cardBody.classList.add("card", "is-size-5","box");
+   //create elements for each value the card is gonna display
+    const team1 = document.createElement('h1');
+    const team2 = document.createElement('h1');
+    const score1 = document.createElement('h1')
+    const score2 = document.createElement('h1');
+    const week = document.createElement('p');
+    /*Here we are setting the text content of each value in teh card to the game that was played values*/
+    team1.textContent = game["h-team"] + "   " + game["h-pts"];//the home team and their points
+    team1.classList.add("mb-4");//add some margin for spacing
+
+    team2.textContent = game["a-team"] + " "+ game["a-pts"];//the away team and their points
+
+    team2.classList.add("mb-4");//add some margin for spacing
+    
+    score1.textContent = game["h-pts"];//set scoreOnes text content to be the home points
+    score1.classList.add("has-text-weight-bold") //make bold
+
+    score2.textContent = game["a-pts"]; //set scoreTwos text content to be awayPoints
+
+    week.classList.add("week"); //add week to the class week, which gives it a different font
+    week.textContent =  "WEEK " + game["week"]; //grab the week that the game was played and set week.textContent to that value
+    //append team1, team2 and week to the cardBody
+   cardBody.appendChild(team1);
+   cardBody.appendChild(team2);
+   cardBody.appendChild(week);
+   //append the cardBody to the gameBody
+   gameBody.appendChild(cardBody);
+    });
+    
+}
+//call createCard(1) for week one games as the games that pop up when you hit show scores on the standings page
+createCard(1);
+//remove table which will be used when paginating to another week, simply removes all the textCotent in allgames so new games can fill the space
+function removeTable(){
+    const gameBody = document.querySelector("#allGames");
+    gameBody.textContent = "";
+}
+
+</script>
+</html>
