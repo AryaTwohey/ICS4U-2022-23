@@ -1,10 +1,11 @@
 app.component('review-form', {
     template:
     /*html*/
-    `<form class="review-form" @submit.prevent="onSubmit">
+    `<form class="review-form" @submit.prevent="onSubmit" autocomplete ="false">
       <h3>Leave a review</h3>
       <label for="name">Name:</label>
-      <input id="name" v-model="name">
+      <input id="Name" v-model="name" autocomplete="false">
+
    
       <label for="review">Review:</label>      
       <textarea id="review"></textarea>
@@ -17,6 +18,15 @@ app.component('review-form', {
         <option>2</option>
         <option>1</option>
       </select>
+      <br>
+      <br>
+      <label for="reccommend">Would You Reccomend This Product?:</label>
+    <select id="reccommend" v-model.value = "reccommend" >
+    <option>Yes</option>
+    <option>No</option>
+    
+    </select>
+
    
       <input class="button" type="submit" value="Submit">
     </form>`,
@@ -24,7 +34,8 @@ app.component('review-form', {
       return {
         name: '',
         review: '',
-        rating: null
+        rating: null,
+        reccomend: ''
       }
     },
     methods: {
@@ -33,12 +44,14 @@ app.component('review-form', {
             name: this.name,
             review: this.review,
             rating: this.rating,
+            reccomend:this.reccomend
           }
           this.$emit('review-submitted', productReview)
       
           this.name = ''
           this.review = ''
           this.rating = null
+          this.reccomend=''
         }
       }
      

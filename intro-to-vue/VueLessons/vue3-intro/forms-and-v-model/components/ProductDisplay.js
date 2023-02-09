@@ -8,13 +8,12 @@ app.component('product-display', {
    template:
       /*html*/
       `<div class="product-display">
-      <review-list v-if="reviews.length" :reviews="reviews"></review-list>
 
 
     <div class="product-container">
 
 
-      <div class="product-image">    <review-list :reviews="reviews"></review-list>
+      <div class="product-image"><review-list v-if="reviews.length" :reviews="reviews"></review-list>
       <review-form @review-submitted="addReview"></review-form>
 
 
