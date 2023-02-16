@@ -1,5 +1,29 @@
 {
   "dependencies": {
     "axios": "^1.3.3"
-  }
+  },
+  "name": "ics4u-2022-23",
+  "description": "Travel App Options API",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "help"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AryaTwohey/ICS4U-2022-23.git"
+  },
+  "keywords": [
+    "Travel",
+    "App",
+    "Options",
+    "API"
+  ],
+  "author": "Arya Twohey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AryaTwohey/ICS4U-2022-23/issues"
+  },
+  "homepage": "https://github.com/AryaTwohey/ICS4U-2022-23#readme"
 }
