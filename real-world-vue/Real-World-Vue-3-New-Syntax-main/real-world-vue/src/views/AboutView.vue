@@ -6,8 +6,23 @@ data() {
   return{
     reviews: comments
   }
+ 
+},
+methods:{
+    displayStars(){
+      let counter =0;
+      for(let i  = 0; i < this.reviews[i].stars; i++){
+
+
+      }
+    }
+
 }
 }
+
+
+
+
 </script>
 <template>
   <div class="about">
@@ -19,7 +34,56 @@ data() {
       <p class= "user">{{ review.user }} Posted This</p>
       <p class= "review">{{ review.review }}</p>
 
+      <p class = "stars" v-if="review.stars == 5">
+        <ul id = "star-container">
+        <li><img class="stars" src="../assets/star.png" alt=""></li>
+        <li><img class="stars" src="../assets/star.png" alt=""></li>
+        <li><img class="stars" src="../assets/star.png" alt=""></li>
+        <li><img class="stars" src="../assets/star.png" alt=""></li>
+        <li><img class="stars" src="../assets/star.png" alt=""></li>
+          </ul>
+
+        </p>
+        <p v-else-if="review.stars == 4">
+          <ul id = "star-container">
+
+         <li><img class="stars" src="../assets/star.png" alt=""></li>
+         <li><img class="stars" src="../assets/star.png" alt=""></li>
+         <li><img class="stars" src="../assets/star.png" alt=""></li>
+         <li><img class="stars" src="../assets/star.png" alt=""></li>
+
+          </ul>
+
+        </p>
+        <p v-else-if="review.stars == 3">
+          <ul id = "star-container">
+
+         <li><img class="stars" src="../assets/star.png" alt=""></li>
+         <li><img class="stars" src="../assets/star.png" alt=""></li>
+         <li><img class="stars" src="../assets/star.png" alt=""></li>
+
+          </ul>
+
+        </p>
+        <p v-else-if="review.stars == 2">
+          <ul id = "star-container">
+
+         <li><img class="stars" src="../assets/star.png" alt=""></li>
+         <li><img class="stars" src="../assets/star.png" alt=""></li>    
+      </ul>
+        </p>
+        <p v-else-if="review.stars == 1">
+          <ul id = "star-container">
+
+         <li><img class="stars" src="../assets/star.png" alt=""></li>
+    
+
+          </ul>
+
+        </p>
+
     </div>
+   
     </div>
     <!-- <p class="comments" :v-for="Comment in Comments">{{ Comment.comment }} :key="Comment.id"</p> -->
 
@@ -43,6 +107,18 @@ font-weight: 500;
   font-weight: bolder;
   text-decoration: underline;
 }
+.stars{
+  width: 45%;
+}
+ul{
+  text-decoration: none;
+  list-style: none;
+}
+#star-container{
+  display: flex;
+
+}
+
 
 
 </style>
