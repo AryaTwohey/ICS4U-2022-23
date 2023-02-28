@@ -1,3 +1,4 @@
+
 <template>
     <section class = "destination">
         <h1>{{ destination.name }}</h1>
