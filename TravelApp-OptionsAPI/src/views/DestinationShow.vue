@@ -54,18 +54,17 @@ v-for="experience in destination.experiences"
 
  </router-link>
 
-<!-- <ExperienceCard
-v-for="experience in destination.experiences" 
-:key="experience.slug" 
-:experience="experience"
-/> -->
-
 </div>
 
+<router-view
+
+
+/>
 
 </section>
-   
+
 </div>
+
 </template>
 
 
