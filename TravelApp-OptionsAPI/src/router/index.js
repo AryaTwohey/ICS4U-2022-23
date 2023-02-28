@@ -8,7 +8,12 @@ const routes = [
   // {path:'/hawaii',name:'hawaii', component:() => import('@/views/Hawaii.vue')},
   // {path:'/jamacia',name:'jamacia', component:() => import('@/views/Jamacia.vue')},
   // {path:'/panama',name:'panama', component:() => import('@/views/Panama.vue')},
-  {path:'/destination/:id/:slug',name:'destination.show', component:()=>import('@/views/DestinationShow.vue')}
+  {
+    path:'/destination/:id/:slug',
+    name:'destination.show', 
+    component:()=>import('@/views/DestinationShow.vue')
+    
+}
 
 ]
 
