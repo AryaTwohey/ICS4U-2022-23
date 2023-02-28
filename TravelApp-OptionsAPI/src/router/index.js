@@ -4,10 +4,8 @@ import Home from '@/views/Home.vue'
 
 const routes = [
   {path:'/', name:'Home', component:Home},
-  // {path:'/brazil',name:'brazil', component:() => import('@/views/Brazil.vue')},
-  // {path:'/hawaii',name:'hawaii', component:() => import('@/views/Hawaii.vue')},
-  // {path:'/jamacia',name:'jamacia', component:() => import('@/views/Jamacia.vue')},
-  // {path:'/panama',name:'panama', component:() => import('@/views/Panama.vue')},
+  {path:'/:pathMatch(.*)*',name:'NotFound',component:() => import('@/views/NotFound.vue')
+},
   {
     path:'/destination/:id/:slug',
     name:'destination.show', 
@@ -21,14 +19,7 @@ const routes = [
         props:route=>({...route.params, id:parseInt(route.params.id)})
       }
     ]
-
-    
 },
-{
- 
-
-}
-
 ]
 
 const router = createRouter({
