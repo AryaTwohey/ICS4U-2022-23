@@ -1,4 +1,4 @@
-<!-- <template>
+<!--  <template>
     <section class = "destination">
         <h1>{{ destination.name }}</h1>
         <div class="destination-details">
@@ -28,6 +28,7 @@ export default {
 }
 </script> -->
 <template>
+    <div>
     <section class = "destination">
         <h1>{{ destination.name }}</h1>
         <div class="destination-details">
@@ -40,19 +41,31 @@ export default {
 <h2>Top Experiences in {{ destination.name }}</h2>
 
 <div class="cards">
+    <router-link
+    
+v-for="experience in destination.experiences" 
+:key="experience.slug" 
+:to="{name:'experience.show', params:{experienceSlug:experience.slug}}"
+>
+    <ExperienceCard 
+    :experience="experience"
+    /> 
 
-<ExperienceCard
+
+ </router-link>
+
+<!-- <ExperienceCard
 v-for="experience in destination.experiences" 
 :key="experience.slug" 
 :experience="experience"
-/>
+/> -->
 
 </div>
 
 
 </section>
    
-
+</div>
 </template>
 
 
@@ -60,16 +73,22 @@ v-for="experience in destination.experiences"
 import sourceData from '@/data.json'
 import ExperienceCard from '@/components/ExperienceCard.vue'
 export default {
+
     components:{
         ExperienceCard
     },
-   
+   props:{
+    id:{
+        type:String, required:true
+    }
+   },
     computed:{
         destinationId(){
             return parseInt(this.$route.params.id)
         },
         destination(){
-            return sourceData.destinations.find(destination => destination.id === this.destinationId)
+            return sourceData.destinations.find(destination => destination.id === (this.destinationId)) 
+
         }
     }
 }
