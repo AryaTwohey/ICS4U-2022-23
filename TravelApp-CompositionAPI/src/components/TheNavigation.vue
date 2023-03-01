@@ -9,7 +9,7 @@
         
         </AppLink>
         <AppLink :to="{name:'protected'}">Dashboard</AppLink>
-        <AppLink to="https://vitetravelappoptionsapi.onrender.com/">Deployed App</AppLink>
+        <AppLink to="https://travelappcompositionapi.onrender.com/">Deployed App</AppLink>
 
 
 </div>
