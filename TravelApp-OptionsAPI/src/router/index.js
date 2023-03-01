@@ -5,6 +5,17 @@ import sourceData from "@/data.json";
 
 const routes = [
   { path: "/", name: "Home", component: Home },
+  {path:'/protected', name:'protected', component: () => import('@/views/Protected.vue'),
+  meta:{
+    requiresAuth:true,
+  }
+},
+{
+  path:'/login',
+  name:'login',
+  component:() => import('@/views/Login.vue')
+},
+
   {
     path: "/:pathMatch(.*)*",
     name: "NotFound",
@@ -50,5 +61,11 @@ const router = createRouter({
       return{top:null, left:null, behavior:null}
     }
 });
+router.beforeEach((to,from) =>{
+if(to.meta.requiresAuth && !window.user){
+  return{name:'login'}
+  //need to login if not already logged in
+}
+})
 
 export default router;
