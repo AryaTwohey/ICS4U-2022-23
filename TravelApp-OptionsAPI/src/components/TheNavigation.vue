@@ -1,14 +1,15 @@
 <template>
     <div id="nav">
 
-        <router-link id="logo" to="/">Travel App</router-link>
+        <AppLink id="logo" to="/">Travel App</AppLink>
 
-        <router-link v-for="destination in destinations" :key="destination.id" :to="{name:'destination.show', params:{id:destination.id, slug:destination.slug}}">
+        <AppLink v-for="destination in destinations" :key="destination.id" :to="{name:'destination.show', params:{id:destination.id, slug:destination.slug}}">
         
         {{ destination.name }}
         
-        </router-link>
-        <router-link :to="{name:'protected'}">Dashboard</router-link>
+        </AppLink>
+        <AppLink :to="{name:'protected'}">Dashboard</AppLink>
+        <AppLink to="https://vitetravelappoptionsapi.onrender.com/">Deployed App</AppLink>
 
 
 </div>
