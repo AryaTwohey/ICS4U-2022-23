@@ -13,6 +13,7 @@
         </router-link>
         </div>
         <br>
+        <hr>
         <center><h2>Reviews</h2></center>
         <div class="reviews" v-for="review in reviews" :key="review.id">
             <h3 class="user">{{ review.user }}  posted this</h3>
