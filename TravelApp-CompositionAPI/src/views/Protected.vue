@@ -10,18 +10,33 @@
     </div>
 </template>
 <script>
+import {ref} from  'vue'
+import {useRouter, useRoute} from 'vue-router'
+const router = useRouter()
+const route = useRoute()
+
 export default{
-    data(){
-        return{
-            username:window.user
-        }
-    },
-    methods:{
-        logout(){
+    setup(){
+        const username = ref(window.user)
+        const logout = () =>{
             window.user = null
-            this.$router.push({name:'Home'})
-        }   
- }
+            
+            router.push({name:'Home'})
+        }
+        return {username, logout}
+    },
+
+//     data(){
+//          return{
+//              username:window.user
+//          }
+//  },
+//      methods:{        
+//              logout(){
+//              window.user = null
+//              this.$router.push({name:'Home'})
+//          }   
+//   }
 }
 
 

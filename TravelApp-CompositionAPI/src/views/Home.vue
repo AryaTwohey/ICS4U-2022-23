@@ -33,13 +33,15 @@
 
 import sourceData from '@/data.json'
 import allReviews from '@/reviews.json'
+
+
 export default{
-data(){
-    return{
-    destinations: sourceData.destinations,
-    reviews: allReviews
-}
-}
+    setup(){
+        const destinations = sourceData.destinations
+        const reviews = allReviews
+        return {destinations, reviews}
+    }
+
 }
 
 </script>
