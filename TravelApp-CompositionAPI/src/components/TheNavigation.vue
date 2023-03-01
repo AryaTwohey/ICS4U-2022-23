@@ -18,13 +18,24 @@
 
 <script>
  import sourceData from '@/data.json'
+import {ref} from  'vue'
+import {useRouter, useRoute} from 'vue-router'
+const router = useRouter()
+const route = useRoute()
 
 export default{
-    data(){
-        return  {   
-        destinations: sourceData.destinations
-        }
+    setup(){
+        const destinations = ref(sourceData.destinations)
+        return{
+        destinations
     }
+    }
+
+    // data(){
+    //     return  {   
+    //     destinations: sourceData.destinations
+    //     }
+    
 
 }
 </script>
