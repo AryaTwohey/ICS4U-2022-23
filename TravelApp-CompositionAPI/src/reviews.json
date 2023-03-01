@@ -1,0 +1,24 @@
+[
+    {
+    "review": "I recently had the opportunity to use Travel App, and I must say, I was thoroughly impressed. The software is user-friendly, intuitive and packed with great features that make it a must-have for anyone in need of a Travel App. The interface is easy to navigate and the software is well-designed, making it easy to get started even for users who are not tech-savvy. The software has a range of functionalities that are useful for travelling, and it is evident that a lot of thought went into designing these features.",
+    "user":"Mike",
+    "id": 1,
+    "stars": "* * * * * "
+
+
+},
+{
+    "review":"I recently had the pleasure of working with Travel App and I can confidently say that they provided me with exceptional service and quality products. From the moment I reached out to them, they were prompt and professional in their communication. I was in need of a new computer and wasn't sure what I needed. The staff at Travel App were incredibly knowledgeable and helped me select the perfect computer for my needs. They patiently answered all my questions and provided me with all the information I needed to make an informed decision.",
+    "user":"Demarcus",
+    "id": 2,
+    "stars": "* * * * *"
+
+},
+{
+    "review": "I recently came across Travel App and was curious to try out their services. I must say, I was thoroughly impressed with their innovative approach and reliable service. The website was easy to navigate and provided clear information about their products and services. I decided to try out their new mobile app, and it did not disappoint. The app was well-designed, user-friendly, and performed smoothly. I especially appreciated the additional features that were not available on other similar apps.",
+    "user": "Jamal",
+    "id": 3,
+    "stars": "* * * * *"
+
+}
+]
