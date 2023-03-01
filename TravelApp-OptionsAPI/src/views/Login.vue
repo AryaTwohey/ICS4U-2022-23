@@ -30,6 +30,7 @@ export default{
         login(){
             //Auth user against API
             window.user = this.username
+            const redirectPath = this.$route.query.redirect || '/protected'
             this.$router.push({name:'protected'})
         }
     }
