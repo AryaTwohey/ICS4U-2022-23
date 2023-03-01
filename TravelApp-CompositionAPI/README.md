@@ -1,2 +1,2 @@
-# Travel App Built With The Options API
+# Travel App Built With The Composition API in Vue.js
 
