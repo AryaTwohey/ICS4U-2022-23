@@ -12,9 +12,6 @@ import { useRoute } from 'vue-router';
             <input  v-model="password" name="password" type="text" class="input">
             <button class="btn">Login</button>
 
-
-
-
         </form> 
     </div>
 </template>
