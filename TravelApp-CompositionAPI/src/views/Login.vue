@@ -19,20 +19,23 @@ import { useRoute } from 'vue-router';
     </div>
 </template>
 <script>
+import {ref} from  'vue'
+import {useRouter, useRoute} from 'vue-router'
+const router = useRouter()
+const route = useRoute()
 export default{
-    data(){
-        return{
-            username:'',
-            password:''
+
+    setup(){
+        const username = ref('')
+        const password = ref('')
+        const login = () =>{
+            window.user = username.value
+            const redirectPath = route.query.redirect || '/protected'
+            router.push(redirectPath)
+
         }
+        return {username, password, login}
     },
-    methods:{
-        login(){
-            //Auth user against API
-            window.user = this.username
-            const redirectPath = this.$route.query.redirect || '/protected'
-            this.$router.push(redirectPath)
-        }
-    }
+   
 }
 </script>
