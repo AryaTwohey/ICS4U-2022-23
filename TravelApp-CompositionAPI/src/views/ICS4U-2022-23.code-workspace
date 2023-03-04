@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "ICS4U-2022-23",
+			"path": "../../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "ICS4U-2022-23"
+	}
+}
