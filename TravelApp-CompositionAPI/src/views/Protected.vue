@@ -12,16 +12,17 @@
 <script>
 import {ref} from  'vue'
 import {useRouter, useRoute} from 'vue-router'
-const router = useRouter()
-const route = useRoute()
+
+
 
 export default{
     setup(){
         const username = ref(window.user)
+        const router = useRouter()
         const logout = () =>{
             window.user = null
             
-            router.push({name:'Home'})
+           router.push({name:'Home'})
         }
         return {username, logout}
     },
