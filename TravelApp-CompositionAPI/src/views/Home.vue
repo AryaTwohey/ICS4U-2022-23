@@ -30,15 +30,15 @@
 </template>
 
 <script>
-
+import {ref} from  'vue'
 import sourceData from '@/data.json'
 import allReviews from '@/reviews.json'
 
 
 export default{
     setup(){
-        const destinations = sourceData.destinations
-        const reviews = allReviews
+        const destinations = ref(sourceData.destinations)
+        const reviews =ref(allReviews)
         return {destinations, reviews}
     }
 
