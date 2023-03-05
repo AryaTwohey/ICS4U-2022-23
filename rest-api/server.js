@@ -81,7 +81,12 @@ app.put("/api/students/:id", (req, res) => {
 });
 
 app.delete("/api/studnents/:id", (req,res) =>{
-    const student = students.find((s) => s.id === parseInt(req.params.id))
+    const student  = students.find(s => s.id === parseInt(req.params.id))
+    if(!student) return res.status("404 Student Not Found")
+
+    const index = student.indexOf(student)
+    student.splice(index,1)
+    res.send(student)
 } )
 
 //createEndPoint (routes)
@@ -89,8 +94,7 @@ app.delete("/api/studnents/:id", (req,res) =>{
 // app.get('/', (req,res) => res.send('Hello Fred!') )
 app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
 
-app.get('/api/courers', (req,res) => {
-  res.send.courses;
+app.get('/api/courses', (req,res) => {
   let courses = [
     {
       id: 1,
@@ -107,5 +111,7 @@ app.get('/api/courers', (req,res) => {
       instructor: 'Bob Johnson'
     }
   ]
+  res.send.courses;
+
 })
 
