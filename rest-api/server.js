@@ -24,23 +24,13 @@ let students = [
     age: 16,
   },
 ];
-let courses = [
-  {
 
-  },
-  {
-
-  },
-  {
-
-  },
-]
 app.get("/api/students", (req, res) => {
   res.send(students);
 });
 
-app.get("/api/students/:id", (req, res) => {
-  const student = students.find((s) => s.id === parseInt(req.params.id));
+app.get('/api/students/:id', (req, res) => {
+  const student = students.find(s => s.id === parseInt(req.params.id));
   //undefined and null == false
   //if there is no student
   if (!student) {
@@ -70,7 +60,7 @@ app.post("/api/students", (req, res) => {
 });
 
 app.put("/api/students/:id", (req, res) => {
-  const student = students.find((s) => s.id === parseInt(req.params.id));
+  const student = students.find(s => s.id === parseInt(req.params.id));
   //undefined and null == false
   //if there is no student
   if (!student) {
@@ -82,8 +72,9 @@ app.put("/api/students/:id", (req, res) => {
 
 app.delete("/api/studnents/:id", (req,res) =>{
     const student  = students.find(s => s.id === parseInt(req.params.id))
-    if(!student) return res.status("404 Student Not Found")
-
+    if(!student) {
+    return res.status("404 Student Not Found")
+    }
     const index = student.indexOf(student)
     student.splice(index,1)
     res.send(student)
@@ -94,24 +85,26 @@ app.delete("/api/studnents/:id", (req,res) =>{
 // app.get('/', (req,res) => res.send('Hello Fred!') )
 app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
 
+let courses = [
+  {
+    id: 1,
+    name:'Introduction to Computer Science',
+    instructor: 'John Doe'
+  },
+  {
+    id: 2,
+    name:'Web Development Fundamentals',
+    instructor: 'Jane Doe'
+  },    {
+    id: 3,
+    name:'Database Sytems',
+    instructor: 'Bob Johnson'
+  }
+]
+
 app.get('/api/courses', (req,res) => {
-  let courses = [
-    {
-      id: 1,
-      name:'Introduction to Computer Science',
-      instructor: 'John Doe'
-    },
-    {
-      id: 2,
-      name:'Web Development Fundamentals',
-      instructor: 'Jane Doe'
-    },    {
-      id: 3,
-      name:'Database Sytems',
-      instructor: 'Bob Johnson'
-    }
-  ]
   res.send.courses;
 
-})
+});
+
 
