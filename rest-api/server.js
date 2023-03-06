@@ -2,7 +2,7 @@ import express from "express";
 
 const app = express();
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002;
 
 //middleware
 app.use(express.json());
@@ -83,7 +83,6 @@ app.delete("/api/studnents/:id", (req,res) =>{
 //createEndPoint (routes)
 //If they attempt to make a request to /, it will send the response back
 // app.get('/', (req,res) => res.send('Hello Fred!') )
-app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
 
 let courses = [
   {
@@ -103,8 +102,9 @@ let courses = [
 ]
 
 app.get('/api/courses', (req,res) => {
-  res.send.courses;
+  res.send(courses);
 
 });
 
+app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
 
