@@ -103,10 +103,7 @@ let courses = [
 
 app.get('/api/courses', (req,res) => {
   res.send(courses);
-
 });
-
-
 
 app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
 
