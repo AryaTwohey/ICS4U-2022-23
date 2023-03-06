@@ -7,12 +7,18 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
    <style>
-      
       .key {
          border: 1px solid black;
          background-color: gray;
          padding: 10px;
          text-align: center;
+      }
+     #calculator{
+      margin-left: 40%;
+      margin-top: 220px;
+     }
+      .key:hover {
+         color: white;
       }
 
       .grid-container {
@@ -33,6 +39,8 @@
          text-align: right !important;
          padding-right: 10px;
          height: 20px;
+         position: relative;
+         bottom: 20px;
       }
    </style>
 </head>
@@ -75,8 +83,10 @@
 
          const val = document.createElement('button');
 
+
          const text = keypadNumbers[i][x];
          val.textContent = text;
+
          if (text !== 0 && text !== 'CLS' && text !== '=') {
             val.classList.add('key',)
          } else if (text !== '=') {
@@ -86,12 +96,26 @@
          }
          document.querySelector('#calculator').appendChild(val);
 
+         val.addEventListener('click', () => {
+            const words = document.querySelector('p');
+            words.append(text);
+
+            if (text == 'CLS') {
+               words.textContent = '';
+            } if (text == '=') {
+               words.textContent = 'ERROR';
+            }
+         });
       }
    }
-   const print = document.createElement('input');
+   const print = document.createElement('p');
    print.classList.add('key', 'result');
 
    document.querySelector('#calculator').appendChild(print);
+
+
+
+
 
 </script>
 
